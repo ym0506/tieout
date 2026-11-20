@@ -10,8 +10,9 @@ Installation link: `<paste the link from the Forge developer console>`
 
 ## Install (about 2 minutes)
 
-1. Open the installation link, choose your site, choose **Confluence**, and approve the scopes.
-2. Open the installation link again (or go to *Atlassian Administration → Apps → your site → Connected apps → Tie-Out*) and connect **Jira** on the same site.
+1. Open the installation link and press **Get app**.
+2. In the dialog, choose your site. Confluence is selected already; tick **Jira** under "additional Atlassian apps" so the app can read work items.
+3. Press **Install** and wait until both lines say "Installation successful".
 
 The first time you open a Tie-Out screen, Atlassian asks you to **Allow access**. This is what lets the report use your own permissions.
 

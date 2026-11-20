@@ -21,7 +21,7 @@ Team pages get no such check. A status page says "PAY-12 ships Dec 3, owner Mins
 
 This year the theme is context. Everyone is feeding more context to people and to agents. I wanted to ask the question that comes first: is that context still true?
 
-I measured it before building. On 609 public design pages of Apache Flink, 63 of the 268 facts I could check against the project's Jira disagreed with it (23.5%). In 19 of those (7.1%) the page names one release and Jira names another. Most of those pages were last edited two or more years ago. On Apache Kafka's release plans the answer was 0 of 100, which told me something just as important: the check has to stay quiet when the page is right. The script and the raw results are in the repository.
+I measured it before building. On 609 public design pages of Apache Flink, 63 of the 268 facts I could check against the project's Jira disagreed with it (23.5%). In 19 of those (7.1%) the page names one release and Jira names another. Most of those pages were last edited two or more years ago. On Apache Kafka's release plans the answer was 0 of 100, which told me something just as important: the check has to stay quiet when the page is right. The script and the raw results are in the repository (https://github.com/ym0506/tieout, `docs/evidence`).
 
 ## What it does
 
@@ -69,6 +69,11 @@ Everything runs on Forge. No data leaves Atlassian.
 - Custom fields, and Jira Product Discovery and Goals as sources.
 - Facts that span sentences.
 - A weekly digest to page owners, using the owner relationship from Teamwork Graph.
+
+## Links
+
+- Source: https://github.com/ym0506/tieout
+- Privacy policy: https://github.com/ym0506/tieout/blob/main/PRIVACY.md
 
 ## Built with
 
