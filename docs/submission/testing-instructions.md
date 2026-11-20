@@ -19,7 +19,7 @@ The first time you open a Tie-Out screen, Atlassian asks you to **Allow access**
 
 1. In Confluence, open **Apps → Tie-Out**.
 2. Under *Try it on your own data*, pick a space and press **Create sample page**. Tie-Out builds a status page from your most recent Jira work items. Two facts are out of date on purpose and the page says which.
-3. Open the sample page. Under the title you see **Tie-Out: 3 out of date** (the due date is written twice), and a banner at the top.
+3. Open the sample page. Under the title you see **Tie-Out: 3 out of date** when your first work item has a due date (the date is written twice, in the table and in the summary), otherwise **2 out of date**. A banner appears at the top.
 4. Click the badge. The report lists what the page says, what Jira says, and the result for each fact.
 5. Press **Write "…"** on one row, then **Reload the page**. That one cell changed; the page history shows a new version by you.
 
@@ -27,7 +27,7 @@ The first time you open a Tie-Out screen, Atlassian asks you to **Allow access**
 
 1. In Jira, open one of the work items on the sample page and change its **due date** (or assignee, or status).
 2. Go back to the Confluence page and reload. Within a few seconds of the change the badge count has gone up and the report shows the new disagreement, with "True until <today> · changed by <you>".
-3. Open that work item in Jira. The **Tie-Out** panel lists the page and what it now gets wrong.
+3. Open that work item in Jira. Under the title, press the apps button (**View app actions**) and choose **Tie-Out**. The panel lists the page and what it now gets wrong.
 
 No sample needed: any page of yours works. Write a table with columns `Work item | Owner | Due | Status`, or a sentence such as `KEY-1 ships Dec 3, owner: Alice.`, and Tie-Out reads it.
 
