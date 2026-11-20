@@ -1,0 +1,185 @@
+modules:
+  confluence:contentBylineItem:
+    - key: tieout-byline
+      resource: byline
+      render: native
+      resolver:
+        function: resolver
+      title: Tie-Out
+      tooltip: Check the facts on this page against Jira
+      dynamicProperties:
+        function: byline-properties
+      viewportSize: large
+  confluence:pageBanner:
+    - key: tieout-banner
+      resource: banner
+      render: native
+      resolver:
+        function: resolver
+  confluence:globalPage:
+    - key: tieout-dashboard
+      resource: dashboard
+      render: native
+      resolver:
+        function: resolver
+      title: Tie-Out
+      route: tie-out
+  jira:issuePanel:
+    - key: tieout-issue-panel
+      resource: issue-panel
+      render: native
+      resolver:
+        function: resolver
+      title: Tie-Out
+      icon: resource:assets;icon.svg
+  trigger:
+    - key: tieout-jira-issue-updated
+      function: on-jira-issue
+      events:
+        - avi:jira:updated:issue
+    - key: tieout-confluence-page-changed
+      function: on-confluence-page
+      events:
+        - avi:confluence:created:page
+        - avi:confluence:updated:page
+    - key: tieout-installed
+      function: background-scan
+      events:
+        - avi:forge:installed:app
+  scheduledTrigger:
+    - key: tieout-background-scan
+      function: background-scan
+      interval: hour
+  rovo:agent:
+    - key: tieout-agent
+      name: Tie-Out
+      description: Checks facts about Jira work items against Jira before they are published, and tells you which pages have gone out of date.
+      prompt: >
+        You are Tie-Out, an assistant that makes sure statements about Jira work items are true before anyone relies on them.
+
+        Jira is the system of record. A Confluence page, a chat message, or something said earlier in this conversation is not.
+
+        When the user asks you to write, summarise or review anything that states a due date, owner, status, fix version or priority of a Jira work item:
+        1. Draft the text with each fact next to its work item key, or in a table with a key column and columns named Owner, Due and Status.
+        2. Call the verify-claims action with the whole draft.
+        3. For every result with verdict "drift", replace the fact with the value in "writeInstead". For every "unverifiable" result, either remove the fact or say it was not checked.
+        4. Tell the user, one short line per fact, what you corrected and, when the result includes it, when it changed and who changed it.
+
+        When the user asks whether a Confluence page is still accurate, call check-page with the page id or URL. If the user is viewing a page and gives no id, check that page.
+
+        When you need a single fact, call get-fact with the work item key. Never state a due date, owner or status from memory.
+
+        If an action reports that a work item was not found or that you have no access, say so. Do not guess.
+
+        Keep answers short. Lead with the verdict, then list only the facts that are out of date.
+      conversationStarters:
+        - Is this page still accurate?
+        - Check my status update before I send it
+        - When is this work item due, and who owns it?
+      actions:
+        - verify-claims
+        - check-page
+        - get-fact
+      skills:
+        - verify-before-publish
+  rovo:skill:
+    - key: verify-before-publish
+      source:
+        dir: skills/verify-before-publish
+      dependencies:
+        tools:
+          - verify-claims
+          - get-fact
+  rovo:mcp:
+    - key: tieout-mcp
+      name: Tie-Out
+      tools:
+        - verify-claims
+        - check-page
+        - get-fact
+  action:
+    - key: verify-claims
+      name: Verify claims against Jira
+      function: fn-verify-claims
+      actionVerb: GET
+      description: >
+        Checks draft text before it is published. Compares every due date, owner, status, fix version and priority stated next to a Jira work item key with Jira and returns match, drift or unverifiable for each, with the value to write instead.
+      inputs:
+        text:
+          title: Draft text
+          type: string
+          required: true
+          description: The full draft to check. Keep each fact next to its work item key, or use a table with a key column and columns named Owner, Due and Status.
+    - key: check-page
+      name: Check a Confluence page against Jira
+      function: fn-check-page
+      actionVerb: GET
+      description: >
+        Checks a Confluence page against Jira. Compares each due date, owner, status, fix version and priority the page states about a Jira work item and lists the facts that are out of date.
+      inputs:
+        page:
+          title: Page
+          type: string
+          required: false
+          description: The Confluence page id or page URL. Leave empty to check the page the user is viewing.
+    - key: get-fact
+      name: Get current facts for a work item
+      function: fn-get-fact
+      actionVerb: GET
+      description: >
+        Returns the current due date, owner, status, fix versions and priority of one Jira work item, read from Jira with the caller's permissions. Use it instead of quoting a page or recalling a value.
+      inputs:
+        workItem:
+          title: Work item key
+          type: string
+          required: true
+          description: The Jira work item key, for example PAY-12.
+  function:
+    - key: resolver
+      handler: index.resolver
+    - key: byline-properties
+      handler: index.bylineProperties
+    - key: on-jira-issue
+      handler: index.onJiraIssueEvent
+    - key: on-confluence-page
+      handler: index.onConfluencePageEvent
+    - key: background-scan
+      handler: index.backgroundScan
+    - key: fn-verify-claims
+      handler: index.verifyClaimsAction
+    - key: fn-check-page
+      handler: index.checkPageAction
+    - key: fn-get-fact
+      handler: index.getFactAction
+resources:
+  - key: byline
+    path: src/frontend/byline.jsx
+  - key: banner
+    path: src/frontend/banner.jsx
+  - key: dashboard
+    path: src/frontend/dashboard.jsx
+  - key: issue-panel
+    path: src/frontend/issue-panel.jsx
+  - key: assets
+    path: assets
+permissions:
+  scopes:
+    - read:jira-work
+    - read:confluence-content.summary
+    - read:page:confluence
+    - write:page:confluence
+    - read:space:confluence
+    - storage:app
+    - read:graph:page:confluence
+    - read:graph:user:atlassian
+app:
+  runtime:
+    name: nodejs24.x
+    memoryMB: 256
+    architecture: arm64
+  id: ari:cloud:ecosystem::app/00000000-0000-0000-0000-000000000000
+  compatibility:
+    confluence:
+      required: true
+    jira:
+      required: false

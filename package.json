@@ -1,0 +1,26 @@
+{
+  "name": "tieout",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Tie-Out: checks the facts written on Confluence pages against Jira, the system of record.",
+  "license": "MIT",
+  "scripts": {
+    "test": "vitest run",
+    "lint:manifest": "forge lint",
+    "deploy": "forge deploy",
+    "deploy:prod": "forge deploy -e production"
+  },
+  "dependencies": {
+    "@forge/api": "^8.5.0",
+    "@forge/bridge": "^7.3.0",
+    "@forge/kvs": "^2.1.2",
+    "@forge/react": "^12.5.0",
+    "@forge/resolver": "^2.0.2",
+    "react": "^18.3.1"
+  },
+  "devDependencies": {
+    "@forge/cli": "^15.1.0",
+    "react-test-renderer": "^18.3.1",
+    "vitest": "^5.1.1"
+  }
+}
