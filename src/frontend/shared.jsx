@@ -54,18 +54,16 @@ export const CountsLine = ({ counts }) => (
 );
 
 /**
- * One row per fact found on the page.
+ * One row per fact found on the page. Three columns, so it stays readable in the
+ * narrow dialog that opens from the page byline.
  * @param {{results: object[], onFix?: (id: string) => void, fixingId?: string|null, disabled?: boolean}} props
  */
 export const ClaimsTable = ({ results, onFix, fixingId, disabled }) => {
   const head = {
     cells: [
-      { key: 'item', content: 'Work item' },
-      { key: 'field', content: 'Fact' },
-      { key: 'page', content: 'Page says' },
-      { key: 'jira', content: 'Jira says' },
-      { key: 'verdict', content: 'Result' },
-      ...(onFix ? [{ key: 'action', content: '' }] : []),
+      { key: 'item', content: 'Fact', width: 30 },
+      { key: 'says', content: 'Page says / Jira says', width: 40 },
+      { key: 'verdict', content: 'Result', width: 30 },
     ],
   };
   const rows = sortResults(results).map((r) => ({
@@ -75,37 +73,44 @@ export const ClaimsTable = ({ results, onFix, fixingId, disabled }) => {
         key: 'item',
         content: (
           <Stack space="space.0">
-            <Link href={`/browse/${r.issueKey}`} openNewTab>{r.issueKey}</Link>
+            <Inline space="space.050" alignBlock="center">
+              <Link href={`/browse/${r.issueKey}`} openNewTab>{r.issueKey}</Link>
+              <Text>{FIELD_LABEL[r.field] || r.field}</Text>
+            </Inline>
             {r.summary ? <Text size="small">{r.summary}</Text> : null}
           </Stack>
         ),
       },
-      { key: 'field', content: <Text>{FIELD_LABEL[r.field] || r.field}</Text> },
-      { key: 'page', content: <Text>{r.raw}</Text> },
       {
-        key: 'jira',
+        key: 'says',
         content: (
           <Stack space="space.0">
-            <Text>{r.actual ? <Strong>{r.actual.display}</Strong> : 'No access'}</Text>
+            <Text>{`Page: ${r.raw}`}</Text>
+            <Text>{'Jira: '}{r.actual ? <Strong>{r.actual.display}</Strong> : 'No access'}</Text>
             {r.verdict === 'drift' && historyLine(r.history) ? <Text size="small">{historyLine(r.history)}</Text> : null}
             {r.verdict === 'unverifiable' && r.reason ? <Text size="small">{r.reason}</Text> : null}
           </Stack>
         ),
       },
-      { key: 'verdict', content: <VerdictLozenge verdict={r.verdict} /> },
-      ...(onFix ? [{
-        key: 'action',
-        content: r.verdict === 'drift' && r.fixable ? (
-          <LoadingButton
-            spacing="compact"
-            isLoading={fixingId === r.id}
-            isDisabled={disabled}
-            onClick={() => onFix(r.id)}
-          >
-            {`Write "${r.replacement}"`}
-          </LoadingButton>
-        ) : (r.verdict === 'drift' ? <Text size="small">Edit by hand</Text> : null),
-      }] : []),
+      {
+        key: 'verdict',
+        content: (
+          <Stack space="space.050" alignInline="start">
+            <VerdictLozenge verdict={r.verdict} />
+            {onFix && r.verdict === 'drift' && r.fixable ? (
+              <LoadingButton
+                spacing="compact"
+                isLoading={fixingId === r.id}
+                isDisabled={disabled}
+                onClick={() => onFix(r.id)}
+              >
+                {`Write "${r.replacement}"`}
+              </LoadingButton>
+            ) : null}
+            {onFix && r.verdict === 'drift' && !r.fixable ? <Text size="small">Edit by hand</Text> : null}
+          </Stack>
+        ),
+      },
     ],
   }));
   return <DynamicTable head={head} rows={rows} emptyView="Nothing to show." />;

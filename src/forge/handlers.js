@@ -80,11 +80,10 @@ resolver.define('listSpaces', () => guarded(async () => ({ spaces: await conflue
 resolver.define('createSample', (req) => guarded(async () => {
   const spaceId = req.payload && req.payload.spaceId;
   if (!spaceId) return { error: true, message: 'Choose a space first.' };
-  const issues = await jira.recentIssues(6, 'user');
+  const issues = await jira.sampleIssues(6, 'user');
   if (!issues.length) return { error: true, message: 'No Jira work items found. Create one in Jira, then try again.' };
   const siteUrl = (req.context && req.context.siteUrl) || '';
-  const today = new Date().toISOString().slice(0, 10);
-  const { doc, stale, used } = buildSamplePage(issues, siteUrl, today);
+  const { doc, stale, used } = buildSamplePage(issues, siteUrl);
   const stamp = new Date().toISOString().slice(0, 16).replace('T', ' ');
   const page = await confluence.createPage({ spaceId, title: `Tie-Out sample status (${stamp})`, doc }, 'user');
   try { await tieout(req.context.cloudId).onPageChanged(page.id); } catch (e) { /* the page event will index it */ }

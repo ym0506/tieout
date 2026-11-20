@@ -72,6 +72,24 @@ export const jira = {
     return last.values || [];
   },
 
+  /** Work items for the sample page: ones with a due date and an owner first, then the most recent. */
+  async sampleIssues(limit, as) {
+    const search = async (jql) => {
+      const res = await client(as).requestJira(route`/rest/api/3/search/jql`, {
+        method: 'POST',
+        headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({ jql, maxResults: limit, fields: FIELDS }),
+      });
+      const data = await json(res, 'Searching Jira');
+      return (data.issues || []).map(reduceIssue);
+    };
+    const dated = await search('duedate is not EMPTY AND assignee is not EMPTY AND updated >= -730d ORDER BY updated DESC');
+    if (dated.length >= limit) return dated.slice(0, limit);
+    const recent = await search('updated >= -730d ORDER BY updated DESC');
+    const seen = new Set(dated.map((i) => i.key));
+    return [...dated, ...recent.filter((i) => !seen.has(i.key))].slice(0, limit);
+  },
+
   async recentIssues(limit, as) {
     const res = await client(as).requestJira(route`/rest/api/3/search/jql`, {
       method: 'POST',

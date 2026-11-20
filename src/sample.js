@@ -20,9 +20,8 @@ const OTHER_STATUS = { new: 'In Progress', indeterminate: 'To Do', done: 'In Pro
 /**
  * @param {object[]} issues reduced Jira issues (see engine/evaluate.js), newest first
  * @param {string} siteUrl e.g. https://acme.atlassian.net
- * @param {string} today ISO date used when a work item has no due date
  */
-export function buildSamplePage(issues, siteUrl, today) {
+export function buildSamplePage(issues, siteUrl) {
   const rows = issues.slice(0, 6);
   const stale = [];
 
@@ -31,10 +30,14 @@ export function buildSamplePage(issues, siteUrl, today) {
     let owner = issue.assignee ? issue.assignee.displayName : 'Unassigned';
     let status = issue.status ? issue.status.name : 'To Do';
 
-    if (i === 0) {
+    if (i === 0 && issue.duedate) {
       // out-of-date due date
-      due = humanDate(shiftDays(issue.duedate || today, -14));
+      due = humanDate(shiftDays(issue.duedate, -14));
       stale.push(`${issue.key} due date`);
+    } else if (i === 0 && issue.assignee) {
+      // no due date to work with: make the owner out of date instead
+      owner = 'Unassigned';
+      stale.push(`${issue.key} owner`);
     }
     if (i === 1) {
       // out-of-date status
@@ -62,8 +65,8 @@ export function buildSamplePage(issues, siteUrl, today) {
         attrs: { panelType: 'info' },
         content: [p(
           text('This page was created by Tie-Out from your own Jira work items. '),
-          text(`Two facts are out of date on purpose (${stale.join(', ')}) so you can see a drift right away. `, [{ type: 'strong' }]),
-          text('The due date is written twice, in the table and in the summary. '),
+          text(`${stale.length === 1 ? 'One fact is' : 'Two facts are'} out of date on purpose (${stale.join(', ')}) so you can see a drift right away. `, [{ type: 'strong' }]),
+          first && first.duedate ? text('The due date is written twice, in the table and in the summary. ') : null,
           text('Everything else matches Jira. Change a due date, owner or status in Jira and this page is re-checked within seconds.'),
         )],
       },
@@ -80,11 +83,11 @@ export function buildSamplePage(issues, siteUrl, today) {
         ],
       },
       { type: 'heading', attrs: { level: 2 }, content: [text('Summary')] },
-      first ? p(
+      first && first.duedate ? p(
         card(`${siteUrl}/browse/${first.key}`),
-        text(` is due ${humanDate(shiftDays(first.duedate || today, -14))}. `),
-        rows[2] ? text(`${rows[2].key} is owned by ${rows[2].assignee ? rows[2].assignee.displayName : 'nobody yet'}.`) : null,
-      ) : p(text('No work items yet.')),
+        text(` is due ${humanDate(shiftDays(first.duedate, -14))}. `),
+        rows[2] && rows[2].assignee ? text(`${rows[2].key} is owned by ${rows[2].assignee.displayName}.`) : null,
+      ) : p(text(first ? 'None of the first work items has a due date yet. Set one in Jira, write it here, then change it in Jira to see this page react.' : 'No work items yet.')),
     ],
   };
   return { doc, stale, used: rows.map((r) => r.key) };
