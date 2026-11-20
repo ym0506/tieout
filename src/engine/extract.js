@@ -10,7 +10,8 @@ import {
   findDates, dateFromTimestamp, STATUS_TERMS, isPlaceholder, meansNobody, clean,
 } from './normalize.js';
 
-export const ISSUE_KEY_RE = /(?<![A-Za-z0-9/_.-])([A-Z][A-Z0-9]{1,9}-[1-9]\d{0,6})(?![A-Za-z0-9_-])/g;
+// A key is not followed by more key characters, nor by ".4" (that is a version such as FLINK-2.4).
+export const ISSUE_KEY_RE = /(?<![A-Za-z0-9/_.-])([A-Z][A-Z0-9]{1,9}-[1-9]\d{0,6})(?![A-Za-z0-9_-]|\.\d)/g;
 
 /** Work item key from a Jira URL (smart link, plain link), or null. */
 export function keyFromUrl(url) {
@@ -307,7 +308,9 @@ export function fieldsOfHeader(text) {
 
 function claimFromCell(flat, fields, key, where) {
   const text = flat.text.replace(/\n+/g, ' ').trim();
-  if (isPlaceholder(text)) return null;
+  // A cell holding a date, person or status lozenge always says something; only bare text can be a placeholder.
+  const onlyText = flat.parts.every((pt) => pt.kind === 'text');
+  if (onlyText ? isPlaceholder(text) : !text) return null;
   const snippet = text.slice(0, 160);
   const loc = (span) => ({ ...(span || {}), ...where, snippet });
 
@@ -343,7 +346,17 @@ function claimFromCell(flat, fields, key, where) {
     if (field === 'status') {
       const node = flat.parts.find((pt) => pt.kind === 'status' && pt.label);
       if (node) return { issueKey: key, field, raw: node.label, value: { text: node.label }, location: loc({ node: 'status', path: node.path }) };
+      // People write the status on the first line and notes underneath; the first line is the claim.
+      const first = flat.text.split('\n').map((l) => l.trim()).find(Boolean) || text;
+      if (first !== text) {
+        const at = flat.text.indexOf(first);
+        return { issueKey: key, field, raw: first, value: { text: first }, location: loc(locate(flat, at, at + first.length)) };
+      }
       return { issueKey: key, field, raw: text, value: { text }, location: loc(whole(flat)) };
+    }
+    if (field === 'fixVersion' && !/\d/.test(text)) {
+      // "To be decided", "not tied to a release": words, not a version.
+      return { issueKey: key, field, raw: text, value: null, uncheckable: 'not a version number', location: loc() };
     }
     if (field === 'fixVersion' || field === 'priority') {
       return { issueKey: key, field, raw: text, value: { text }, location: loc(whole(flat)) };

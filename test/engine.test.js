@@ -232,6 +232,24 @@ describe('keys that are not work items', () => {
     expect(results[0].actual).toBe(null);
   });
 
+  it('does not read a version such as FLINK-2.4 as a work item key', () => {
+    const d = doc(table(row(th('JIRA'), cell(card('FLINK-41336'))), row(th('Release'), cell('FLINK-2.4'))));
+    const ex = extractClaims(d);
+    expect(ex.issueKeys).toEqual(['FLINK-41336']);
+    expect(ex.claims.map((c) => [c.issueKey, c.field, c.raw])).toEqual([['FLINK-41336', 'fixVersion', 'FLINK-2.4']]);
+  });
+
+  it('treats unfilled template slots as saying nothing', () => {
+    const d = doc(table(row(th('JIRA'), cell(card('FLINK-1'))), row(th('Release'), cell('<Flink Version>')), row(th('Owner'), cell('[name]')), row(th('Status'), cell('—'))));
+    expect(extractClaims(d).claims).toEqual([]);
+  });
+
+  it('does not take words in a Release cell for a version', () => {
+    const d = doc(table(row(th('JIRA'), cell(card('PAY-12'))), row(th('Release'), cell('To be created'))));
+    const { results } = run(d, { 'PAY-12': issue('PAY-12', { fixVersions: [] }) });
+    expect(results[0]).toMatchObject({ field: 'fixVersion', verdict: 'unverifiable' });
+  });
+
   it('skips code blocks', () => {
     const d = doc({ type: 'codeBlock', content: [text('PAY-12 is due Dec 3')] });
     expect(extractClaims(d).claims).toEqual([]);

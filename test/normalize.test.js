@@ -119,7 +119,12 @@ describe('people and versions', () => {
   it('compares versions ignoring the v prefix', () => {
     expect(versionMatches('v2.4.0', ['2.4.0'])).toBe(true);
     expect(versionMatches('2.4.0', ['Release 2.4.0'])).toBe(true);
-    expect(versionMatches('2.4', ['2.4.0'])).toBe(false);
+    expect(versionMatches('2.4', ['2.4.0'])).toBe(true);
+    expect(versionMatches('2.4', ['2.4.1'])).toBe(true);
+    expect(versionMatches('2.4', ['2.40.0'])).toBe(false);
+    expect(versionMatches('2.4', ['2.5.0'])).toBe(false);
+    expect(versionMatches('2.4.0', ['2.4'])).toBe(false);
+    expect(versionMatches('1.17, 1.18', ['1.18.0'])).toBe(true);
     expect(versionMatches('2.5.0', ['2.4.0', '2.5.0'])).toBe(true);
     expect(versionMatches('2.5.0', [])).toBe(false);
   });

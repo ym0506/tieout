@@ -196,7 +196,11 @@ export function compareStatus(claimedText, actual) {
 const NOBODY = ['unassigned', 'nobody', 'none', 'no one', 'no owner', '미정', '없음', '미배정'];
 const PLACEHOLDER = ['', '-', '–', '—', 'tbd', 'tba', 'n/a', 'na', '?', 'tbc', '미정'];
 
-export const isPlaceholder = (s) => PLACEHOLDER.includes(clean(s));
+/** Empty-looking cells and unfilled template slots such as "<Flink Version>" or "[date]" state nothing. */
+export const isPlaceholder = (s) => {
+  const t = clean(s);
+  return PLACEHOLDER.includes(t) || /^[<\[{(].*[>\]})]$/.test(t) || !/[\p{L}\p{N}]/u.test(t);
+};
 export const meansNobody = (s) => NOBODY.includes(clean(s));
 
 const nameTokens = (s) => clean(String(s || '').replace(/^@/, '')).split(' ').filter(Boolean);
@@ -214,12 +218,22 @@ export function sameName(claimed, displayName) {
 
 const cleanVersion = (s) => clean(s).replace(/^(?:version|release|ver\.?|v)\s*/, '');
 
+/** "2.4" is the 2.4 line, so it agrees with 2.4.0 and 2.4.1 but not with 2.40.0 or 2.5.0. */
+const versionPrefix = (short, long) => {
+  const a = short.split('.');
+  const b = long.split('.');
+  return /^\d+(?:\.\d+)*$/.test(short) && a.length <= b.length && a.every((seg, i) => seg === b[i]);
+};
+
 export function versionMatches(claimed, fixVersions) {
   const c = cleanVersion(claimed);
   if (!c) return false;
   return (fixVersions || []).some((v) => {
     const n = cleanVersion(v);
-    return n === c || n.split(' ').includes(c) || c.split(' ').includes(n);
+    if (n === c) return true;
+    const cTokens = c.split(/[\s,;/]+/).filter(Boolean);
+    const nTokens = n.split(/[\s,;/]+/).filter(Boolean);
+    return cTokens.some((ct) => nTokens.some((nt) => ct === nt || versionPrefix(ct, nt)));
   });
 }
 

@@ -1,0 +1,7337 @@
+{
+  "summary": {
+    "measuredAt": "2026-11-20",
+    "source": {
+      "pages": "cwiki.apache.org, space FLINK, design pages titled \"FLIP-<n>\"",
+      "issues": "issues.apache.org/jira"
+    },
+    "pages": 609,
+    "pagesWithClaims": 293,
+    "pagesWithDrift": 63,
+    "workItems": 303,
+    "workItemsFound": 295,
+    "claims": {
+      "total": 302,
+      "match": 205,
+      "drift": 63,
+      "unverifiable": 34
+    },
+    "checkable": 268,
+    "driftShareOfCheckable": "23.5%",
+    "driftJiraHasOtherValue": 25,
+    "driftJiraHasNoValue": 38,
+    "byField": {
+      "fixVersion": {
+        "total": 288,
+        "match": 204,
+        "drift": 61,
+        "unverifiable": 23
+      },
+      "status": {
+        "total": 13,
+        "match": 1,
+        "drift": 1,
+        "unverifiable": 11
+      },
+      "assignee": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    }
+  },
+  "perPage": [
+    {
+      "id": "451979787",
+      "title": "FLIP-617: Add a Public REST Endpoint for Operator Coordinator Requests",
+      "lastEdited": "2026-11-20",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "462816279",
+      "title": "FLIP-621: Add built-in TO_APPEND PTF",
+      "lastEdited": "2026-11-18",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "462815815",
+      "title": "FLIP-620: Structured errors for Table API and SQL",
+      "lastEdited": "2026-11-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "451979479",
+      "title": "FLIP-616: Materialized Tables support for Table API",
+      "lastEdited": "2026-11-13",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "462816464",
+      "title": "FLIP-622: Add built-in DEDUPLICATE and DEDUPLICATE_WINDOW PTFs",
+      "lastEdited": "2026-11-13",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "451973744",
+      "title": "FLIP-610: Dynamic Ratelimit in Flink Source",
+      "lastEdited": "2026-11-12",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "461570450",
+      "title": "FLIP-618: Edit, Inspect and Build VARIANT Values",
+      "lastEdited": "2026-11-04",
+      "counts": {
+        "total": 2,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "384895569",
+      "title": "FLIP-547: Support checkpoint during recovery",
+      "lastEdited": "2026-10-13",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "430409184",
+      "title": "FLIP-591: Introducing Python DataFrame API in PyFlink",
+      "lastEdited": "2026-10-12",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "451975182",
+      "title": "FLIP-614: Add built-in DEDUPLICATE_KEEP_FIRST PTF",
+      "lastEdited": "2026-10-08",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "406622164",
+      "title": "FLIP-567: Introduce a ProcessTableFunction Test Harness",
+      "lastEdited": "2026-10-05",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "451974259",
+      "title": "FLIP-612: Native XML Functions for Flink SQL",
+      "lastEdited": "2026-10-02",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "451975192",
+      "title": "FLIP-615: Snapshot Splitters for Table and Database Ingestion",
+      "lastEdited": "2026-09-29",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "430408507",
+      "title": "FLIP-588: Support per-job delegation tokens",
+      "lastEdited": "2026-09-28",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "449286348",
+      "title": "FLIP-608: Flink on Ray — Ray Resource Backend For Flink",
+      "lastEdited": "2026-11-05",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "421958318",
+      "title": "FLIP-578: In-place Table to Materialized Table conversion",
+      "lastEdited": "2026-10-15",
+      "counts": {
+        "total": 2,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "438009922",
+      "title": "FLIP-599: State Catalog",
+      "lastEdited": "2026-07-19",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "462815651",
+      "title": "FLIP-619: Store large operator coordinator state outside the checkpoint metadata",
+      "lastEdited": "2026-10-27",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "451979327",
+      "title": "FLIP-613 : Remote Artifact Fetch for Session-Mode Job Submission - detailed",
+      "lastEdited": "2026-10-23",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "430408096",
+      "title": "FLIP-585:  Introduce Lazy Loading for HistoryServer",
+      "lastEdited": "2026-09-10",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "406620840",
+      "title": "FLIP-565: Improve ProcessTableFunctions for late data handling and state access",
+      "lastEdited": "2026-10-20",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "373885706",
+      "title": "FLIP-485: Add UDF Metrics",
+      "lastEdited": "2026-08-02",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "451974568",
+      "title": "FLIP-613 : Remote Artifact Fetch for Session-Mode Job Submission",
+      "lastEdited": "2026-10-12",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "451974246",
+      "title": "FLIP-611: Running Flink jobs in MiniCluster using the Kubernetes Operator",
+      "lastEdited": "2026-09-30",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "435028214",
+      "title": "FLIP-597: [Filesystems] Hadoop-less Flink filesystems",
+      "lastEdited": "2026-08-14",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "430407883",
+      "title": "FLIP-582: Support RpcOperator Service",
+      "lastEdited": "2026-07-06",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "444334267",
+      "title": "FLIP-603: [FileSystems] GCS SDK-native filesystem",
+      "lastEdited": "2026-07-29",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "438010016",
+      "title": "FLIP-600: Independent Checkpoint Based On Pipeline Region",
+      "lastEdited": "2026-08-21",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "396790457",
+      "title": "FLIP-555: Flink Native S3 FileSystem",
+      "lastEdited": "2026-07-27",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "430408363",
+      "title": "FLIP-586: Composable Parallelism Alignment Modes for Flink Autoscaler",
+      "lastEdited": "2026-09-10",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "353601981",
+      "title": "FLIP-527: State Schema Evolution for RowData",
+      "lastEdited": "2026-07-25",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "449286339",
+      "title": "FLIP-609: Type Inference for Python User Defined Functions",
+      "lastEdited": "2026-09-09",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "421958523",
+      "title": "FLIP-579: LATERAL SNAPSHOT Join",
+      "lastEdited": "2026-06-11",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "406619238",
+      "title": "FLIP-562: Topic integrity checks in Kafka Connector",
+      "lastEdited": "2026-07-12",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "446070993",
+      "title": "FLIP-604: Complete VARIANT Primitive Coverage with UUID and Timestamps",
+      "lastEdited": "2026-08-28",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "430408093",
+      "title": "FLIP-584: Support Pluggable Storage Backend for HistoryServer",
+      "lastEdited": "2026-07-08",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "406619288",
+      "title": "FLIP-563 Support provided lib archives for YARN application mode",
+      "lastEdited": "2026-08-19",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "430407938",
+      "title": "FLIP-583: Expose JobInfo on Source contexts",
+      "lastEdited": "2026-06-30",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263425181",
+      "title": "FLIP-339: Support Adaptive Partition Selection for StreamPartitioner",
+      "lastEdited": "2026-06-26",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "430409323",
+      "title": "FLIP-592: First-Class Accelerator Resource Support",
+      "lastEdited": "2026-06-25",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "435028051",
+      "title": "FLIP-594: Support Auto-Rewrite for RpcOperator Service",
+      "lastEdited": "2026-06-23",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "435028151",
+      "title": "FLIP-595: Differentiate monotonic and non-monotonic counters in Flink metrics",
+      "lastEdited": "2026-08-11",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "383191505",
+      "title": "FLIP-545: Hardening the Event Reporter with an Asynchronous Core",
+      "lastEdited": "2026-06-17",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "421954004",
+      "title": "FLIP-573: Kafka Share Groups for Queue-Like Event Processing in Flink Connector Kafka",
+      "lastEdited": "2026-09-29",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "404160740",
+      "title": "FLIP-560: Application Capability Enhancement",
+      "lastEdited": "2026-04-23",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "440304839",
+      "title": "FLIP-602: Extended JDBC Scan Partitioning Options for Efficient Data Ingestion",
+      "lastEdited": "2026-07-28",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "449282641",
+      "title": "FLIP-607 Migrate Flink off end-of-life OkHttp; keep it off the core classpath",
+      "lastEdited": "2026-09-21",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "217386271",
+      "title": "FLIP-239: Port JDBC Connector to FLIP-27&FLIP-143",
+      "lastEdited": "2024-04-18",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "334760951",
+      "title": "FLIP-497: Early Fire Support for Flink SQL Interval Join",
+      "lastEdited": "2026-07-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "440303935",
+      "title": "FLIP-601: [Filesystems] Client Side Encryption support for SDK Native FileSystems",
+      "lastEdited": "2026-07-08",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "435028237",
+      "title": "FLIP-598: [Filesystems] Gen2 Datalake SDK Native FileSystem for Azure",
+      "lastEdited": "2026-07-08",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "327979197",
+      "title": "FLIP-487: Show history of rescales in Web UI for AdaptiveScheduler",
+      "lastEdited": "2026-06-26",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "430409341",
+      "title": "FLIP-593: Introduce Built-in Operators for Multimodal Data Processing",
+      "lastEdited": "2026-06-18",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "430408808",
+      "title": "FLIP-589: Introduce FILE Type for Byte-Content References",
+      "lastEdited": "2026-06-17",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "429064418",
+      "title": "FLIP-580: AsyncTableFunction supports user-defined timeout handling logic",
+      "lastEdited": "2026-06-12",
+      "counts": {
+        "total": 2,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "430408825",
+      "title": "FLIP-590: Introduce Multimodal Data Type:  Vector, Tensor, and Image",
+      "lastEdited": "2026-06-11",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "347933542",
+      "title": "FLIP-520: Simplify StructuredType handling",
+      "lastEdited": "2026-02-02",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "406618716",
+      "title": "FLIP-561: Restructure Flink documentation",
+      "lastEdited": "2026-01-26",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "430408366",
+      "title": "FLIP-587: Expose per downstream target numRecordsOut metric",
+      "lastEdited": "2026-06-03",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "421957173",
+      "title": "FLIP-576:  Filesystem-Plugin Observability (flink-s3-fs-native)",
+      "lastEdited": "2026-06-03",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "446071315",
+      "title": "FLIP-605: State catch-up of streaming jobs state using BATCH execution mode",
+      "lastEdited": "2026-08-07",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "430407801",
+      "title": "FLIP-581: Support Flexible Watermark Assignment via Built-in Function",
+      "lastEdited": "2026-05-28",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "406623328",
+      "title": "FLIP-572: Introduce Flink-Kafka Transactions Management Tool",
+      "lastEdited": "2026-05-27",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "406623219",
+      "title": "FLIP-569: Sunset the Stateful Functions (StateFun) Sub-project",
+      "lastEdited": "2026-05-26",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "386272238",
+      "title": "FLIP-549: Support Application Management",
+      "lastEdited": "2026-01-12",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "406620639",
+      "title": "FLIP-564: Support FROM_CHANGELOG and TO_CHANGELOG built-in PTFs",
+      "lastEdited": "2026-03-17",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "406621001",
+      "title": "FLIP-566: Introduce a new IMMUTABLE columns constraint",
+      "lastEdited": "2026-03-09",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "406623034",
+      "title": "FLIP-568: Strict BYTES-to-STRING CAST with UTF-8 Validation Utilities",
+      "lastEdited": "2026-05-08",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "381028958",
+      "title": "FLIP-544: SinkUpsertMaterializer V2",
+      "lastEdited": "2025-09-30",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "392039380",
+      "title": "FLIP-553: Robust OTel gRPC metric exporter",
+      "lastEdited": "2026-02-13",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "421957275",
+      "title": "FLIP-577: AI-Native Flink — An Umbrella Proposal for Multimodal Data Processing",
+      "lastEdited": "2026-06-01",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "421954023",
+      "title": "FLIP-574 Metadata Filter Push-Down for Table Sources",
+      "lastEdited": "2026-04-21",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "421956875",
+      "title": "FLIP-575: Scaling Executor Plugin SPI for Flink Autoscaler",
+      "lastEdited": "2026-04-21",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "406623281",
+      "title": "FLIP-570: Support Runtime Data Sampling for Operators with WebUI Visualization",
+      "lastEdited": "2026-04-13",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "337676852",
+      "title": "FLIP-502: QueryOperation SQL Serialization customization",
+      "lastEdited": "2026-01-15",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "399279158",
+      "title": "FLIP-558: Improvements to SinkUpsertMaterializer and changelog disorder",
+      "lastEdited": "2026-01-15",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "334760525",
+      "title": "FLIP-495: Support AdaptiveScheduler record and query the rescale history",
+      "lastEdited": "2026-04-07",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "350784113",
+      "title": "FLIP-529: Connections in Flink SQL and TableAPI",
+      "lastEdited": "2026-01-08",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "293046855",
+      "title": "FLIP-423: Disaggregated State Storage and Management (Umbrella FLIP)",
+      "lastEdited": "2024-06-03",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "399279094",
+      "title": "FLIP-557: Granular Control over Data Reprocessing in Materialized Table Evolution",
+      "lastEdited": "2026-03-23",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "399278679",
+      "title": "FLIP-556: Introduce BITMAP Data Type",
+      "lastEdited": "2025-12-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "373886202",
+      "title": "FLIP-535: Introduce RateLimiter to Source",
+      "lastEdited": "2025-09-04",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "184616581",
+      "title": "FLIP-182: Support watermark alignment of FLIP-27 Sources",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "217385972",
+      "title": "FLIP-238: Introduce FLIP-27-based Data Generator Source",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "263429715",
+      "title": "FLIP-370: Support Balanced Tasks Scheduling",
+      "lastEdited": "2025-11-27",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "384895833",
+      "title": "FLIP-548: Introduce Tool and Agent in Flink SQL",
+      "lastEdited": "2025-11-20",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "390761065",
+      "title": "FLIP-551: Make FRESHNESS Optional for Materialized Tables",
+      "lastEdited": "2025-11-06",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "399279339",
+      "title": "FLIP-559: Add ARTIFACT keyword option in CREATE FUNCTION's USING clause",
+      "lastEdited": "2026-02-12",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "365890025",
+      "title": "FLIP-533: Cassandra Sink V2",
+      "lastEdited": "2025-06-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "393677271",
+      "title": "FLIP-554 Pipeline Testing Framework for Flink",
+      "lastEdited": "2025-10-18",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "293046859",
+      "title": "FLIP-425: Asynchronous Execution Model",
+      "lastEdited": "2025-06-03",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "327978206",
+      "title": "FLIP-482: Add OpenTelemetryEventReporter",
+      "lastEdited": "2024-11-08",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "311626179",
+      "title": "FLIP-464: Merge \"flink run\" and \"flink run-application\"",
+      "lastEdited": "2026-01-29",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "357173690",
+      "title": "FLIP-530: Dynamic job configuration",
+      "lastEdited": "2025-05-26",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "315494203",
+      "title": "FLIP-472: Aligning timeout logic in the AdaptiveScheduler's WaitingForResources and Executing states",
+      "lastEdited": "2026-01-29",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "373886997",
+      "title": "FLIP-540: Support VECTOR_SEARCH in Flink SQL",
+      "lastEdited": "2025-09-25",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "195726444",
+      "title": "FLIP-193: Snapshots ownership",
+      "lastEdited": "2024-08-20",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "340037358",
+      "title": "FLIP-510: Drop ChangelogNormalize for operations which don't need it",
+      "lastEdited": "2026-01-15",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "327978208",
+      "title": "FLIP-483: Add support for children Spans",
+      "lastEdited": "2025-09-12",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "345377437",
+      "title": "FLIP-515: Dynamic Kafka Sink",
+      "lastEdited": "2025-03-27",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "293046869",
+      "title": "FLIP-430: Remote Compaction For Disaggregated State",
+      "lastEdited": "2025-09-05",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "364349967",
+      "title": "FLIP-532: Donate GetInData HTTP Connector to Flink",
+      "lastEdited": "2025-08-29",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "327978204",
+      "title": "FLIP-481: Introduce Event Reporting",
+      "lastEdited": "2025-03-05",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "381028831",
+      "title": "FLIP-543: Support Customized Autoscale Algorithm",
+      "lastEdited": "2025-08-25",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "231117250",
+      "title": "FLIP-271: Autoscaling",
+      "lastEdited": "2023-11-24",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "332499989",
+      "title": "FLIP-491: BundledAggregateFunction for batched aggregation",
+      "lastEdited": "2025-02-14",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "373886828",
+      "title": "FLIP-538: Support Custom Generic Type Serializer",
+      "lastEdited": "2025-08-15",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "327978606",
+      "title": "FLIP-486: Introduce A New DeltaJoin",
+      "lastEdited": "2025-05-23",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "173083547",
+      "title": "FLIP-160: Adaptive Scheduler",
+      "lastEdited": "2023-06-05",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "74691179",
+      "title": "FLIP-24: SQL Client",
+      "lastEdited": "2023-04-04",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "350783938",
+      "title": "FLIP-523: Handle TLS Certificate Renewal",
+      "lastEdited": "2025-08-05",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "311627424",
+      "title": "FLIP-467: Introduce Generalized Watermarks",
+      "lastEdited": "2025-01-20",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "231115509",
+      "title": "FLIP-264: Extract CoordinatorContextBase",
+      "lastEdited": "2023-01-20",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "199528208",
+      "title": "FLIP-203: Incremental savepoints",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "127405566",
+      "title": "FLIP-57: Rework FunctionCatalog",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "130028491",
+      "title": "FLIP-76: Unaligned Checkpoints",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "74687994",
+      "title": "FLIP-23 - Model Serving",
+      "lastEdited": "2022-09-17",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "177045634",
+      "title": "FLIP-166: Pinot Connector",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "195726435",
+      "title": "FLIP-194: Introduce the JobResultStore",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "211881863",
+      "title": "FLIP-224: Blocklist Mechanism",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "65146386",
+      "title": "FLIP-3: Organization of Documentation",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "113709643",
+      "title": "FLIP-40: Flink Driver",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "66850168",
+      "title": "FLIP-14: crossGroup Operator",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "173083239",
+      "title": "FLIP-159: Reactive Mode",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "181309759",
+      "title": "FLIP-171: Async Sink",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "65866038",
+      "title": "FLIP-9: Trigger DSL",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "327978211",
+      "title": "FLIP-484: Add custom metric variables to operators",
+      "lastEdited": "2025-08-01",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "148641975",
+      "title": "FLIP-117: HBase catalog",
+      "lastEdited": "2020-03-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "352619010",
+      "title": "FLIP-526: Model ML_PREDICT, ML_EVALUATE Table API",
+      "lastEdited": "2025-07-14",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "337677650",
+      "title": "FLIP-504: Blue/Green Deployments for Flink on Kubernetes: Phase 2 (coordination)",
+      "lastEdited": "2025-12-03",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "406623287",
+      "title": "FLIP-571: Support Dynamically Updating Checkpoint Configuration at Runtime via REST API",
+      "lastEdited": "2026-03-26",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "332499857",
+      "title": "FLIP-490: Enhanced Job History Retention Policies for HistoryServer​",
+      "lastEdited": "2025-11-27",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "352618980",
+      "title": "FLIP-525: Model ML_PREDICT, ML_EVALUATE Implementation Design",
+      "lastEdited": "2025-06-21",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "383191507",
+      "title": "FLIP-546: Introduce CREATE OR ALTER for Materialized Tables",
+      "lastEdited": "2025-09-15",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "371296797",
+      "title": "FLIP-534 Reduce OLAP Query Latency In Flink Session Cluster.",
+      "lastEdited": "2025-11-20",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "311626984",
+      "title": "FLIP-465: Introduce DESCRIBE FUNCTION",
+      "lastEdited": "2024-07-12",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "334761114",
+      "title": "FLIP-498: AsyncTableFunction for async table function support",
+      "lastEdited": "2025-05-26",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "350784112",
+      "title": "FLIP-516: Multi-Way Join Operator",
+      "lastEdited": "2025-05-19",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "345377787",
+      "title": "FLIP-518: Introduce a community review process",
+      "lastEdited": "2025-05-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "301795754",
+      "title": "FLIP-443: Interruptible timers firing",
+      "lastEdited": "2024-05-23",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "323488385",
+      "title": "FLIP-478 Introduce Config Option Scope",
+      "lastEdited": "2025-05-12",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "373886480",
+      "title": "FLIP-537:  Enumerator Maintains Global Splits Distribution for Balanced assignment.",
+      "lastEdited": "2025-10-31",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "293046857",
+      "title": "FLIP-424: Asynchronous State APIs",
+      "lastEdited": "2024-04-01",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "135859318",
+      "title": "FLIP-85: Flink Application Mode",
+      "lastEdited": "2024-03-29",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "132321199",
+      "title": "FLIP-79: Function DDL Support",
+      "lastEdited": "2024-03-29",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "282102225",
+      "title": "FLIP-399: Flink Connector Doris",
+      "lastEdited": "2024-03-22",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "231117045",
+      "title": "FLIP-268: Kafka Rack Awareness",
+      "lastEdited": "2024-01-30",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "278465498",
+      "title": "FLIP-389 Annotate SingleThreadFetcherManager as PublicEvolving.",
+      "lastEdited": "2024-01-26",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "278465937",
+      "title": "FLIP-391: Deprecate RuntimeContext#getExecutionConfig",
+      "lastEdited": "2024-01-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "173082889",
+      "title": "FLIP-158: Generalized incremental checkpoints",
+      "lastEdited": "2023-12-21",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "350783971",
+      "title": "FLIP-524: CloudWatch Metric Sink Connector",
+      "lastEdited": "2025-04-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "340037003",
+      "title": "FLIP-509 Add pluggable Batching for Async Sink",
+      "lastEdited": "2025-04-15",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "278465360",
+      "title": "FLIP-385: Add OpenTelemetryTraceReporter and OpenTelemetryMetricReporter",
+      "lastEdited": "2023-11-29",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "255068952",
+      "title": "FLIP-307:  Flink Connector Redshift",
+      "lastEdited": "2023-11-11",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "293046898",
+      "title": "FLIP-432: Faster Checkpoint & Recovery for Disaggregated State",
+      "lastEdited": "2025-04-10",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "255069066",
+      "title": "FLIP-308: Support Time Travel",
+      "lastEdited": "2023-10-20",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263428508",
+      "title": "FLIP-361: Improve GC Metrics",
+      "lastEdited": "2023-10-05",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "255070481",
+      "title": "FLIP-312: Prometheus Sink Connector",
+      "lastEdited": "2023-09-24",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "392039147",
+      "title": "FLIP-552 Support ML_PREDICT for Python based model providers",
+      "lastEdited": "2025-10-14",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "231117538",
+      "title": "FLIP-270: Repeatable Cleanup of Checkpoints",
+      "lastEdited": "2023-08-14",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "340037590",
+      "title": "FLIP-513: Split-level Watermark Metrics",
+      "lastEdited": "2025-04-01",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263424796",
+      "title": "FLIP-337: Remove JarRequestBody#programArgs",
+      "lastEdited": "2023-07-18",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "95653746",
+      "title": "FLIP-27: Refactor Source Interface",
+      "lastEdited": "2023-07-06",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "247827660",
+      "title": "FLIP-304: Pluggable Failure Enrichers",
+      "lastEdited": "2023-04-20",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "240884809",
+      "title": "FLIP-298: Unifying the Implementation of SlotManager",
+      "lastEdited": "2023-03-14",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "240881263",
+      "title": "FLIP-290 Operator state compression",
+      "lastEdited": "2023-03-01",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "210079582",
+      "title": "FLIP-220: Binary Sorted State",
+      "lastEdited": "2022-12-09",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "211886343",
+      "title": "FLIP-237: Thrift Format Support",
+      "lastEdited": "2022-11-28",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "217392884",
+      "title": "FLIP-254: Redis Streams Connector",
+      "lastEdited": "2022-10-07",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "228495156",
+      "title": "FLIP-262: Introduce MongoDB connector",
+      "lastEdited": "2022-09-30",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "147427119",
+      "title": "FLIP-100: Add Attempt Information",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "158869786",
+      "title": "FLIP-133: Rework PyFlink Documentation",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "113707950",
+      "title": "FLIP-38: Python Table API",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "130027447",
+      "title": "FLIP-74: Flink JobClient API",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "135860704",
+      "title": "FLIP-86: Improve Connector Properties",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "100829260",
+      "title": "FLIP-31: Pluggable Shuffle Service",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "103089919",
+      "title": "FLIP-33: Standardize Connector Metrics",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "71011455",
+      "title": "FLIP-20: Integration of SQL and CEP",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "125309297",
+      "title": "FLIP-56: Dynamic Slot Allocation",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "127406836",
+      "title": "FLIP-67: Cluster partitions lifecycle",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "148640358",
+      "title": "FLIP-111: Docker image unification",
+      "lastEdited": "2022-09-17",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "115528369",
+      "title": "FLIP-43: State Processor API",
+      "lastEdited": "2022-09-17",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "125308384",
+      "title": "FLIP-51: Rework of the Expression Design",
+      "lastEdited": "2022-09-17",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "100827366",
+      "title": "FLIP-30: Unified Catalog APIs",
+      "lastEdited": "2022-09-17",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "66853150",
+      "title": "FLIP-16: Loop Fault Tolerance",
+      "lastEdited": "2022-09-17",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "217387716",
+      "title": "FLIP-243: Dedicated Opensearch connectors",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "148643902",
+      "title": "FLIP-119: Pipelined Region Scheduling",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "199532725",
+      "title": "FLIP-213: TaskManager's Flame Graphs",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "173084534",
+      "title": "FLIP-163: SQL Client Improvements",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "191334984",
+      "title": "FLIP-187: Adaptive Batch Scheduler",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "211881447",
+      "title": "FLIP-223: Support HiveServer2 Endpoint",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "120729004",
+      "title": "FLIP-47: Checkpoints vs. Savepoints",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "130026570",
+      "title": "FLIP-72: Introduce Pulsar Connector",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "115526852",
+      "title": "FLIP-42: Rework Flink Documentation",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "71013501",
+      "title": "FLIP-22: Eager State Declaration",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "65146952",
+      "title": "FLIP-4: Enhance Window Evictor",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "65147765",
+      "title": "FLIP-7: Expose metrics to WebInterface",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "65866478",
+      "title": "FLIP-10: Unify Checkpoints and Savepoints",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "65877144",
+      "title": "FLIP-13: Side Outputs in Flink",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "184617636",
+      "title": "FLIP-186: Refactor DataStreamUtils#reinterpretAsKeyedStream",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "125308938",
+      "title": "FLIP-54: Evolve ConfigOption and Configuration",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "138021731",
+      "title": "FLIP-89: Improve usability of TableConfig",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "143428780",
+      "title": "FLIP-91: Support SQL Gateway",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "210079224",
+      "title": "FLIP-219: Revised Format API",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "173088027",
+      "title": "FLIP-165: Operator's Flame Graphs",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "211886288",
+      "title": "FLIP-236: Asynchronous Job Submission",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "158876200",
+      "title": "FLIP-143: Unified Sink API",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "158873338",
+      "title": "FLIP-138: Declarative Resource management",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "184616214",
+      "title": "FLIP-177: Extend Sink API",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "181307383",
+      "title": "FLIP-167: Watermarks for Sink API",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "211882172",
+      "title": "FLIP-227: Support overdraft buffer",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "165223598",
+      "title": "FLIP-150: Introduce Hybrid Source",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "211884657",
+      "title": "FLIP-235: Hybrid Shuffle Mode",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "211884363",
+      "title": "FLIP-233: Introduce HTTP Connector",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "345377351",
+      "title": "FLIP-514: Custom Evaluator plugin for Flink Autoscaler",
+      "lastEdited": "2025-03-12",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "148641445",
+      "title": "FLIP-115: Filesystem connector in Table",
+      "lastEdited": "2020-03-30",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "294816156",
+      "title": "FLIP-433: State Access on DataStream API V2",
+      "lastEdited": "2025-03-04",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "311627829",
+      "title": "FLIP-469: Supports Adaptive Optimization of StreamGraph",
+      "lastEdited": "2025-02-14",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "334760573",
+      "title": "FLIP-496: SQL connector for keyed savepoint data",
+      "lastEdited": "2025-02-12",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "272927894",
+      "title": "FLIP-376: Add DISTRIBUTED BY clause",
+      "lastEdited": "2024-06-28",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "334760351",
+      "title": "FLIP-493: Add K8S conditions to CRD's Status",
+      "lastEdited": "2025-01-08",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "334760393",
+      "title": "FLIP-492: Support Query Modifications for Materialized Tables",
+      "lastEdited": "2025-01-05",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "378473269",
+      "title": "FLIP-542: Make materialized table DDL consistent with regular tables",
+      "lastEdited": "2025-09-03",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "296290787",
+      "title": "FLIP-437: Support ML Models in Flink SQL",
+      "lastEdited": "2024-12-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "340036775",
+      "title": "FLIP-508: Add support for Smile format for Compiled plans",
+      "lastEdited": "2025-08-22",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "378473217",
+      "title": "FLIP-541:  Making PyFlink more Pythonic (Phase-1)",
+      "lastEdited": "2025-08-19",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "296291129",
+      "title": "FLIP-439: Externalize Kudu Connector from Bahir",
+      "lastEdited": "2024-10-14",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "373886898",
+      "title": "FLIP-539: Support WITH Clause in CREATE FUNCTION Statement in Flink SQL",
+      "lastEdited": "2025-08-06",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "318605950",
+      "title": "FLIP-475: Support Adaptive Skewed Join Optimization",
+      "lastEdited": "2024-09-27",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "318606081",
+      "title": "FLIP-477 Amazon SQS Source Connector",
+      "lastEdited": "2024-09-27",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "315492860",
+      "title": "FLIP-470: Support Adaptive Broadcast Join",
+      "lastEdited": "2024-08-27",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "318605986",
+      "title": "FLIP-476: Introduce CLI API compatibility guarantees",
+      "lastEdited": "2024-08-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "311627821",
+      "title": "FLIP-468: Introducing StreamGraph-Based Job Submission",
+      "lastEdited": "2024-08-12",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "315493281",
+      "title": "FLIP-471:  Fixing watermark idleness timeout accounting",
+      "lastEdited": "2024-08-05",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "373886441",
+      "title": "FLIP-536: Add latest checkpoint details endpoint to Rest API",
+      "lastEdited": "2025-07-18",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "303794875",
+      "title": "FLIP-454: New Apicurio Avro format",
+      "lastEdited": "2024-07-18",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "354453926",
+      "title": "FLIP-528: Support EXPLAIN EXECUTE STATEMENT SET Syntax in Flink SQL",
+      "lastEdited": "2025-07-14",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "305170961",
+      "title": "FLIP-456: CompiledPlan support for Batch Execution Mode",
+      "lastEdited": "2024-07-08",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "301795756",
+      "title": "FLIP-444: Native file copy support",
+      "lastEdited": "2024-07-04",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "301796079",
+      "title": "FLIP-447: Upgrade FRocksDB from 6.20.3  to 8.10.0",
+      "lastEdited": "2024-06-12",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "303794586",
+      "title": "FLIP-450: Improve Runtime Configuration for Flink 2.0",
+      "lastEdited": "2024-05-27",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "296290756",
+      "title": "FLIP-436: Introduce Catalog-related Syntax",
+      "lastEdited": "2024-05-26",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "303794760",
+      "title": "FLIP-451: Introduce timeout configuration to AsyncSink API",
+      "lastEdited": "2024-05-23",
+      "counts": {
+        "total": 2,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "293046863",
+      "title": "FLIP-427: ForSt - Disaggregated state Store",
+      "lastEdited": "2024-05-23",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "301796373",
+      "title": "FLIP-449: Reorganization of flink-connector-jdbc",
+      "lastEdited": "2024-05-22",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "300026759",
+      "title": "FLIP-442: General Improvement to Configuration for Flink 2.0",
+      "lastEdited": "2024-05-21",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "296291110",
+      "title": "FLIP-438: Amazon SQS Sink Connector",
+      "lastEdited": "2024-05-08",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "301795870",
+      "title": "FLIP-445: Support dynamic parallelism inference for HiveSource",
+      "lastEdited": "2024-05-07",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "301795967",
+      "title": "FLIP-446: Kubernetes Operator State Snapshot CRD",
+      "lastEdited": "2024-04-30",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "293046861",
+      "title": "FLIP-426: Grouping Remote State Access",
+      "lastEdited": "2024-04-01",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "283118532",
+      "title": "FLIP-402: Extend ZooKeeper Curator configurations",
+      "lastEdited": "2024-03-28",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "255070913",
+      "title": "FLIP-314: Support Customized Job Lineage Listener",
+      "lastEdited": "2024-03-04",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "240885312",
+      "title": "FLIP-301: Hybrid Shuffle supports Remote Storage",
+      "lastEdited": "2024-03-03",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "284789682",
+      "title": "FLIP-408: [Umbrella] Introduce DataStream API V2",
+      "lastEdited": "2024-02-29",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263429497",
+      "title": "FLIP-368: Reorganize the exceptions thrown in state interfaces",
+      "lastEdited": "2024-02-29",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "282102217",
+      "title": "FLIP-398: Improve Serialization Configuration And Usage In Flink",
+      "lastEdited": "2025-01-31",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "287607296",
+      "title": "FLIP-417: Expose JobManagerOperatorMetrics via REST API",
+      "lastEdited": "2024-02-14",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "284789481",
+      "title": "FLIP-405: Migrate string configuration key to ConfigOption",
+      "lastEdited": "2024-02-06",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "290982377",
+      "title": "FLIP-421: Support Custom Conversion for LogicalTypes",
+      "lastEdited": "2024-02-02",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "283118595",
+      "title": "FLIP-403 High Availability Services for OLAP Scenarios",
+      "lastEdited": "2024-01-29",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "284789560",
+      "title": "FLIP-406: Reorganize State & Checkpointing & Recovery Configuration",
+      "lastEdited": "2024-01-29",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "255071249",
+      "title": "FLIP-316: Support application mode for SQL Gateway",
+      "lastEdited": "2024-01-28",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "287607202",
+      "title": "FLIP-416: Deprecate and remove the RestoreMode#LEGACY",
+      "lastEdited": "2024-01-24",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263428961",
+      "title": "FLIP-366: Support standard YAML for FLINK configuration",
+      "lastEdited": "2024-01-17",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263424721",
+      "title": "FLIP-335: Removing Flink's Time classes",
+      "lastEdited": "2024-01-08",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "284790389",
+      "title": "FLIP-414: Support Retry Mechanism in RocksDBStateDataTransfer",
+      "lastEdited": "2024-01-08",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "284790282",
+      "title": "FLIP-413: Enable unaligned checkpoints by default",
+      "lastEdited": "2024-01-08",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "278465956",
+      "title": "FLIP-392: Deprecate the Legacy Group Window Aggregation",
+      "lastEdited": "2024-01-08",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263428792",
+      "title": "FLIP-364: Improve the exponential-delay restart-strategy",
+      "lastEdited": "2024-01-08",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "282102368",
+      "title": "FLIP-400: AsyncScalarFunction for asynchronous scalar function support",
+      "lastEdited": "2024-01-04",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "284789282",
+      "title": "FLIP-404: Create a Redis HyperLogLog Connector for Flink",
+      "lastEdited": "2023-12-21",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "361400747",
+      "title": "FLIP-531: Initiate Flink Agents as a new Sub-Project",
+      "lastEdited": "2025-06-09",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "278465981",
+      "title": "FLIP-393: Make QueryOperations SQL serializable",
+      "lastEdited": "2023-11-24",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "278466501",
+      "title": "FLIP-395: Deprecate Global Aggregator Manager",
+      "lastEdited": "2023-11-20",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "276106014",
+      "title": "FLIP-378: Support Avro timestamp with local timezone",
+      "lastEdited": "2023-11-19",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "278465432",
+      "title": "FLIP-388: Support Dynamic Logger Level Adjustment",
+      "lastEdited": "2023-11-13",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "191335972",
+      "title": "FLIP-189: SQL Client Usability Improvements",
+      "lastEdited": "2023-10-20",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "240884405",
+      "title": "FLIP-296: Extend watermark-related features for SQL",
+      "lastEdited": "2023-10-20",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "255069631",
+      "title": "FLIP-311: Support Call Stored Procedure",
+      "lastEdited": "2023-10-20",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "255072164",
+      "title": "FLIP-322 Cooldown period for adaptive scheduler",
+      "lastEdited": "2023-10-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263427544",
+      "title": "FLIP-357: Deprecate Iteration API of DataStream",
+      "lastEdited": "2023-10-12",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "255072331",
+      "title": "FLIP-321: Introduce an API deprecation process",
+      "lastEdited": "2023-10-12",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263428635",
+      "title": "FLIP-362: Support minimum resource limitation",
+      "lastEdited": "2023-10-08",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "347933328",
+      "title": "FLIP-519:  Introduce async lookup key ordered mode",
+      "lastEdited": "2025-06-04",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263427235",
+      "title": "FLIP-356: Support Nested Fields Filter Pushdown",
+      "lastEdited": "2023-09-28",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "340036732",
+      "title": "FLIP-507: Add Model DDL methods in TABLE API",
+      "lastEdited": "2025-06-03",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263427943",
+      "title": "FLIP-358: flink-avro enhancement and cleanup",
+      "lastEdited": "2023-09-07",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263424537",
+      "title": "FLIP-333: Redesign Apache Flink website",
+      "lastEdited": "2023-09-06",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "263425229",
+      "title": "FLIP-343: Remove parameter in WindowAssigner#getDefaultTrigger()",
+      "lastEdited": "2023-08-22",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263425396",
+      "title": "FLIP-347: Remove IOReadableWritable serialization in Path",
+      "lastEdited": "2023-08-22",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263425231",
+      "title": "FLIP-344: Remove parameter in RichFunction#open",
+      "lastEdited": "2023-08-22",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "255073902",
+      "title": "FLIP-330: Support specifying record timestamp requirement",
+      "lastEdited": "2023-08-07",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263425374",
+      "title": "FLIP-346: Deprecate ManagedTable related APIs",
+      "lastEdited": "2023-07-25",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263425194",
+      "title": "FLIP-340: Remove rescale REST endpoint",
+      "lastEdited": "2023-07-24",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "255070909",
+      "title": "FLIP-313: Add support of User Defined AsyncTableFunction",
+      "lastEdited": "2023-07-07",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "240884116",
+      "title": "FLIP-294: Support Customized Catalog Modification Listener",
+      "lastEdited": "2023-06-25",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "173080701",
+      "title": "FLIP-154: SQL Implicit Type Coercion",
+      "lastEdited": "2023-06-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "255071274",
+      "title": "FLIP-317: Upgrade Kryo from 2.24.0 to 5.5.0",
+      "lastEdited": "2023-06-14",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "235834851",
+      "title": "FLIP-274: Introduce metric group for OperatorCoordinator",
+      "lastEdited": "2023-06-07",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "235836075",
+      "title": "FLIP-277: Native GlueCatalog Support in Flink",
+      "lastEdited": "2023-05-17",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "252513039",
+      "title": "FLIP-306: Unified File Merging Mechanism for Checkpoints",
+      "lastEdited": "2023-05-13",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "235838061",
+      "title": "FLIP-282: Introduce Delete & Update API",
+      "lastEdited": "2023-05-05",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "235836225",
+      "title": "FLIP-278: HybridSource Table & Sql Api Implementation",
+      "lastEdited": "2023-04-10",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "240884425",
+      "title": "FLIP-297: Improve Auxiliary Sql Statements",
+      "lastEdited": "2023-03-10",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "199540438",
+      "title": "FLIP-217: Support watermark alignment of source splits",
+      "lastEdited": "2023-03-10",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "240882934",
+      "title": "FLIP-291: Externalized Declarative Resource Management",
+      "lastEdited": "2023-03-03",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "240885055",
+      "title": "FLIP-299: Pub/Sub Lite Connector",
+      "lastEdited": "2023-03-01",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "240881268",
+      "title": "FLIP-289: Support online inference (Flink ML)",
+      "lastEdited": "2023-02-24",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "181311361",
+      "title": "FLIP-174: Improve the WithParam interface (Flink ML)",
+      "lastEdited": "2023-01-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "184615783",
+      "title": "FLIP-173: Support DAG of algorithms (Flink ML)",
+      "lastEdited": "2023-01-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "231116105",
+      "title": "FLIP-266: Simplify network memory configurations for TaskManager",
+      "lastEdited": "2023-01-10",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "231118513",
+      "title": "FLIP-272: Generalized delegation token support",
+      "lastEdited": "2023-01-05",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "240880168",
+      "title": "FLIP-284 : Making AsyncSinkWriter Flush triggers adjustable",
+      "lastEdited": "2023-01-03",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "217391207",
+      "title": "FLIP-252: Amazon DynamoDB Sink Connector",
+      "lastEdited": "2022-11-23",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "199531234",
+      "title": "FLIP-211: Kerberos delegation token framework",
+      "lastEdited": "2022-11-07",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "228495857",
+      "title": "FLIP-263: Improve resolving schema compatibility",
+      "lastEdited": "2022-11-02",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "231115782",
+      "title": "FLIP-265 Deprecate and remove Scala API support",
+      "lastEdited": "2022-10-24",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "211880884",
+      "title": "FLIP-221: Abstraction for lookup source cache and metric",
+      "lastEdited": "2022-09-27",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "228493982",
+      "title": "FLIP-260: Expose Finish Method For TableFunction",
+      "lastEdited": "2022-09-26",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "65868406",
+      "title": "FLIP-11: Table API Stream Aggregations",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "115511379",
+      "title": "FLIP-37: Rework of the Table API Type System",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "199532706",
+      "title": "FLIP-212: Introduce Flink Kubernetes Operator",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "199539680",
+      "title": "FLIP-214: Support Advanced Function DDL",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "158872960",
+      "title": "FLIP-137: Support Pandas UDAF in PyFlink",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "199529513",
+      "title": "FLIP-205: Support Cache in DataStream for Batch Processing",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "173085726",
+      "title": "FLIP-164: Improve Schema Handling in Catalogs",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "195729191",
+      "title": "FLIP-197: API stability graduation process",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "165227316",
+      "title": "FLIP-152: Hive Query Syntax Compatibility",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "127406488",
+      "title": "FLIP-63: Rework table partition support",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "127406566",
+      "title": "FLIP-64: Support for Temporary Objects in Table module",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "123900510",
+      "title": "FLIP-49: Unified Memory Configuration for TaskExecutors",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "147426279",
+      "title": "FLIP-96: Support Python ML Pipeline API",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "125308637",
+      "title": "FLIP-52 : Remove legacy Program interface.",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "130027409",
+      "title": "FLIP-73: Introducing Executors for job submission",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "80452561",
+      "title": "FLIP-25: Support User State TTL Natively",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "103090212",
+      "title": "FLIP-34: Terminate/Suspend Job with Savepoint",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "71010922",
+      "title": "FLIP-19: Improved BLOB storage architecture",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "128650239",
+      "title": "FLIP-66: Support Time Attribute in SQL DDL",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "125308817",
+      "title": "FLIP-53: Fine Grained Operator Resource Management",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "130028537",
+      "title": "FLIP-77: Introduce ConfigOptions with Data Types",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "133631524",
+      "title": "FLIP-81: Executor-related new ConfigOptions.",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "135861609",
+      "title": "FLIP-87: Primary key constraints in Table API",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "134745878",
+      "title": "FLIP-84: Improve & Refactor API of TableEnvironment & Table",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "147427143",
+      "title": "FLIP-103: Better TM/JM Log Display",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "148639969",
+      "title": "FLIP-107: Handling of metadata in SQL connectors",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "148640224",
+      "title": "FLIP-110: Support LIKE clause in CREATE TABLE",
+      "lastEdited": "2022-09-17",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "148641461",
+      "title": "FLIP-116: Unified Memory Configuration for Job Managers",
+      "lastEdited": "2022-09-17",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "148641136",
+      "title": "FLIP-114: Support Python UDF in SQL Client",
+      "lastEdited": "2022-09-17",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "148640003",
+      "title": "FLIP-108: Add GPU support in Flink",
+      "lastEdited": "2022-09-17",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "148645084",
+      "title": "FLIP-123: DDL and DML compatibility for Hive connector",
+      "lastEdited": "2022-09-17",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "148647556",
+      "title": "FLIP-126: Unify (and separate) Watermark Assigners",
+      "lastEdited": "2022-09-17",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "147427129",
+      "title": "FLIP-101: Add Pending Slots Detail",
+      "lastEdited": "2022-09-17",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "125308928",
+      "title": "FLIP-39: Flink ML pipeline and ML libs",
+      "lastEdited": "2022-09-17",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "148642298",
+      "title": "FLIP-95: New TableSource and TableSink interfaces",
+      "lastEdited": "2022-09-17",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "195729184",
+      "title": "FLIP-196: Source API stability guarantees",
+      "lastEdited": "2022-09-17",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "144509721",
+      "title": "FLIP-93: JDBC catalog and Postgres catalog",
+      "lastEdited": "2022-09-17",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "103090856",
+      "title": "FLIP-35: Support Chinese Documents and Website",
+      "lastEdited": "2022-09-17",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "181307549",
+      "title": "FLIP-168: Speculative Execution for Batch Job",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "191335084",
+      "title": "FLIP-188: Introduce Built-in Dynamic Table Storage",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "217388184",
+      "title": "FLIP-244: Support IterativeCondition with AggregateFunction in CEP Pattern",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "191336885",
+      "title": "FLIP-192: Support withBroadcast in DataStream (FlinkML)",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "199529229",
+      "title": "FLIP-204: Introduce Hash Lookup Join",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "211882044",
+      "title": "FLIP-226: Introduce Schema Evolution on Table Store",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "217390040",
+      "title": "FLIP-250: Support Customized Kubernetes Schedulers Proposal",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "217394132",
+      "title": "FLIP-257: Flink JobManager Process Split",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "130027509",
+      "title": "FLIP-71: E2E View support in FLINK SQL",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "148643521",
+      "title": "FLIP-118: Improve Flink’s ID system",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "158863354",
+      "title": "FLIP-127: Support Elasticsearch Source Connector",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "122916582",
+      "title": "FLIP-48: Pluggable Intermediate Result Storage",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "65865340",
+      "title": "FLIP-8: Rescalable Non-Partitioned State",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "181309573",
+      "title": "FLIP-170: Adding Checkpoint Rejection Mechanism",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "65870673",
+      "title": "FLIP-12: Asynchronous I/O Design and Implementation",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "68717475",
+      "title": "FLIP-17: Side Inputs for DataStream API",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "130026614",
+      "title": "FLIP-69: Flink SQL DDL Enhancement",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "132321174",
+      "title": "FLIP-70: Flink SQL Computed Column Design",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "145723617",
+      "title": "FLIP-94: Rework 2-phase commit abstractions",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "148647365",
+      "title": "FLIP-125: Confluent Schema Registry Catalog",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "158871807",
+      "title": "FLIP-135: Approximate Task-Local Recovery",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "118171100",
+      "title": "FLIP-44: Support Local Aggregation in Flink",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "120728346",
+      "title": "FLIP-46: Graceful Shutdown Handling by UDFs",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "127405685",
+      "title": "FLIP-60: Restructure the Table API & SQL documentation",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "130027562",
+      "title": "FLIP-75: Flink Web UI Improvement Proposal",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "120727926",
+      "title": "FLIP-45: Reinforce Job Stop Semantic",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "80453255",
+      "title": "FLIP-26: Service Authorization (SSL Mutual Authentication)",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "103094258",
+      "title": "FLIP-36: Support Interactive Programming in Flink",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "68719034",
+      "title": "FLIP-18: Code Generation for improving sorting performance",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "133630995",
+      "title": "FLIP-80: Expression String Serializable and Deserializable",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "147427083",
+      "title": "FLIP-99: Make Max Exception Configurable",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "147426798",
+      "title": "FLIP-98: Better Back Pressure Detection",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "199539717",
+      "title": "FLIP-215: Introduce FlinkSessionJob CRD in the kubernetes operator",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "217386481",
+      "title": "FLIP-240: Introduce \"ANALYZE TABLE\" Syntax",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "147427136",
+      "title": "FLIP-102: Add More Metrics to TaskManager",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "158873749",
+      "title": "FLIP-141: Intra-Slot Managed Memory Sharing",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "165220251",
+      "title": "FLIP-147: Support Checkpoints After Tasks Finished",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "165221669",
+      "title": "FLIP-149: Introduce the upsert-kafka Connector",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "184616569",
+      "title": "FLIP-183: Dynamic buffer size adjustment",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "199529573",
+      "title": "FLIP-207: Flink backward and forward compatibility",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "147427147",
+      "title": "FLIP-104: Add More Metrics to Jobmanager",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 2,
+        "match": 1,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "158871522",
+      "title": "FLIP-134: Batch execution for the DataStream API",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "158876959",
+      "title": "FLIP-144: Native Kubernetes HA for Flink",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "158878296",
+      "title": "FLIP-146: Improve new TableSource and TableSink interfaces",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "184616362",
+      "title": "FLIP-180: Adjust StreamStatus and Idleness definition",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "217390260",
+      "title": "FLIP-251: Support collecting arbitrary number of streams",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "115511380",
+      "title": "FLIP-41: Unify Binary format for Keyed State",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "181310204",
+      "title": "FLIP-172: Support custom transactional.id prefix in FlinkKafkaProducer",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "184616348",
+      "title": "FLIP-179: Expose Standardized Operator Metrics",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "195729509",
+      "title": "FLIP-198: Working directory for Flink processes",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "195730368",
+      "title": "FLIP-201: Persist local state in working directory",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "217387600",
+      "title": "FLIP-242: Introduce configurable RateLimitingStrategy for Async Sink",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "217389864",
+      "title": "FLIP-248: Introduce dynamic partition pruning",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "217387125",
+      "title": "FLIP-241: Completed Jobs Information Enhancement",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "158875909",
+      "title": "FLIP-142: Disentangle StateBackends from Checkpointing",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "103088143",
+      "title": "FLIP-32: Restructure flink-table for future contributions",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "65146071",
+      "title": "FLIP-2: Extending Window Function Metadata",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "199530814",
+      "title": "FLIP-210: Change logging level dynamically at runtime",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "173083550",
+      "title": "FLIP-161: Configuration through envrionment variables",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "184616321",
+      "title": "FLIP-178 Support Advanced Function DDL",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "132321191",
+      "title": "FLIP-79 Flink Function DDL Support3",
+      "lastEdited": "2019-10-14",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "349637238",
+      "title": "FLIP-522: Add generalized type information to SQL state connector",
+      "lastEdited": "2025-05-09",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "309497063",
+      "title": "FLIP-463: Schema Definition in CREATE TABLE AS Statement",
+      "lastEdited": "2024-10-04",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "340037577",
+      "title": "FLIP-512: Add meta information to SQL state connector",
+      "lastEdited": "2025-04-07",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "340037390",
+      "title": "FLIP-511: Support transaction id pooling in Kafka connector",
+      "lastEdited": "2025-04-04",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "345377714",
+      "title": "FLIP-517: Better Handling of Dynamic Table Primitives with PTFs",
+      "lastEdited": "2025-03-31",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "337677648",
+      "title": "FLIP-503: Blue/Green Deployments for Flink on Kubernetes: Phase 1 (basic)",
+      "lastEdited": "2025-03-26",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "387648095",
+      "title": "FLIP-550: Add similar support for CREATE/ALTER operations for MATERIALIZED TABLEs as for TABLEs",
+      "lastEdited": "2025-11-10",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "340036249",
+      "title": "FLIP-506: Support Reuse Multiple Table Sinks in Planner",
+      "lastEdited": "2025-03-11",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "334761163",
+      "title": "FLIP-500: Support Join Extension in DataStream V2 API",
+      "lastEdited": "2025-03-04",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "337676751",
+      "title": "FLIP-501: Support Window Extension in DataStream V2 API",
+      "lastEdited": "2025-03-04",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "334761125",
+      "title": "FLIP-499: Support Event Time by Generalized Watermark in DataStream V2",
+      "lastEdited": "2025-03-04",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "247827397",
+      "title": "FLIP-303: Support REPLACE TABLE AS SELECT statement",
+      "lastEdited": "2023-10-20",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "334760466",
+      "title": "FLIP-494: Add missing createTable/createView methods to TableEnvironment",
+      "lastEdited": "2025-01-05",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "332499781",
+      "title": "FLIP-489: Add missing dropTable/dropView methods to TableEnvironment",
+      "lastEdited": "2024-12-17",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "309496789",
+      "title": "FLIP-462 Support Custom Data Distribution for Input Stream of Lookup Join",
+      "lastEdited": "2024-12-12",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "228494279",
+      "title": "FLIP-261: Support DEFAULT Constraint In Sql DDL",
+      "lastEdited": "2022-10-13",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "327977476",
+      "title": "FLIP-479: Support Persisting ClusterID for both application and session mode.",
+      "lastEdited": "2024-11-15",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "298781093",
+      "title": "FLIP-440: User-defined SQL operators / ProcessTableFunction (PTF)",
+      "lastEdited": "2024-11-14",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "327977487",
+      "title": "FLIP-480: Support to deploy SQL script in application mode",
+      "lastEdited": "2024-11-13",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263425789",
+      "title": "FLIP-349: Move RocksDB statebackend classes to o.a.f.state.rocksdb package",
+      "lastEdited": "2024-10-17",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "315494416",
+      "title": "FLIP-474: Store operator name and UID in state metadata",
+      "lastEdited": "2024-08-29",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "315494297",
+      "title": "FLIP-473 Introduce New SQL Operators Based on Asynchronous State APIs",
+      "lastEdited": "2024-08-27",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "305170955",
+      "title": "FLIP-455: Declare async state processing and checkpoint the in-flight requests",
+      "lastEdited": "2024-08-21",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "309496643",
+      "title": "FLIP-461: Synchronize rescaling with checkpoint creation to minimize reprocessing for the AdaptiveScheduler",
+      "lastEdited": "2024-07-08",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "311626999",
+      "title": "FLIP-466: Introduce ProcessFunction Attribute in DataStream API V2",
+      "lastEdited": "2024-07-05",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "309496298",
+      "title": "FLIP-459: Support Flink hybrid shuffle integration with Apache Celeborn",
+      "lastEdited": "2024-06-26",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "303794860",
+      "title": "FLIP-453: Promote Unified Sink API V2 to Public and Deprecate SinkFunction",
+      "lastEdited": "2024-06-13",
+      "counts": {
+        "total": 4,
+        "match": 4,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "349637099",
+      "title": "FLIP-521: Integrating Variant Type into Flink: Enabling Efficient Semi-Structured Data Processing",
+      "lastEdited": "2025-08-27",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "301796145",
+      "title": "FLIP-448: Introduce Pluggable Workflow Scheduler Interface for Materialized Table",
+      "lastEdited": "2024-06-04",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "307136992",
+      "title": "FLIP-457: Improve Table/SQL Configuration for Flink 2.0",
+      "lastEdited": "2024-05-28",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "303794777",
+      "title": "FLIP-452: Allow Skipping Invocation of Function Calls While Constant-folding",
+      "lastEdited": "2024-05-27",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "284789685",
+      "title": "FLIP-409: DataStream V2 Building Blocks: DataStream, Partitioning and ProcessFunction",
+      "lastEdited": "2024-05-22",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "284789687",
+      "title": "FLIP-410:  Config, Context and Processing Timer Service of DataStream API V2",
+      "lastEdited": "2024-05-22",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "301796361",
+      "title": "FLIP-448: Add sub-task spans to TraceReporter for checkpointing",
+      "lastEdited": "2024-04-24",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "294816797",
+      "title": "FLIP-435: Introduce a New Materialized Table for Simplifying Data Pipelines",
+      "lastEdited": "2024-04-23",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "298781290",
+      "title": "FLIP-441: Show the JobType and remove Execution Mode on Flink WebUI",
+      "lastEdited": "2024-04-10",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "293046798",
+      "title": "FLIP-434: Support optimizations for pre-partitioned data sources",
+      "lastEdited": "2024-04-05",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "293046865",
+      "title": "FLIP-428: Fault Tolerance/Rescale Integration for Disaggregated State",
+      "lastEdited": "2024-04-01",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "278465091",
+      "title": "FLIP-383: Support Job Recovery from JobMaster Failures for Batch Jobs",
+      "lastEdited": "2024-03-26",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "288885156",
+      "title": "FLIP-419: Optimize multi-sink query plan generation",
+      "lastEdited": "2024-03-10",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "288885541",
+      "title": "FLIP-420: Add API annotations for RocksDB StateBackend user-facing classes",
+      "lastEdited": "2024-03-06",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "272927211",
+      "title": "FLIP-375: Built-in cross-platform powerful java profiler",
+      "lastEdited": "2024-03-02",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "276106194",
+      "title": "FLIP-380: Support Full Partition Processing On Non-keyed DataStream",
+      "lastEdited": "2024-02-29",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "287607440",
+      "title": "FLIP-418: Show data skew score on Flink Dashboard",
+      "lastEdited": "2024-02-15",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "278465406",
+      "title": "FLIP-387: Support named parameters for functions and call procedures",
+      "lastEdited": "2024-02-08",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "255074156",
+      "title": "FLIP-331: Support EndOfStreamTrigger and isOutputOnlyAfterEndOfStream operator attribute to optimize task deployment",
+      "lastEdited": "2024-02-06",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263429150",
+      "title": "FLIP-367: Support Setting Parallelism for Table/SQL Sources",
+      "lastEdited": "2024-01-30",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "217389320",
+      "title": "FLIP-246: Dynamic Kafka Source (originally Multi Cluster Kafka Source)",
+      "lastEdited": "2024-01-26",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "284790602",
+      "title": "FLIP-415: Introduce a new join operator to support minibatch",
+      "lastEdited": "2024-01-24",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "278466938",
+      "title": "FLIP-397: Add config options for administrator JVM options",
+      "lastEdited": "2024-01-23",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "284789674",
+      "title": "FLIP-407: Improve Flink Client performance in interactive scenarios",
+      "lastEdited": "2024-01-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "278465358",
+      "title": "FLIP-384: Introduce TraceReporter and use it to create checkpointing and recovery traces",
+      "lastEdited": "2024-01-05",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "255073749",
+      "title": "FLIP-329: Add operator attribute to specify support for object-reuse",
+      "lastEdited": "2024-01-05",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "255071103",
+      "title": "FLIP-315 Support Operator Fusion Codegen for Flink SQL",
+      "lastEdited": "2024-01-03",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "255072585",
+      "title": "FLIP-324: Introduce Runtime Filter for Flink Batch Jobs",
+      "lastEdited": "2023-12-30",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "278465081",
+      "title": "FLIP-382: Unify the Provision of Diverse Metadata for Context-like APIs",
+      "lastEdited": "2023-12-25",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263430451",
+      "title": "FLIP-372: Enhance and synchronize Sink API to match the Source API",
+      "lastEdited": "2023-12-21",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "283117994",
+      "title": "FLIP-401: REST API JSON response deserialization unknown field tolerance",
+      "lastEdited": "2023-12-14",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "276106154",
+      "title": "FLIP-379: Dynamic source parallelism inference for batch jobs",
+      "lastEdited": "2023-12-07",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "278465364",
+      "title": "FLIP-386: Support adding custom metrics in Recovery Spans",
+      "lastEdited": "2023-11-29",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "278465506",
+      "title": "FLIP-390: Support System out and err to be redirected to LOG or discarded",
+      "lastEdited": "2023-11-23",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263428744",
+      "title": "FLIP-363: Unify the Representation of TaskManager Location in REST API and Web UI",
+      "lastEdited": "2023-11-15",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "231117340",
+      "title": "FLIP-269: Properly Handling the Processing Timers on Job Termination",
+      "lastEdited": "2023-11-07",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263430244",
+      "title": "FLIP-373: Support Configuring Different State TTLs using SQL Hint",
+      "lastEdited": "2023-10-30",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263428420",
+      "title": "FLIP-360: Merging the ExecutionGraphInfoStore and the JobResultStore into a single component CompletedJobStore",
+      "lastEdited": "2023-10-24",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "250513882",
+      "title": "FLIP-305: Support atomic for CREATE TABLE AS SELECT(CTAS) statement",
+      "lastEdited": "2023-10-20",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "247827251",
+      "title": "FLIP-302: Support TRUNCATE TABLE statement in batch mode",
+      "lastEdited": "2023-10-20",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "240884127",
+      "title": "FLIP-293: Introduce Flink Jdbc Driver For Sql Gateway",
+      "lastEdited": "2023-10-20",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263424711",
+      "title": "FLIP-334 : Decoupling autoscaler and kubernetes and support the Standalone Autoscaler",
+      "lastEdited": "2023-10-17",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263430557",
+      "title": "FLIP-374: Adding a separate configuration for specifying Java Options of the SQL Gateway",
+      "lastEdited": "2023-10-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263430387",
+      "title": "FLIP-371: Provide initialization context for Committer creation in TwoPhaseCommittingSink",
+      "lastEdited": "2023-10-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "255073628",
+      "title": "FLIP-328: Allow source operators to determine isProcessingBacklog based on watermark lag",
+      "lastEdited": "2023-09-21",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "255072967",
+      "title": "FLIP-369: Introduce LRU cache to accelerate state backend access",
+      "lastEdited": "2023-09-21",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "255072488",
+      "title": "FLIP-323: Support Attached Execution on Flink Application Completion for Batch Jobs",
+      "lastEdited": "2023-09-12",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263425786",
+      "title": "FLIP-348: Make expanding behavior of virtual metadata columns configurable",
+      "lastEdited": "2023-09-06",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263428135",
+      "title": "FLIP-359: ignore-unclaimed-state supports the state inside of operator",
+      "lastEdited": "2023-08-31",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "255071710",
+      "title": "FLIP-319: Integrate with Kafka's Support for Proper 2PC Participation (KIP-939)",
+      "lastEdited": "2023-08-18",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "255071666",
+      "title": "FLIP-318: Support Dynamic Options Provider For Tables In Gateway",
+      "lastEdited": "2023-08-14",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263426673",
+      "title": "FLIP-354: Removal of deprecated exception history fields in REST API",
+      "lastEdited": "2023-08-08",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263425799",
+      "title": "FLIP-352: Use camelCast for all REST API fields/parameters",
+      "lastEdited": "2023-07-24",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263425797",
+      "title": "FLIP-351: REST API normalizes +/-Inf / NaN to 0",
+      "lastEdited": "2023-07-24",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263425794",
+      "title": "FLIP-350: Remove query parameters from Jar handlers",
+      "lastEdited": "2023-07-24",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263425324",
+      "title": "FLIP-345: Add support for dynamic time window function",
+      "lastEdited": "2023-07-19",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263425202",
+      "title": "FLIP-342: Remove brackets around keys returned by MetricGroup#getAllVariables",
+      "lastEdited": "2023-07-18",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263425197",
+      "title": "FLIP-341: Remove MetricGroup methods accepting an int as a name",
+      "lastEdited": "2023-07-18",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263424789",
+      "title": "FLIP-336: Remove \"now\" timestamp field from REST responses",
+      "lastEdited": "2023-07-17",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "240880853",
+      "title": "FLIP-287: Extend Sink#InitContext to expose TypeSerializer, ObjectReuse and JobID",
+      "lastEdited": "2023-07-11",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "255072996",
+      "title": "FLIP-326: Enhance Watermark to Support Processing-Time Temporal Join",
+      "lastEdited": "2023-07-03",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "240884364",
+      "title": "FLIP-295: Support lazy initialization of catalogs and persistence of catalog configurations",
+      "lastEdited": "2023-06-29",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "240881147",
+      "title": "FLIP-288: Enable Dynamic Partition Discovery by Default in Kafka Source",
+      "lastEdited": "2023-04-27",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "235837468",
+      "title": "FLIP-280: Introduce EXPLAIN PLAN_ADVICE to provide SQL advice",
+      "lastEdited": "2023-04-27",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "199540406",
+      "title": "FLIP-216:  Introduce pluggable dialect and plan for migrating Hive dialect",
+      "lastEdited": "2023-03-24",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "191336691",
+      "title": "FLIP-191: Extend unified Sink interface to support small file compaction",
+      "lastEdited": "2023-02-10",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "235834432",
+      "title": "FLIP-273: Improve the Catalog API to Support ALTER TABLE syntax",
+      "lastEdited": "2023-02-07",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 1
+      }
+    },
+    {
+      "id": "235835569",
+      "title": "FLIP-276: Data Consistency of Streaming and Batch ETL in Flink and Table Store",
+      "lastEdited": "2023-02-07",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "235838319",
+      "title": "FLIP-283: Use adaptive batch scheduler as default scheduler for batch jobs",
+      "lastEdited": "2023-02-01",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "235837689",
+      "title": "FLIP-281 Sink Supports Speculative Execution For Batch Job",
+      "lastEdited": "2023-01-19",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "240880841",
+      "title": "FLIP-286: Fix the API stability/scope annotation inconsistency in AbstractStreamOperator",
+      "lastEdited": "2023-01-12",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "235835215",
+      "title": "FLIP-275: Support Remote SQL Client Based on SQL Gateway",
+      "lastEdited": "2022-12-21",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "217393350",
+      "title": "FLIP-256: Support Job Dynamic Parameter With Flink Rest Api",
+      "lastEdited": "2022-11-06",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "211881020",
+      "title": "FLIP-222: Support full job lifecycle statements in SQL client",
+      "lastEdited": "2022-10-13",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "158864514",
+      "title": "FLIP-128: Enhanced Fan Out for AWS Kinesis Consumers",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "158878152",
+      "title": "FLIP-145: Support SQL windowing table-valued function",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "184615300",
+      "title": "FLIP-176: Unified Iteration to Support Algorithms (Flink ML)",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "211883115",
+      "title": "FLIP-229: Introduces Join Hint for Flink SQL Batch Job",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "181308720",
+      "title": "FLIP-169: DataStream API for Fine-Grained Resource Requirements",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "191336489",
+      "title": "FLIP-190: Support Version Upgrades for Table API & SQL Programs",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "65146002",
+      "title": "FLIP-1: Fine Grained Recovery from Task Failures",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "125307861",
+      "title": "FLIP-50: Spill-able Heap Keyed State Backend",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "127406173",
+      "title": "FLIP-61: Simplify Flink's cluster level RestartStrategy configuration",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "217389873",
+      "title": "FLIP-249: Flink Web UI Enhancement for Speculative Execution",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "127405550",
+      "title": "FLIP-59: Enable execution configuration from Configuration object",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "217389749",
+      "title": "FLIP-247: Bulk fetch of table and column statistics for given partitions",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "97552739",
+      "title": "FLIP-29: Support map/flatMap/aggregate/flatAggregate on TableAPI",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "127406306",
+      "title": "FLIP-62: Set default restart delay for FixedDelay- and FailureRateRestartStrategy to 1s",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "127405092",
+      "title": "FLIP-58: Flink Python User-Defined Stateless Function for Table",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "128651869",
+      "title": "FLIP-68: Extend Core Table System with Pluggable Modules",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "132321065",
+      "title": "FLIP-78: Flink Python UDF Environment and Dependency Management",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "135863389",
+      "title": "FLIP-88: PyFlink User-Defined Function Resource Management",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "145722275",
+      "title": "FLIP-92: Add N-Ary Stream Operator in Flink",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "147426314",
+      "title": "FLIP-97: Support Scalar Vectorized Python UDF in PyFlink",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "148639204",
+      "title": "FLIP-106: Support Python UDF in SQL Function DDL",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "127406564",
+      "title": "FLIP-55: Introduction of a Table API Java Expression DSL",
+      "lastEdited": "2022-09-17",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "217392901",
+      "title": "FLIP-255: Introduce pre-aggregated merge to Table Store",
+      "lastEdited": "2022-09-17",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "148644533",
+      "title": "FLIP-120: Support conversion between PyFlink Table and Pandas DataFrame",
+      "lastEdited": "2022-09-17",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "148644537",
+      "title": "FLIP-121: Support Cython Optimizing Python User Defined Function",
+      "lastEdited": "2022-09-17",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "148645988",
+      "title": "FLIP-124: Add open/close and Collector to (De)SerializationSchema",
+      "lastEdited": "2022-09-17",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "148644525",
+      "title": "FLIP-122: New Connector Property Keys for New Factory",
+      "lastEdited": "2022-09-17",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "134745761",
+      "title": "FLIP-83: Flink End-to-end Performance Testing Framework",
+      "lastEdited": "2022-09-17",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "132322156",
+      "title": "FLIP-65: New type inference for Table API UDFs",
+      "lastEdited": "2022-09-17",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "211881904",
+      "title": "FLIP-225: Implement standalone mode support in the kubernetes operator",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "195726791",
+      "title": "FLIP-195: Improve the name and structure of vertex and operator name for job",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "211882389",
+      "title": "FLIP-228: Support Within between events in CEP Pattern",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "217388644",
+      "title": "FLIP-245: Source Supports Speculative Execution For Batch Job",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "173082671",
+      "title": "FLIP-157: Migrate Flink Documentation from Jekyll to Hugo",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "184616882",
+      "title": "FLIP-184: Refine ShuffleMaster lifecycle management for pluggable shuffle service framework",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "195730308",
+      "title": "FLIP-200: Support Multiple Rule and Dynamic Rule Changing (Flink CEP)",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "199530488",
+      "title": "FLIP-209: Support to run multiple shuffle plugins in one session cluster",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "199541185",
+      "title": "FLIP-218: Support SELECT clause in CREATE TABLE(CTAS)",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "158866298",
+      "title": "FLIP-130: Support Python DataStream API (Stateless part)",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "158868882",
+      "title": "FLIP-132: Temporal Table DDL and Temporal Table Join",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "165221018",
+      "title": "FLIP-148: Introduce Sort-Based Blocking Shuffle to Flink",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "66853132",
+      "title": "FLIP-15: Redesign Iterations (Scoping, Flow Control and Termination)",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "71012982",
+      "title": "FLIP-21: Improve object Copying/Reuse Mode for Streaming Runtime",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "148640766",
+      "title": "FLIP-112: Support User-Defined Metrics in  Python UDF",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "148640022",
+      "title": "FLIP-109: Improve Hive dependencies out-of-box experience",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "184617496",
+      "title": "FLIP-185: Shorter heartbeat timeout and interval default values",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "199529487",
+      "title": "FLIP-206: Support PyFlink Runtime Execution in Thread Mode",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "173081396",
+      "title": "FLIP-155: Introduce a few convenient operations in Table API",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "170265950",
+      "title": "FLIP-153: Support state access in Python DataStream API",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "173083688",
+      "title": "FLIP-162: Consistent Flink SQL time function behavior",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "211883859",
+      "title": "FLIP-231: Introduce SupportsStatisticReport to support reporting statistics from source connectors",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "184616200",
+      "title": "FLIP-181: Custom netty HTTP request inbound/outbound handlers",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "173081645",
+      "title": "FLIP-156: Runtime Interfaces for Fine-Grained Resource Requirements",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 2,
+        "match": 1,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "158873744",
+      "title": "FLIP-140: Introduce batch-style execution for bounded keyed streams",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "165223891",
+      "title": "FLIP-151: Incremental snapshots for heap-based state backend",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "65147046",
+      "title": "FLIP-5: Only send data to each taskmanager once for broadcasts",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "158866294",
+      "title": "FLIP-129: Refactor Descriptor API to register connectors in Table API",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "158872528",
+      "title": "FLIP-136:  Improve interoperability between DataStream and Table API",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "97552162",
+      "title": "FLIP-28: Long-term goal of making flink-table Scala-free",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "148641068",
+      "title": "FLIP-113: Supports Dynamic Table Options for Flink SQL",
+      "lastEdited": "2020-04-20",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "211883963",
+      "title": "FLIP-232: Add Retry Support For Async I/O In DataStream API",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "332499656",
+      "title": "FLIP-488: Expose Async State Processing and New State APIs in Datastream(V1) APIs",
+      "lastEdited": "2024-12-20",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "309496355",
+      "title": "FLIP-460: Display source/sink I/O metrics on Flink Web UI",
+      "lastEdited": "2024-07-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "308152836",
+      "title": "FLIP-458: Long-Term Support for the Final Release of Apache Flink 1.x Line",
+      "lastEdited": "2024-06-17",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "278464992",
+      "title": "FLIP-381: Deprecate configuration getters/setters that return/set complex Java objects",
+      "lastEdited": "2024-03-07",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "284790082",
+      "title": "FLIP-411: Chaining-agnostic Operator ID generation for improved state compatibility on parallelism change",
+      "lastEdited": "2024-02-07",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "276105768",
+      "title": "FLIP-377: Support  fine-grained configuration to control filter push down for Table/SQL Sources",
+      "lastEdited": "2024-01-23",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "284790259",
+      "title": "FLIP-412: Add the time-consuming span of each stage when starting the Flink job to TraceReporter",
+      "lastEdited": "2024-01-05",
+      "counts": {
+        "total": 1,
+        "match": 0,
+        "drift": 1,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "278466632",
+      "title": "FLIP-396: Trial to test GitHub Actions as an alternative for Flink's current Azure CI infrastructure",
+      "lastEdited": "2023-12-20",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "240883951",
+      "title": "FLIP-292: Enhance COMPILED PLAN to support operator-level state TTL configuration",
+      "lastEdited": "2023-10-20",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "255073243",
+      "title": "FLIP-327: Support switching from batch to stream mode to improve throughput when processing backlog data",
+      "lastEdited": "2023-10-07",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263428805",
+      "title": "FLIP-365: Introduce flush interval to adjust the interval of emitting results with idempotent semantics",
+      "lastEdited": "2023-09-26",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "255069517",
+      "title": "FLIP-309: Support using larger checkpointing interval when source is processing backlog",
+      "lastEdited": "2023-09-08",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "235837162",
+      "title": "FLIP-279 Unified the max display column width for SqlClient and Table APi in both Streaming and Batch execMode",
+      "lastEdited": "2023-08-22",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "263424808",
+      "title": "FLIP-338: Remove terminationMode query parameter from job cancellation REST endpoint",
+      "lastEdited": "2023-07-13",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "240880337",
+      "title": "FLIP-285: Refactoring LeaderElection to make Flink support multi-component leader election out-of-the-box",
+      "lastEdited": "2023-07-10",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "255072116",
+      "title": "FLIP-320: Support multiple Flink versions in each Java library release (Flink ML)",
+      "lastEdited": "2023-06-08",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "240885081",
+      "title": "FLIP-300: Add targetColumns to DynamicTableSink#Context to solve the null overwrite problem of partial-insert",
+      "lastEdited": "2023-03-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "199530109",
+      "title": "FLIP-208: Add RecordEvaluator to dynamically stop source based on de-serialized records",
+      "lastEdited": "2023-02-06",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "181311363",
+      "title": "FLIP-175: Compose Estimator/Model/AlgoOperator from DAG of Estimator/Model/AlgoOperator (Flink ML)",
+      "lastEdited": "2023-01-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "158866741",
+      "title": "FLIP-131: Consolidate the user-facing Dataflow SDKs/APIs (and deprecate the DataSet API)",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "211884598",
+      "title": "FLIP-234: Support Retryable Lookup Join To Solve Delayed Updates Issue In External Systems",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "158873667",
+      "title": "FLIP-139: General Python User-Defined Aggregate Function Support on Table API",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "141724550",
+      "title": "FLIP-90: Support SQL 2016-2017 JSON functions in Table API & SQL",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "147427289",
+      "title": "FLIP-105: Support to Interpret Changelog in Flink SQL (Introducing Debezium and Canal Format)",
+      "lastEdited": "2022-09-18",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "225152857",
+      "title": "FLIP-258: Guarantee binary compatibility for Public/-Evolving APIs between patch releases",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "195730258",
+      "title": "FLIP-199: Change some default config values of blocking shuffle for better usability",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "65147077",
+      "title": "FLIP-6: Flink Deployment and Process Model - Standalone, Yarn, Mesos, Kubernetes, etc.",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 1,
+        "match": 1,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "133631907",
+      "title": "FLIP-82: Use real per-job mode for YARN per-job attached execution",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    },
+    {
+      "id": "225153178",
+      "title": "FLIP-259: Use StatefulSet instead of Deployment to deploy Flink with standalone mode on kubernetes",
+      "lastEdited": "2022-09-16",
+      "counts": {
+        "total": 0,
+        "match": 0,
+        "drift": 0,
+        "unverifiable": 0
+      }
+    }
+  ],
+  "drift": [
+    {
+      "page": "FLIP-621: Add built-in TO_APPEND PTF",
+      "pageLastEdited": "2026-11-18",
+      "workItem": "FLINK-41549",
+      "field": "fixVersion",
+      "pageSays": "2.5",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-618: Edit, Inspect and Build VARIANT Values",
+      "pageLastEdited": "2026-11-04",
+      "workItem": "FLINK-41336",
+      "field": "fixVersion",
+      "pageSays": "2.5",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-586: Composable Parallelism Alignment Modes for Flink Autoscaler",
+      "pageLastEdited": "2026-09-10",
+      "workItem": "FLINK-39938",
+      "field": "fixVersion",
+      "pageSays": "2.4.0",
+      "jiraSays": "kubernetes-operator-1.16.0"
+    },
+    {
+      "page": "FLIP-424: Asynchronous State APIs",
+      "pageLastEdited": "2024-04-01",
+      "workItem": "FLINK-34974",
+      "field": "fixVersion",
+      "pageSays": "2.0",
+      "jiraSays": "2.5.0"
+    },
+    {
+      "page": "FLIP-389 Annotate SingleThreadFetcherManager as PublicEvolving.",
+      "pageLastEdited": "2024-01-26",
+      "workItem": "FLINK-32417",
+      "field": "fixVersion",
+      "pageSays": "1.19",
+      "jiraSays": "kafka-3.1.0"
+    },
+    {
+      "page": "FLIP-361: Improve GC Metrics",
+      "pageLastEdited": "2023-10-05",
+      "workItem": "FLINK-33120",
+      "field": "fixVersion",
+      "pageSays": "1.19",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-27: Refactor Source Interface",
+      "pageLastEdited": "2023-07-06",
+      "workItem": "FLINK-10740",
+      "field": "fixVersion",
+      "pageSays": "1.12",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-304: Pluggable Failure Enrichers",
+      "pageLastEdited": "2023-04-20",
+      "workItem": "FLINK-31508",
+      "field": "fixVersion",
+      "pageSays": "1.18",
+      "jiraSays": "2.1.0"
+    },
+    {
+      "page": "FLIP-262: Introduce MongoDB connector",
+      "pageLastEdited": "2022-09-30",
+      "workItem": "FLINK-6573",
+      "field": "fixVersion",
+      "pageSays": "1.17",
+      "jiraSays": "mongodb-1.0.0"
+    },
+    {
+      "page": "FLIP-86: Improve Connector Properties",
+      "pageLastEdited": "2022-09-18",
+      "workItem": "FLINK-14644",
+      "field": "fixVersion",
+      "pageSays": "1.10",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-20: Integration of SQL and CEP",
+      "pageLastEdited": "2022-09-18",
+      "workItem": "FLINK-6935",
+      "field": "fixVersion",
+      "pageSays": "1.7",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-43: State Processor API",
+      "pageLastEdited": "2022-09-17",
+      "workItem": "FLINK-12047",
+      "field": "fixVersion",
+      "pageSays": "1.9",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-30: Unified Catalog APIs",
+      "pageLastEdited": "2022-09-17",
+      "workItem": "FLINK-11275",
+      "field": "fixVersion",
+      "pageSays": "1.9",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-243: Dedicated Opensearch connectors",
+      "pageLastEdited": "2022-09-16",
+      "workItem": "FLINK-25756",
+      "field": "fixVersion",
+      "pageSays": "1.17",
+      "jiraSays": "opensearch-1.0.0"
+    },
+    {
+      "page": "FLIP-163: SQL Client Improvements",
+      "pageLastEdited": "2022-09-16",
+      "workItem": "FLINK-21454",
+      "field": "fixVersion",
+      "pageSays": "1.13",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-72: Introduce Pulsar Connector",
+      "pageLastEdited": "2022-09-16",
+      "workItem": "FLINK-14146",
+      "field": "fixVersion",
+      "pageSays": "1.14",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-42: Rework Flink Documentation",
+      "pageLastEdited": "2022-09-16",
+      "workItem": "FLINK-12639",
+      "field": "fixVersion",
+      "pageSays": "1.3",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-10: Unify Checkpoints and Savepoints",
+      "pageLastEdited": "2022-09-16",
+      "workItem": "FLINK-4484",
+      "field": "fixVersion",
+      "pageSays": "1.2",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-138: Declarative Resource management",
+      "pageLastEdited": "2022-09-16",
+      "workItem": "FLINK-10404",
+      "field": "fixVersion",
+      "pageSays": "1.12",
+      "jiraSays": "1.13.0"
+    },
+    {
+      "page": "FLIP-150: Introduce Hybrid Source",
+      "pageLastEdited": "2022-09-16",
+      "workItem": "FLINK-22668",
+      "field": "fixVersion",
+      "pageSays": "1.14",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-536: Add latest checkpoint details endpoint to Rest API",
+      "pageLastEdited": "2025-07-18",
+      "workItem": "FLINK-38120",
+      "field": "fixVersion",
+      "pageSays": "2.1",
+      "jiraSays": "2.5.0"
+    },
+    {
+      "page": "FLIP-447: Upgrade FRocksDB from 6.20.3  to 8.10.0",
+      "pageLastEdited": "2024-06-12",
+      "workItem": "FLINK-35573",
+      "field": "fixVersion",
+      "pageSays": "2.0",
+      "jiraSays": "2.5.0"
+    },
+    {
+      "page": "FLIP-427: ForSt - Disaggregated state Store",
+      "pageLastEdited": "2024-05-23",
+      "workItem": "FLINK-34975",
+      "field": "fixVersion",
+      "pageSays": "2.0",
+      "jiraSays": "2.5.0"
+    },
+    {
+      "page": "FLIP-426: Grouping Remote State Access",
+      "pageLastEdited": "2024-04-01",
+      "workItem": "FLINK-34981",
+      "field": "fixVersion",
+      "pageSays": "2.0",
+      "jiraSays": "2.5.0"
+    },
+    {
+      "page": "FLIP-314: Support Customized Job Lineage Listener",
+      "pageLastEdited": "2024-03-04",
+      "workItem": "FLINK-31275",
+      "field": "fixVersion",
+      "pageSays": "1.19",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-301: Hybrid Shuffle supports Remote Storage",
+      "pageLastEdited": "2024-03-03",
+      "workItem": "FLINK-31634",
+      "field": "fixVersion",
+      "pageSays": "1.18",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-398: Improve Serialization Configuration And Usage In Flink",
+      "pageLastEdited": "2025-01-31",
+      "workItem": "FLINK-34037",
+      "field": "fixVersion",
+      "pageSays": "2.0",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-406: Reorganize State & Checkpointing & Recovery Configuration",
+      "pageLastEdited": "2024-01-29",
+      "workItem": "FLINK-34255",
+      "field": "fixVersion",
+      "pageSays": "1.20, 2.0",
+      "jiraSays": "2.5.0"
+    },
+    {
+      "page": "FLIP-416: Deprecate and remove the RestoreMode#LEGACY",
+      "pageLastEdited": "2024-01-24",
+      "workItem": "FLINK-34189",
+      "field": "fixVersion",
+      "pageSays": "1.19, 2.0",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-189: SQL Client Usability Improvements",
+      "pageLastEdited": "2023-10-20",
+      "workItem": "FLINK-24890",
+      "field": "fixVersion",
+      "pageSays": "1.18.0",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-294: Support Customized Catalog Modification Listener",
+      "pageLastEdited": "2023-06-25",
+      "workItem": "FLINK-32402",
+      "field": "fixVersion",
+      "pageSays": "1.18",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-291: Externalized Declarative Resource Management",
+      "pageLastEdited": "2023-03-03",
+      "workItem": "FLINK-31316",
+      "field": "fixVersion",
+      "pageSays": "1.18",
+      "jiraSays": "2.5.0"
+    },
+    {
+      "page": "FLIP-265 Deprecate and remove Scala API support",
+      "pageLastEdited": "2022-10-24",
+      "workItem": "FLINK-29739",
+      "field": "fixVersion",
+      "pageSays": "1.17 / 2.0",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-11: Table API Stream Aggregations",
+      "pageLastEdited": "2022-09-18",
+      "workItem": "FLINK-4557",
+      "field": "fixVersion",
+      "pageSays": "1.3",
+      "jiraSays": "1.4.0"
+    },
+    {
+      "page": "FLIP-164: Improve Schema Handling in Catalogs",
+      "pageLastEdited": "2022-09-18",
+      "workItem": "FLINK-21394",
+      "field": "fixVersion",
+      "pageSays": "1.13",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-197: API stability graduation process",
+      "pageLastEdited": "2022-09-18",
+      "workItem": "FLINK-25346",
+      "field": "fixVersion",
+      "pageSays": "1.15",
+      "jiraSays": "2.5.0"
+    },
+    {
+      "page": "FLIP-152: Hive Query Syntax Compatibility",
+      "pageLastEdited": "2022-09-18",
+      "workItem": "FLINK-21529",
+      "field": "fixVersion",
+      "pageSays": "1.13",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-25: Support User State TTL Natively",
+      "pageLastEdited": "2022-09-18",
+      "workItem": "FLINK-3089",
+      "field": "fixVersion",
+      "pageSays": "1.6",
+      "jiraSays": "1.8.4"
+    },
+    {
+      "page": "FLIP-66: Support Time Attribute in SQL DDL",
+      "pageLastEdited": "2022-09-18",
+      "workItem": "FLINK-14320",
+      "field": "fixVersion",
+      "pageSays": "1.10",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-250: Support Customized Kubernetes Schedulers Proposal",
+      "pageLastEdited": "2022-09-16",
+      "workItem": "FLINK-26559",
+      "field": "fixVersion",
+      "pageSays": "1.17",
+      "jiraSays": "2.5.0"
+    },
+    {
+      "page": "FLIP-71: E2E View support in FLINK SQL",
+      "pageLastEdited": "2022-09-16",
+      "workItem": "FLINK-17105",
+      "field": "fixVersion",
+      "pageSays": "1.11",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-69: Flink SQL DDL Enhancement",
+      "pageLastEdited": "2022-09-16",
+      "workItem": "FLINK-14686",
+      "field": "fixVersion",
+      "pageSays": "1.10",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-99: Make Max Exception Configurable",
+      "pageLastEdited": "2022-09-16",
+      "workItem": "FLINK-11374",
+      "field": "fixVersion",
+      "pageSays": "1.10",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-104: Add More Metrics to Jobmanager",
+      "pageLastEdited": "2022-09-16",
+      "workItem": "FLINK-19617",
+      "field": "assignee",
+      "pageSays": "FLINK-",
+      "jiraSays": "Matthias Pohl"
+    },
+    {
+      "page": "FLIP-134: Batch execution for the DataStream API",
+      "pageLastEdited": "2022-09-16",
+      "workItem": "FLINK-19316",
+      "field": "fixVersion",
+      "pageSays": "1.12",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-261: Support DEFAULT Constraint In Sql DDL",
+      "pageLastEdited": "2022-10-13",
+      "workItem": "FLINK-4557",
+      "field": "fixVersion",
+      "pageSays": "1.3",
+      "jiraSays": "1.4.0"
+    },
+    {
+      "page": "FLIP-455: Declare async state processing and checkpoint the in-flight requests",
+      "pageLastEdited": "2024-08-21",
+      "workItem": "FLINK-36118",
+      "field": "fixVersion",
+      "pageSays": "2.0",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-521: Integrating Variant Type into Flink: Enabling Efficient Semi-Structured Data Processing",
+      "pageLastEdited": "2025-08-27",
+      "workItem": "FLINK-37922",
+      "field": "fixVersion",
+      "pageSays": "2.1",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-428: Fault Tolerance/Rescale Integration for Disaggregated State",
+      "pageLastEdited": "2024-04-01",
+      "workItem": "FLINK-34982",
+      "field": "fixVersion",
+      "pageSays": "2.0",
+      "jiraSays": "2.5.0"
+    },
+    {
+      "page": "FLIP-418: Show data skew score on Flink Dashboard",
+      "pageLastEdited": "2024-02-15",
+      "workItem": "FLINK-34025",
+      "field": "fixVersion",
+      "pageSays": "1.20",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-315 Support Operator Fusion Codegen for Flink SQL",
+      "pageLastEdited": "2024-01-03",
+      "workItem": "FLINK-31833",
+      "field": "fixVersion",
+      "pageSays": "1.18",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-372: Enhance and synchronize Sink API to match the Source API",
+      "pageLastEdited": "2023-12-21",
+      "workItem": "FLINK-33328",
+      "field": "fixVersion",
+      "pageSays": "1.19.0",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-352: Use camelCast for all REST API fields/parameters",
+      "pageLastEdited": "2023-07-24",
+      "workItem": "FLINK-15787",
+      "field": "fixVersion",
+      "pageSays": "2.0",
+      "jiraSays": "3.0.0"
+    },
+    {
+      "page": "FLIP-342: Remove brackets around keys returned by MetricGroup#getAllVariables",
+      "pageLastEdited": "2023-07-18",
+      "workItem": "FLINK-24078",
+      "field": "fixVersion",
+      "pageSays": "2.0",
+      "jiraSays": "3.0.0"
+    },
+    {
+      "page": "FLIP-295: Support lazy initialization of catalogs and persistence of catalog configurations",
+      "pageLastEdited": "2023-06-29",
+      "workItem": "FLINK-32427",
+      "field": "fixVersion",
+      "pageSays": "1.18",
+      "jiraSays": "2.5.0"
+    },
+    {
+      "page": "FLIP-286: Fix the API stability/scope annotation inconsistency in AbstractStreamOperator",
+      "pageLastEdited": "2023-01-12",
+      "workItem": "FLINK-30645",
+      "field": "fixVersion",
+      "pageSays": "1.17",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-145: Support SQL windowing table-valued function",
+      "pageLastEdited": "2022-09-18",
+      "workItem": "FLINK-19604",
+      "field": "fixVersion",
+      "pageSays": "1.13",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-55: Introduction of a Table API Java Expression DSL",
+      "pageLastEdited": "2022-09-17",
+      "workItem": "FLINK-11890",
+      "field": "fixVersion",
+      "pageSays": "1.11",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-218: Support SELECT clause in CREATE TABLE(CTAS)",
+      "pageLastEdited": "2022-09-16",
+      "workItem": "FLINK-26942",
+      "field": "fixVersion",
+      "pageSays": "1.17",
+      "jiraSays": "2.5.0"
+    },
+    {
+      "page": "FLIP-206: Support PyFlink Runtime Execution in Thread Mode",
+      "pageLastEdited": "2022-09-16",
+      "workItem": "FLINK-25718",
+      "field": "fixVersion",
+      "pageSays": "1.15",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-156: Runtime Interfaces for Fine-Grained Resource Requirements",
+      "pageLastEdited": "2022-09-16",
+      "workItem": "FLINK-20835",
+      "field": "status",
+      "pageSays": "in progress",
+      "jiraSays": "Closed"
+    },
+    {
+      "page": "FLIP-488: Expose Async State Processing and New State APIs in Datastream(V1) APIs",
+      "pageLastEdited": "2024-12-20",
+      "workItem": "FLINK-36943",
+      "field": "fixVersion",
+      "pageSays": "2.0",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-412: Add the time-consuming span of each stage when starting the Flink job to TraceReporter",
+      "pageLastEdited": "2024-01-05",
+      "workItem": "FLINK-33999",
+      "field": "fixVersion",
+      "pageSays": "1.20",
+      "jiraSays": "no fix version"
+    }
+  ],
+  "unverifiableTop": [
+    [
+      "status: Accepted",
+      6
+    ],
+    [
+      "status: JIRA",
+      4
+    ],
+    [
+      "fixVersion: 1.15",
+      4
+    ],
+    [
+      "fixVersion: 2.0",
+      3
+    ],
+    [
+      "status: Jira",
+      1
+    ],
+    [
+      "fixVersion: FLINK-2.3",
+      1
+    ],
+    [
+      "fixVersion: 2.0 2.1",
+      1
+    ],
+    [
+      "fixVersion: 1.17",
+      1
+    ],
+    [
+      "fixVersion: 2.2",
+      1
+    ],
+    [
+      "fixVersion: 2.0-preview",
+      1
+    ],
+    [
+      "fixVersion: 2.1.0",
+      1
+    ],
+    [
+      "fixVersion: 1.13",
+      1
+    ],
+    [
+      "fixVersion: 1.5",
+      1
+    ],
+    [
+      "fixVersion: 2.0.0",
+      1
+    ],
+    [
+      "fixVersion: 1.10",
+      1
+    ],
+    [
+      "fixVersion: 1.11",
+      1
+    ],
+    [
+      "fixVersion: 1.16",
+      1
+    ],
+    [
+      "fixVersion: 1.2",
+      1
+    ],
+    [
+      "fixVersion: Next operator release",
+      1
+    ],
+    [
+      "fixVersion: Does not have to be tied to a version re",
+      1
+    ],
+    [
+      "fixVersion: To be created",
+      1
+    ]
+  ]
+}

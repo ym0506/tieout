@@ -4,6 +4,7 @@
 import Resolver from '@forge/resolver';
 import { createTieOut } from '../core.js';
 import { buildSamplePage } from '../sample.js';
+import { keyFromUrl } from '../engine/index.js';
 import { jira, confluence, store, makeGraph } from './adapters.js';
 
 const tieout = (cloudId) => createTieOut({ jira, confluence, store, graph: makeGraph(cloudId) });
@@ -173,14 +174,16 @@ function toolReport(report, subject) {
   };
 }
 
-const cloudIdOf = (context) => (context && context.cloudId) || null;
+// Rovo passes what the user is looking at inside the payload: { context: { cloudId, jira: {...} | confluence: {...} } }.
+const viewed = (payload) => (payload && payload.context) || {};
+const cloudIdOf = (context, payload) => viewed(payload).cloudId || (context && context.cloudId) || null;
 
 /** Action: verify-claims. Check a draft (plain text or Markdown) before it is published or sent. */
 export async function verifyClaimsAction(payload, context) {
   const text = payload && (payload.text || payload.draft);
   if (!text || !String(text).trim()) return { error: 'Provide the draft text to check in `text`.' };
   try {
-    const report = await tieout(cloudIdOf(context)).verifyText(String(text), { as: 'user' });
+    const report = await tieout(cloudIdOf(context, payload)).verifyText(String(text), { as: 'user' });
     return toolReport(report, 'draft');
   } catch (e) {
     if (isConsent(e)) throw e;
@@ -196,11 +199,12 @@ const pageIdFrom = (value) => {
 
 /** Action: check-page. Check an existing Confluence page by id or URL. */
 export async function checkPageAction(payload, context) {
-  const ctxPage = context && context.confluence && context.confluence.contentId;
+  const ctxPage = (viewed(payload).confluence && viewed(payload).confluence.contentId)
+    || (context && context.confluence && context.confluence.contentId);
   const pageId = pageIdFrom(payload && (payload.page || payload.pageId)) || (ctxPage ? String(ctxPage) : null);
   if (!pageId) return { error: 'Provide a Confluence page id or page URL in `page`.' };
   try {
-    const report = await tieout(cloudIdOf(context)).checkPage(pageId, { as: 'user', withContext: false });
+    const report = await tieout(cloudIdOf(context, payload)).checkPage(pageId, { as: 'user', withContext: false });
     return { ...toolReport(report, `page "${report.page.title}"`), page: report.page };
   } catch (e) {
     if (isConsent(e)) throw e;
@@ -210,10 +214,11 @@ export async function checkPageAction(payload, context) {
 
 /** Action: get-fact. The current due date, owner, status, fix versions and priority of one work item. */
 export async function getFactAction(payload, context) {
-  const key = payload && (payload.workItem || payload.issueKey);
+  const viewedIssue = viewed(payload).jira && keyFromUrl(viewed(payload).jira.url);
+  const key = (payload && (payload.workItem || payload.issueKey)) || viewedIssue;
   if (!key) return { error: 'Provide a work item key such as PAY-12 in `workItem`.' };
   try {
-    const fact = await tieout(cloudIdOf(context)).getFact(key, { as: 'user' });
+    const fact = await tieout(cloudIdOf(context, payload)).getFact(key, { as: 'user' });
     if (!fact.found) return { workItem: fact.issueKey, found: false, note: 'Not found, or you do not have access. Do not state facts about it.' };
     return { ...fact, workItem: fact.issueKey, issueKey: undefined, source: 'Jira (system of record)' };
   } catch (e) {

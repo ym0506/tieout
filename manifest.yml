@@ -132,8 +132,8 @@ modules:
         workItem:
           title: Work item key
           type: string
-          required: true
-          description: The Jira work item key, for example PAY-12.
+          required: false
+          description: The Jira work item key, for example PAY-12. Leave empty to use the work item the user is viewing.
   function:
     - key: resolver
       handler: index.resolver

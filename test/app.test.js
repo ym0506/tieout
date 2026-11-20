@@ -288,6 +288,8 @@ describe('Rovo actions and MCP tools', () => {
     expect(byUrl.page.id).toBe('1001');
     const inContext = await app.checkPageAction({}, { ...ctx, confluence: { contentId: '1001' } });
     expect(inContext.subject).toBe('page "Payments status"');
+    const fromRovo = await app.checkPageAction({ context: { cloudId: 'cloud-1', confluence: { contentId: '1001', resourceType: 'page' } } }, {});
+    expect(fromRovo.page.id).toBe('1001');
     expect(await app.checkPageAction({}, ctx)).toHaveProperty('error');
     expect((await app.checkPageAction({ page: '424242' }, ctx)).error).toMatch(/could not check page 424242/);
   });
@@ -297,6 +299,8 @@ describe('Rovo actions and MCP tools', () => {
     expect(fact).toMatchObject({ workItem: 'PAY-12', found: true, due: '2026-12-17', owner: 'Jiyoung Park', status: 'In Progress', fixVersions: ['2.4.0'] });
     const missing = await app.getFactAction({ workItem: 'NOPE-1' }, ctx);
     expect(missing).toMatchObject({ found: false });
+    const viewedIssue = await app.getFactAction({ context: { cloudId: 'cloud-1', jira: { url: 'https://acme.atlassian.net/browse/PAY-13', resourceType: 'issue' } } }, {});
+    expect(viewedIssue).toMatchObject({ workItem: 'PAY-13', found: true });
     expect(await app.getFactAction({}, ctx)).toHaveProperty('error');
   });
 });
