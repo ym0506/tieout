@@ -128,4 +128,12 @@ describe('people and versions', () => {
     expect(versionMatches('2.5.0', ['2.4.0', '2.5.0'])).toBe(true);
     expect(versionMatches('2.5.0', [])).toBe(false);
   });
+
+  it('does not let a shared word stand in for a version (found by the seeded-change test)', () => {
+    expect(versionMatches('2.0-preview', ['2.1-preview'])).toBe(false);
+    expect(versionMatches('ml-2.0.0', ['ml-2.1.0'])).toBe(false);
+    expect(versionMatches('flink-connectors-prometheus-1.0.0', ['flink-connectors-prometheus-1.1.0'])).toBe(false);
+    expect(versionMatches('2.0-preview', ['2.0-preview'])).toBe(true);
+    expect(versionMatches('ml-2.0.0', ['ml-2.0.0'])).toBe(true);
+  });
 });

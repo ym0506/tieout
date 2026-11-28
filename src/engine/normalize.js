@@ -231,8 +231,11 @@ export function versionMatches(claimed, fixVersions) {
   return (fixVersions || []).some((v) => {
     const n = cleanVersion(v);
     if (n === c) return true;
-    const cTokens = c.split(/[\s,;/]+/).filter(Boolean);
-    const nTokens = n.split(/[\s,;/]+/).filter(Boolean);
+    // Only tokens with a digit identify a version: "ml-2.0.0" and "ml-2.1.0" share "ml"
+    // and are still different releases.
+    const tokens = (x) => x.split(/[\s,;/]+/).filter((t) => /\d/.test(t));
+    const cTokens = tokens(c);
+    const nTokens = tokens(n);
     return cTokens.some((ct) => nTokens.some((nt) => ct === nt || versionPrefix(ct, nt)));
   });
 }
