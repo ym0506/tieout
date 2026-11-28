@@ -32,6 +32,12 @@ The first time you open a Tie-Out screen, Atlassian asks you to **Allow access**
 
 You don't need the sample: any page works. Write a table with the columns `Work item | Owner | Due | Status`, or a sentence such as `KEY-1 ships Dec 3, owner: Alice.`, and Tie-Out reads it.
 
+## Make a table live
+
+On the sample page, open the report (click the badge or press **Review** in the banner) and scroll to **Keep this table current**. Press **Make this table live**, then **Replace with a live Jira table**, and reload. The typed table is now a Jira table showing Jira's current values; the change is a new page version you can undo from the page history. The summary sentence under the table is still typed, so the badge keeps counting it.
+
+Try it on a table that also has a column such as `Notes`: Tie-Out does not offer it and says which column is in the way.
+
 ## Existing pages
 
 Tie-Out scans pages that existed before the install in the background, after the install and then every hour. **Apps → Tie-Out → Scan pages** runs the scan now. New and edited pages are indexed when they are saved.
@@ -55,11 +61,11 @@ In **Rovo Studio**, create an agent and add the **Tie-Out** tools (`verify-claim
 
 For a third-party MCP client:
 
-1. A site or org admin opens *Atlassian Administration → Apps → Sites → your site → Connected apps*, selects **Tie-Out**, and turns on the tools to expose.
+1. A site or org admin opens *Atlassian Administration → Apps → Sites → your site → Connected apps*, finds **Tie-Out**, opens **View app details**, and under **Tools** presses **Enable tools**.
 2. Add `https://mcp.atlassian.com/forge/472dda99-d578-4070-b2ab-05a2797cf96b` as a remote MCP server in the client.
 3. The client opens an Atlassian consent screen. Choose the site and approve.
 
-The repository's `skills/verify-before-publish/SKILL.md` tells an agent how to use the three tools.
+The repository's `skills/verify-before-publish/SKILL.md` tells an agent how to use the three tools. `scripts/mcp-check.py` is a small client using only the Python standard library: it runs the consent flow on `127.0.0.1:8765`, lists the tools and calls `get-fact` and `verify-claims` (edit the work item key in the script to one of yours).
 
 ## Who sees what
 

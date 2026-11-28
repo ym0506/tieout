@@ -1,0 +1,114 @@
+{
+  "checkedAt": "2026-11-28T12:23:42Z",
+  "endpoint": "https://mcp.atlassian.com/forge/472dda99-d578-4070-b2ab-05a2797cf96b",
+  "client": "local stdlib client, OAuth 2.1 + PKCE",
+  "initialize": {
+    "status": 200,
+    "result": {
+      "protocolVersion": "2025-03-26",
+      "capabilities": {
+        "tools": {
+          "listChanged": false
+        }
+      },
+      "serverInfo": {
+        "name": "integrations-service",
+        "version": "1.0"
+      }
+    }
+  },
+  "tools/list": {
+    "status": 200,
+    "names": [
+      "verify-claims",
+      "check-page",
+      "get-fact"
+    ],
+    "raw": null
+  },
+  "calls": [
+    {
+      "tool": "get-fact",
+      "arguments": {
+        "workItem": "MOBL-57"
+      },
+      "status": 200,
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 3,
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"found\":true,\"summary\":\"Compliance\",\"owner\":\"(the site admin)\",\"status\":\"To Do\",\"statusCategory\":\"new\",\"fixVersions\":[],\"priority\":\"Critical\",\"readAt\":\"2026-11-28T12:23:46.606Z\",\"workItem\":\"MOBL-57\",\"source\":\"Jira (system of record)\"}"
+            }
+          ],
+          "isError": false,
+          "structuredContent": {
+            "found": true,
+            "summary": "Compliance",
+            "owner": "(the site admin)",
+            "status": "To Do",
+            "statusCategory": "new",
+            "fixVersions": [],
+            "priority": "Critical",
+            "readAt": "2026-11-28T12:23:46.606Z",
+            "workItem": "MOBL-57",
+            "source": "Jira (system of record)"
+          }
+        }
+      }
+    },
+    {
+      "tool": "verify-claims",
+      "arguments": {
+        "text": "MOBL-57 is due Nov 6, 2026 and is owned by Mitch Davis."
+      },
+      "status": 200,
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 4,
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"subject\":\"draft\",\"verdict\":\"2 of 2 facts do not match Jira. Correct them before publishing.\",\"counts\":{\"total\":2,\"match\":0,\"drift\":2,\"unverifiable\":0},\"results\":[{\"workItem\":\"MOBL-57\",\"field\":\"due\",\"claimed\":\"Nov 6, 2026\",\"jira\":\"no due date\",\"verdict\":\"drift\",\"writeInstead\":\"TBD\"},{\"workItem\":\"MOBL-57\",\"field\":\"assignee\",\"claimed\":\"Mitch Davis\",\"jira\":\"(the site admin)\",\"verdict\":\"drift\",\"writeInstead\":\"(the site admin)\",\"changed\":\"true until 2026-11-27, changed by (the site admin)\"}],\"checkedAt\":\"2026-11-28T12:23:50.167Z\",\"source\":\"Jira (system of record), read with the caller’s permissions\"}"
+            }
+          ],
+          "isError": false,
+          "structuredContent": {
+            "subject": "draft",
+            "verdict": "2 of 2 facts do not match Jira. Correct them before publishing.",
+            "counts": {
+              "total": 2,
+              "match": 0,
+              "drift": 2,
+              "unverifiable": 0
+            },
+            "results": [
+              {
+                "workItem": "MOBL-57",
+                "field": "due",
+                "claimed": "Nov 6, 2026",
+                "jira": "no due date",
+                "verdict": "drift",
+                "writeInstead": "TBD"
+              },
+              {
+                "workItem": "MOBL-57",
+                "field": "assignee",
+                "claimed": "Mitch Davis",
+                "jira": "(the site admin)",
+                "verdict": "drift",
+                "writeInstead": "(the site admin)",
+                "changed": "true until 2026-11-27, changed by (the site admin)"
+              }
+            ],
+            "checkedAt": "2026-11-28T12:23:50.167Z",
+            "source": "Jira (system of record), read with the caller’s permissions"
+          }
+        }
+      }
+    }
+  ]
+}

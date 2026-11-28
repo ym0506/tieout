@@ -16,6 +16,7 @@ The name comes from audit practice: a report is "tied out" when every figure in 
 | Where | What you see |
 |---|---|
 | Confluence page, under the title | `Tie-Out: 2 out of date` or `Tie-Out: 7/7 match`. Click for the full report. A page labelled `tieout-ignore` shows `Tie-Out: off`. |
+| Report, "Keep this table current" | Replaces a typed status table with a live Jira table (the Confluence Jira macro) when every column is one Tie-Out understands. |
 | Confluence page, top banner | Shown only when something on the page is out of date. "Update from Jira" rewrites the facts in place. |
 | Jira work item panel | The pages that quote this work item, and which of them now say something it no longer says. |
 | Confluence → Apps → Tie-Out | Site overview, page scan, and a sample page built from your own work items. |
@@ -63,7 +64,7 @@ npm test
 node scripts/validate-manifest.cjs
 ```
 
-96 tests: the engine (dates, names, statuses, tables, sentences, fixes), the Forge handlers against an in-memory stand-in
+106 tests: the engine (dates, names, statuses, tables, sentences, fixes), the Forge handlers against an in-memory stand-in
 for the Jira and Confluence REST APIs (`test/fake-site.js`), and the UI states.
 
 Forge CLI 15 needs Node 22.23+ or 24.22+. `scripts/forge.sh` runs the project's CLI with Node 24 from `~/.nvm` when present.
@@ -80,7 +81,7 @@ src/core.js      use cases, written against four adapters (jira, confluence, sto
 src/forge/       Forge adapters and entry points (resolvers, events, actions)
 src/frontend/    UI Kit screens
 skills/          Rovo skill: verify-before-publish
-scripts/         manifest validation, public-data measurement
+scripts/         manifest validation, public-data measurement, outside MCP check
 docs/            evidence, submission notes
 ```
 

@@ -17,7 +17,9 @@ A status page says Nov 6 and Mitch. Jira says no due date and someone else. Tie-
 
 Many teams keep a weekly status page in Confluence: a table of work items with an owner, a due date and a status. The work is tracked in Jira and keeps changing, and the page gets updated when someone remembers.
 
-I wanted to see what an AI assistant does with such a page, so I tried it on a Codegeist demo site. I took the sample status page Tie-Out builds, which has a few facts written wrong on purpose, and removed the note that says so. Its row for MOBL-57 says "Mitch Davis, Nov 6, 2026". In Jira, MOBL-57 has no due date and is assigned to someone else. On 27 November I asked Rovo, in three fresh chats, to "summarise the Weekly status table on this page for my manager". Each time it reported MOBL-57 as due Nov 6, owned by Mitch Davis, and overdue. When I asked once instead "Who owns MOBL-57 and when is it due?", Rovo looked in Jira and pointed out that the page disagreed. On the copy that still had the note, Rovo also checked Jira before summarising. So Rovo can get the facts right when something prompts it to look, but its summary of an ordinary page took the values from the page.
+I wanted to see what an AI assistant does with such a page, so I tried it on a Codegeist demo site. I took the sample status page Tie-Out builds, which has a few facts written wrong on purpose, and removed the note that says so. Its row for MOBL-57 says "Mitch Davis, Nov 6, 2026". In Jira, MOBL-57 has no due date and is assigned to someone else. On 27 November I asked Rovo, in three fresh chats, to "summarise the Weekly status table on this page for my manager". Each time it reported MOBL-57 as due Nov 6, owned by Mitch Davis, and overdue. When I asked once instead "Who owns MOBL-57 and when is it due?", Rovo looked in Jira and pointed out that the page disagreed. On the copy that still had the note, Rovo also checked Jira before summarising. So Rovo can get the facts right when something prompts it to look, but its summary of an ordinary page took the values from the page. Then I chose the Tie-Out agent in Rovo and asked the same thing, again in three fresh chats. Each summary used Jira's values and listed what it had corrected.
+
+This matches an accepted answer on the Atlassian Community: Rovo works from whatever content the user can open, and it does not reliably pick the right version when pages disagree ([thread](https://community.atlassian.com/forums/Rovo-questions/How-does-Rovo-handle-conflicting-or-incomplete-information/qaa-p/3268873)). The other answers there suggest archiving old pages or finding duplicates. Neither tells you which value is right.
 
 The name comes from auditing, where checking each figure in a report against its source is called tying out. Tie-Out does that for the dates, owners and statuses written on Confluence pages.
 
@@ -37,7 +39,15 @@ For agents, the Tie-Out Rovo agent and its `verify-before-publish` skill check a
 
 When a page is out of date, Tie-Out asks Teamwork Graph who owns the page and which pages it links to, so you can see who should fix it and where the same fact may be repeated.
 
+Sometimes the better fix is to stop typing the values at all. When every column of a status table is one Tie-Out understands (work item, summary, owner, due date, status, fix version, priority), the report offers "Make this table live". After one more confirmation it replaces the table with a Jira table, the Confluence Jira macro, which always shows Jira's current values. A table with any other column, such as Notes, is left alone, and the report says which column is in the way.
+
 Some pages are meant to stay as they were written, such as a design record. With the label `tieout-ignore`, a page gets no badge count or banner from its next check on. The report can still be opened by hand.
+
+## How it differs from what teams use today
+
+- Stale-page tools flag a page by its age or by how often it is viewed. Tie-Out checks the values on the page against Jira, so a page edited yesterday can be flagged and a page from 2022 can pass.
+- Change-review tools flag a page when a linked work item changes after they are installed. Tie-Out also finds facts that were already wrong before it was installed, which is most of what it found on the Apache pages, and it can correct the cell or make the table live.
+- Asking Rovo about one work item works when someone already suspects a problem. Tie-Out shows the problem to everyone who opens the page, and its agent checks a summary before it is sent.
 
 ## How I built it
 
@@ -49,7 +59,7 @@ Modules: `confluence:contentBylineItem` with dynamic properties, `confluence:pag
 
 The report, the Jira panel and the tools read Jira and Confluence as the person using them. The badge works differently. Its count is worked out in the background with the app's access and is shown to everyone who can read the page. For that reason it leaves out facts about work items that have an issue security level or that the app cannot read. In Forge storage Tie-Out keeps page ids and titles, counts and work item keys, never field values.
 
-There are 96 automated tests. They cover the engine and the UI states, and they run the Forge handlers against an in-memory stand-in for the Jira and Confluence REST APIs.
+There are 106 automated tests. They cover the engine and the UI states, and they run the Forge handlers against an in-memory stand-in for the Jira and Confluence REST APIs.
 
 ## Challenges I ran into
 
@@ -65,6 +75,8 @@ So that a correction changes only one cell, Tie-Out records where each fact sits
 
 - After the fix, on the same Apache pages, I changed the Jira value under each of the 317 facts that were right, in a copy of Jira's answers. Tie-Out marked 316 of them out of date. In a second pass I made only cosmetic changes under the same facts, 302 where one applied, such as `1.18` to `1.18.0` or renaming a status within its category. It raised no alarm on any of them.
 - I kept one data set back while tuning: 1,380 Apache Kafka design pages (KIPs). They are mostly prose, so Tie-Out found only 23 facts it could check there, and flagged 5. Reading each against the page, 3 are real disagreements, 1 is a misreading (a ZooKeeper version in the same sentence as a Kafka work item) and 1 depends on workflow wording. I left the misreading unfixed, because changing the rules after seeing these pages would mean they were no longer held out. The details are in `docs/evidence`.
+- On the same page with the same request, default Rovo used the page's old values in 3 of 3 summaries and the Tie-Out agent used Jira's values in 3 of 3.
+- An outside MCP client, written with only the Python standard library, went through Atlassian's OAuth consent on the demo site, listed the three tools and called `get-fact` and `verify-claims`. The script is `scripts/mcp-check.py` and its output is in `docs/evidence`.
 - The badge and report, the Rovo agent and the MCP tools use the same engine.
 
 ## What I learned
@@ -78,7 +90,7 @@ I learned more from measuring on public data than I would have from another feat
 - Counts and roll-ups such as "17 of 23 done", recomputed from a JQL query.
 - Sentence rules that can tell whose version a number is, the case the held-out pages exposed.
 - Custom fields, and Jira Product Discovery and Goals as sources.
-- Replacing a typed value with a live Jira field, for authors who prefer that.
+- Making a single sentence live, not only a whole table.
 - A weekly note to page owners, using the owner relationship from Teamwork Graph.
 
 ## Links
@@ -101,6 +113,6 @@ Tie-Out is a Forge app (`manifest.yml`, runtime `nodejs24.x`) installed in Confl
 
 **Best Agents (Rovo).** The app ships a `rovo:agent` named Tie-Out, a reusable `rovo:skill` named `verify-before-publish`, and three `action` modules that other agents can call as tools. Given a draft status update, the agent calls `verify-claims`, replaces each out-of-date fact with the Jira value and says what it changed.
 
-**Best app with Atlassian MCP.** A `rovo:mcp` module named Tie-Out exposes `verify-claims` (check a draft before it is published), `check-page` (check a Confluence page by id or URL) and `get-fact` (the current due date, owner, status, fix versions and priority of a work item). The repository also has an open skill file, `skills/verify-before-publish/SKILL.md`, that tells any agent how to use them. Custom agents in Rovo Studio can add the tools directly. Outside MCP clients connect to `https://mcp.atlassian.com/forge/472dda99-d578-4070-b2ab-05a2797cf96b` after a site admin turns the tools on. Every tool reads Jira and Confluence with the calling user's permissions.
+**Best app with Atlassian MCP.** A `rovo:mcp` module named Tie-Out exposes `verify-claims` (check a draft before it is published), `check-page` (check a Confluence page by id or URL) and `get-fact` (the current due date, owner, status, fix versions and priority of a work item). The repository also has an open skill file, `skills/verify-before-publish/SKILL.md`, that tells any agent how to use them. Custom agents in Rovo Studio can add the tools directly. Outside MCP clients connect to `https://mcp.atlassian.com/forge/472dda99-d578-4070-b2ab-05a2797cf96b` after a site admin turns the tools on. I tested this on 28 November with a small client in the repository (`scripts/mcp-check.py`): OAuth 2.1 with PKCE through Atlassian's consent screen, then `tools/list` and calls to `get-fact` and `verify-claims`. Every tool reads Jira and Confluence with the calling user's permissions.
 
 **Best apps with Teamwork Graph integration.** When a page is out of date, Tie-Out calls the Teamwork Graph API (`confluencePageOwners`, `confluencePageLinkedConfluencePages`) to show who owns the page and which linked pages may repeat the same fact, each with its own Tie-Out count. Scopes: `read:graph:page:confluence`, `read:graph:user:atlassian`.
