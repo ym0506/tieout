@@ -10,6 +10,10 @@ export function createFakeSite() {
     changelogs: {},      // key → histories[]
     pages: {},           // id → {id, title, spaceId, version, doc, deleted}
     spaces: [{ id: '100', key: 'TEAM', name: 'Team space', type: 'global' }],
+    projects: [
+      { key: 'PAY', name: 'Payments', projectTypeKey: 'software' },
+      { key: 'MKT', name: 'Marketing launch', projectTypeKey: 'business' },
+    ],
     hiddenFromUser: new Set(),   // issue keys the current user may not see
     calls: [],
     kv: new Map(),
@@ -29,6 +33,8 @@ export function createFakeSite() {
     version: { number: p.version },
     body: { atlas_doc_format: { value: JSON.stringify(p.doc) } },
     _links: { webui: `/spaces/TEAM/pages/${p.id}` },
+    parentId: p.parentId || null,
+    parentType: p.parentId ? 'page' : null,
     ...(withLabels ? { labels: labelList(p) } : {}),
   });
 
@@ -52,9 +58,14 @@ export function createFakeSite() {
       return visible(key, as) ? ok(site.issues[key]) : fail(404);
     }
     if (path === '/rest/api/3/search/jql') {
-      const issues = Object.values(site.issues).filter((i) => visible(i.key, as)).slice(0, body.maxResults);
+      site.lastJql = body.jql;
+      const project = /project = "([A-Z0-9_]+)"/.exec(body.jql || '');
+      const issues = Object.values(site.issues)
+        .filter((i) => visible(i.key, as) && (!project || i.key.startsWith(`${project[1]}-`)))
+        .slice(0, body.maxResults);
       return ok({ issues });
     }
+    if (path.startsWith('/rest/api/3/project/search')) return ok({ values: site.projects });
     return fail(404, `unhandled jira ${path}`);
   }
 

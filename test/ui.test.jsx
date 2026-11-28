@@ -164,6 +164,7 @@ describe('Report', () => {
     });
     const r = await render(<Report />);
     expect(textOf(r.toJSON())).toContain('The table listing PAY-12, PAY-13 can be replaced with a Jira table');
+    expect(textOf(r.toJSON())).toContain('the rows are sorted by due date. People who cannot open Jira will see an empty table.');
     expect(r.root.findAllByType('Button').filter((b) => textOf(b.props.children) === 'Make this table live')).toHaveLength(1);
     await act(async () => { r.root.findAllByType('Button').find((b) => textOf(b.props.children) === 'Make this table live').props.onClick(); });
     expect(bridge.invoke).not.toHaveBeenCalledWith('makeTableLive', expect.anything());
@@ -297,8 +298,23 @@ describe('Dashboard', () => {
     const button = r.root.findAllByType('LoadingButton').find((b) => textOf(b.props.children) === 'Create sample page');
     expect(button.props.isDisabled).toBe(false);
     await act(async () => { await button.props.onClick(); });
-    expect(created).toHaveBeenCalledWith({ spaceId: '100' });
+    expect(created).toHaveBeenCalledWith({ spaceId: '100', project: null });
     expect(textOf(r.toJSON())).toContain('3 out of date on purpose: PAY-12 due date, PAY-13 status (the due date is written twice).');
+  });
+
+  it('builds the sample from a chosen project and shows a problem in place', async () => {
+    const created = vi.fn(() => ({ error: true, message: 'No work items found in Marketing launch. Pick another project or "Any project".' }));
+    wire(dash(), { createSample: created, listProjects: () => ({ projects: [{ key: 'MKT', name: 'Marketing launch', type: 'business' }, { key: 'PAY', name: 'Payments', type: 'software' }] }) });
+    const r = await render(<Dashboard />);
+    const picker = r.root.findAllByType('Select').find((sel) => sel.props.inputId === 'tieout-project');
+    expect(picker.props.options.map((o) => o.label)).toEqual(['Any project', 'Marketing launch (MKT, business)', 'Payments (PAY, software)']);
+    await act(async () => { picker.props.onChange(picker.props.options[1]); });
+    const button = r.root.findAllByType('LoadingButton').find((b) => textOf(b.props.children) === 'Create sample page');
+    await act(async () => { await button.props.onClick(); });
+    expect(created).toHaveBeenCalledWith({ spaceId: '100', project: { key: 'MKT', name: 'Marketing launch' } });
+    const text = textOf(r.toJSON());
+    expect(text).toContain('No sample page created');
+    expect(text).toContain('Pages'); // the dashboard is still there
   });
 
   it('shows a retry when loading fails', async () => {

@@ -114,7 +114,7 @@ export const Report = ({ compact = false }) => {
 
         {report.ignored && (
           <SectionMessage appearance="information" title="Background checks are off for this page">
-            <Text>This page has the label tieout-ignore, so it gets no badge count or banner. You can still check it here. Remove the label to turn background checks back on.</Text>
+            <Text>{`${report.ignoredFrom === 'parent' ? 'A page above this one' : 'This page'} has the label tieout-ignore, so this page gets no badge count or banner. You can still check it here. Remove the label to turn background checks back on.`}</Text>
           </SectionMessage>
         )}
 
@@ -151,7 +151,7 @@ export const Report = ({ compact = false }) => {
         {!liveDone && liveable.map((t) => (
           <SectionMessage key={t.id} appearance="information" title="Keep this table current">
             <Stack space="space.100">
-              <Text>{`The table listing ${t.keys.slice(0, 3).join(', ')}${t.keys.length > 3 ? ` and ${t.keys.length - 3} more` : ''} can be replaced with a Jira table, which always shows Jira's current values. The typed values go away and the rows are sorted by work item key.`}</Text>
+              <Text>{`The table listing ${t.keys.slice(0, 3).join(', ')}${t.keys.length > 3 ? ` and ${t.keys.length - 3} more` : ''} can be replaced with a Jira table, which always shows Jira's current values. The typed values go away and the rows are sorted by ${t.columns && t.columns.includes('due') ? 'due date' : 'work item key'}. People who cannot open Jira will see an empty table.`}</Text>
               {confirming === t.id ? (
                 <Inline space="space.100">
                   <LoadingButton appearance="primary" isLoading={living === t.id} isDisabled={!!living} onClick={() => makeLive(t)}>Replace with a live Jira table</LoadingButton>

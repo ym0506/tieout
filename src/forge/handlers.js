@@ -84,15 +84,21 @@ resolver.define('scan', (req) => guarded(async () => {
 
 resolver.define('listSpaces', () => guarded(async () => ({ spaces: await confluence.listSpaces('user') })));
 
+resolver.define('listProjects', () => guarded(async () => ({ projects: await jira.listProjects('user') })));
+
 resolver.define('createSample', (req) => guarded(async () => {
   const spaceId = req.payload && req.payload.spaceId;
+  const project = (req.payload && req.payload.project) || null; // { key, name } or null for any project
   if (!spaceId) return { error: true, message: 'Choose a space first.' };
-  const issues = await jira.sampleIssues(6, 'user');
-  if (!issues.length) return { error: true, message: 'No Jira work items found. Create one in Jira, then try again.' };
+  const issues = await jira.sampleIssues(6, 'user', project && project.key);
+  if (!issues.length) {
+    return { error: true, message: project ? `No work items found in ${project.name}. Pick another project or "Any project".` : 'No Jira work items found. Create one in Jira, then try again.' };
+  }
   const siteUrl = (req.context && req.context.siteUrl) || '';
   const { doc, stale, count, used } = buildSamplePage(issues, siteUrl);
   const stamp = new Date().toISOString().slice(0, 16).replace('T', ' ');
-  const page = await confluence.createPage({ spaceId, title: `Tie-Out sample status (${stamp})`, doc }, 'user');
+  const title = project ? `${project.name} weekly status (Tie-Out sample, ${stamp})` : `Tie-Out sample status (${stamp})`;
+  const page = await confluence.createPage({ spaceId, title, doc }, 'user');
   try { await tieout(req.context.cloudId).onPageChanged(page.id); } catch (e) { /* the page event will index it */ }
   return { page, stale, count, used };
 }));
@@ -107,7 +113,8 @@ export async function bylineProperties(payload) {
   let summary = null;
   try { summary = pageId ? await store.getPage(pageId) : null; } catch (e) { summary = null; }
   if (summary && summary.ignored) {
-    return { title: 'Tie-Out: off', tooltip: `Not checked in the background: this page has the label ${IGNORE_LABEL}` };
+    const where = summary.ignoredFrom === 'parent' ? 'a page above this one has' : 'this page has';
+    return { title: 'Tie-Out: off', tooltip: `Not checked in the background: ${where} the label ${IGNORE_LABEL}` };
   }
   const restricted = summary && summary.restricted
     ? ` Facts about ${summary.restricted === 1 ? 'a work item' : 'work items'} with restricted access are not counted here; open the report to check them with your access.`

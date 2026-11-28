@@ -238,6 +238,21 @@ describe('who sees what', () => {
     expect(JSON.parse(site.kv.get('issue:PAY-12'))).toEqual({ pageIds: ['1001'] });
   });
 
+  it('a tieout-ignore label on a page above leaves out the whole tree', async () => {
+    site.addPage('900', 'Weekly status archive', doc(p('Old status pages')));
+    site.pages['900'].labels = ['tieout-ignore'];
+    site.addPage('901', '2026 Q4', doc(p('Quarter')));
+    site.pages['901'].parentId = '900';
+    site.pages['1001'].parentId = '901';
+    await app.onConfluencePageEvent({ eventType: 'avi:confluence:updated:page', content: { id: '1001' } }, ctx);
+    expect(JSON.parse(site.kv.get('page:1001'))).toMatchObject({ ignored: true, ignoredFrom: 'parent', issueKeys: [] });
+    const badge = await app.bylineProperties({ extension: { content: { id: '1001' } } });
+    expect(badge).toMatchObject({ title: 'Tie-Out: off' });
+    expect(badge.tooltip).toContain('a page above this one');
+    const report = await call('getPageReport', onPage('1001'));
+    expect(report).toMatchObject({ ignored: true, ignoredFrom: 'parent', counts: { drift: 3 } });
+  });
+
   it('the banner notices a tieout-ignore label added since the last check', async () => {
     await app.onConfluencePageEvent({ eventType: 'avi:confluence:updated:page', content: { id: '1001' } }, ctx);
     expect((await call('getPageSummary', onPage('1001'))).counts.drift).toBe(3);
@@ -264,7 +279,7 @@ describe('make a table live', () => {
     const page = site.pages['1001'];
     expect(page.lastEditedAs).toBe('user');
     expect(page.lastMessage).toBe('Tie-Out: replaced a typed table of 2 work items with a live Jira table');
-    expect(page.doc.content[1].attrs.parameters.macroParams.jqlQuery.value).toBe('key in (PAY-12,PAY-13) ORDER BY key ASC');
+    expect(page.doc.content[1].attrs.parameters.macroParams.jqlQuery.value).toBe('key in (PAY-12,PAY-13) ORDER BY duedate ASC, key ASC');
     // Only the sentence under the table still states a fact, and it is still out of date.
     expect(JSON.parse(site.kv.get('page:1001')).counts).toEqual({ total: 1, match: 0, drift: 1, unverifiable: 0 });
   });
@@ -337,6 +352,21 @@ describe('sample page', () => {
     expect(report.counts.unverifiable).toBe(0);
     expect(site.pages[res.page.id].doc.content[2].content[1].content[0].content[0].content[0])
       .toEqual({ type: 'inlineCard', attrs: { url: 'https://acme.atlassian.net/browse/PAY-12' } });
+  });
+
+  it('builds the sample from the project the person picks, business projects listed first', async () => {
+    expect(await call('listProjects', { payload: {}, context: ctx })).toEqual({ projects: [
+      { key: 'MKT', name: 'Marketing launch', type: 'business' },
+      { key: 'PAY', name: 'Payments', type: 'software' },
+    ] });
+    site.addIssue('MKT-7', { summary: 'Launch email' });
+    site.addIssue('MKT-8', { summary: 'Landing page' });
+    const res = await call('createSample', { payload: { spaceId: '100', project: { key: 'MKT', name: 'Marketing launch' } }, context: ctx });
+    expect(site.lastJql).toContain('project = "MKT"');
+    expect(res.used).toEqual(['MKT-7', 'MKT-8']);
+    expect(site.pages[res.page.id].title).toMatch(/^Marketing launch weekly status \(Tie-Out sample, /);
+    const none = await call('createSample', { payload: { spaceId: '100', project: { key: 'HR', name: 'People team' } }, context: ctx });
+    expect(none).toMatchObject({ error: true, message: 'No work items found in People team. Pick another project or "Any project".' });
   });
 
   it('asks for a space and for at least one work item', async () => {

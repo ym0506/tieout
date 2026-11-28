@@ -73,7 +73,7 @@ describe('the Jira table', () => {
             columns: { value: 'key,summary,assignee,due,status' },
             columnIds: { value: 'issuekey,summary,assignee,duedate,status' },
             maximumIssues: { value: '20' },
-            jqlQuery: { value: 'key in (PAY-12,PAY-13) ORDER BY key ASC' },
+            jqlQuery: { value: 'key in (PAY-12,PAY-13) ORDER BY duedate ASC, key ASC' },
           },
           macroMetadata: { macroId: { value: 'id-1' }, schemaVersion: { value: '1' }, title: 'Jira Legacy' },
         },

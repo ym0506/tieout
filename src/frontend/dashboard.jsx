@@ -9,6 +9,8 @@ const page = xcss({ padding: 'space.300', maxWidth: '1100px' });
 const MAX_BATCHES_PER_CLICK = 6;
 
 const pageUrl = (id) => `/wiki/pages/viewpage.action?pageId=${id}`;
+const ANY_PROJECT = { label: 'Any project', value: '' };
+const TYPE_NAME = { business: 'business', software: 'software', service_desk: 'service', product_discovery: 'discovery' };
 
 /** Site overview: how many pages state Jira facts, which are out of date, plus scan and sample tools. */
 export const Dashboard = () => {
@@ -18,8 +20,11 @@ export const Dashboard = () => {
   const [scanNote, setScanNote] = useState(null);
   const [spaces, setSpaces] = useState(null);
   const [space, setSpace] = useState(null);
+  const [projects, setProjects] = useState(null);
+  const [project, setProject] = useState(ANY_PROJECT);
   const [creating, setCreating] = useState(false);
   const [sample, setSample] = useState(null);
+  const [sampleError, setSampleError] = useState(null);
 
   const load = useCallback(async () => {
     try {
@@ -40,6 +45,9 @@ export const Dashboard = () => {
         if (list.length) setSpace({ label: list[0].name, value: list[0].id });
       })
       .catch(() => setSpaces([]));
+    invoke('listProjects')
+      .then((res) => setProjects((res && res.projects) || []))
+      .catch(() => setProjects([]));
   }, [load]);
 
   const scan = async (restart) => {
@@ -69,12 +77,14 @@ export const Dashboard = () => {
     if (!space) return;
     setCreating(true);
     setSample(null);
+    setSampleError(null);
     try {
-      const res = await invoke('createSample', { spaceId: space.value });
-      if (res && res.error) setError(res.message);
+      const chosen = project && project.value ? { key: project.value, name: project.name } : null;
+      const res = await invoke('createSample', { spaceId: space.value, project: chosen });
+      if (res && res.error) setSampleError(res.message);
       else { setSample(res); await load(); }
     } catch (e) {
-      setError((e && e.message) || 'The sample page could not be created.');
+      setSampleError((e && e.message) || 'The sample page could not be created.');
     }
     setCreating(false);
   };
@@ -155,7 +165,7 @@ export const Dashboard = () => {
         <Stack space="space.100">
           <Heading as="h2" size="small">Try it on your own data</Heading>
           <Text>
-            Creates a status page from your most recent Jira work items. A few facts are written out of date on purpose, and the page says which.
+            Creates a status page from Jira work items with a due date and an owner, from the project you choose. A few facts are written out of date on purpose, and the page says which.
           </Text>
           <Inline space="space.100" alignBlock="center">
             <Box xcss={xcss({ minWidth: '260px' })}>
@@ -167,8 +177,22 @@ export const Dashboard = () => {
                 onChange={(v) => setSpace(v)}
               />
             </Box>
+            <Box xcss={xcss({ minWidth: '260px' })}>
+              <Select
+                inputId="tieout-project"
+                placeholder={projects === null ? 'Loading projects…' : 'Any project'}
+                options={[ANY_PROJECT, ...(projects || []).map((p) => ({ label: `${p.name} (${p.key}${TYPE_NAME[p.type] ? `, ${TYPE_NAME[p.type]}` : ''})`, value: p.key, name: p.name }))]}
+                value={project}
+                onChange={(v) => setProject(v || ANY_PROJECT)}
+              />
+            </Box>
             <LoadingButton isLoading={creating} isDisabled={!space} onClick={createSample}>Create sample page</LoadingButton>
           </Inline>
+          {sampleError && (
+            <SectionMessage appearance="warning" title="No sample page created">
+              <Text>{sampleError}</Text>
+            </SectionMessage>
+          )}
           {sample && sample.page && (
             <SectionMessage appearance="success" title="Sample page created">
               <Stack space="space.050">

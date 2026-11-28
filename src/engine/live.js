@@ -132,7 +132,8 @@ export function jiraTableNode(keys, columns, newId = () => globalThis.crypto.ran
           columns: { value: cols.map((c) => JIRA_COLUMN[c][0]).join(',') },
           columnIds: { value: cols.map((c) => JIRA_COLUMN[c][1]).join(',') },
           maximumIssues: { value: String(Math.max(20, keys.length)) },
-          jqlQuery: { value: `key in (${keys.join(',')}) ORDER BY key ASC` },
+          // A Jira table cannot keep the author's row order; status tables usually read by due date.
+          jqlQuery: { value: `key in (${keys.join(',')}) ORDER BY ${cols.includes('due') ? 'duedate ASC, key ASC' : 'key ASC'}` },
         },
         macroMetadata: { macroId: { value: newId() }, schemaVersion: { value: '1' }, title: 'Jira Legacy' },
       },

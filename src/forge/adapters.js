@@ -72,8 +72,12 @@ export const jira = {
     return last.values || [];
   },
 
-  /** Work items for the sample page: ones with a due date and an owner first, then the most recent. */
-  async sampleIssues(limit, as) {
+  /**
+   * Work items for the sample page: ones with a due date and an owner first, then the most recent.
+   * With a project key, only that project (for example a marketing or HR project).
+   */
+  async sampleIssues(limit, as, projectKey = null) {
+    const scope = projectKey && /^[A-Z][A-Z0-9_]{0,19}$/.test(projectKey) ? `project = "${projectKey}" AND ` : '';
     const search = async (jql) => {
       const res = await client(as).requestJira(route`/rest/api/3/search/jql`, {
         method: 'POST',
@@ -83,11 +87,21 @@ export const jira = {
       const data = await json(res, 'Searching Jira');
       return (data.issues || []).map(reduceIssue);
     };
-    const dated = await search('duedate is not EMPTY AND assignee is not EMPTY AND updated >= -730d ORDER BY updated DESC');
+    const dated = await search(`${scope}duedate is not EMPTY AND assignee is not EMPTY ORDER BY updated DESC`);
     if (dated.length >= limit) return dated.slice(0, limit);
-    const recent = await search('updated >= -730d ORDER BY updated DESC');
+    const recent = await search(`${scope}updated >= -730d ORDER BY updated DESC`);
     const seen = new Set(dated.map((i) => i.key));
     return [...dated, ...recent.filter((i) => !seen.has(i.key))].slice(0, limit);
+  },
+
+  /** Projects the person can see, for the sample page picker. Business projects first. */
+  async listProjects(as) {
+    const res = await client(as).requestJira(route`/rest/api/3/project/search?maxResults=50&orderBy=name`, { headers: { Accept: 'application/json' } });
+    const data = await json(res, 'Listing Jira projects');
+    const rank = { business: 0, service_desk: 1, product_discovery: 2, software: 3 };
+    return (data.values || [])
+      .map((p) => ({ key: p.key, name: p.name, type: p.projectTypeKey || 'other' }))
+      .sort((a, b) => ((rank[a.type] ?? 4) - (rank[b.type] ?? 4)) || a.name.localeCompare(b.name));
   },
 
   async recentIssues(limit, as) {
@@ -119,6 +133,7 @@ function toPage(raw) {
     url: links.webui ? `/wiki${links.webui}` : null,
     // null when the response did not include labels (page lists); fetched separately when needed
     labels: raw.labels && Array.isArray(raw.labels.results) ? raw.labels.results.map((l) => l.name) : null,
+    parentId: raw.parentId && (!raw.parentType || raw.parentType === 'page') ? String(raw.parentId) : null,
   };
 }
 
@@ -152,6 +167,17 @@ export const confluence = {
     const nextLink = data._links && data._links.next;
     const m = nextLink ? /[?&]cursor=([^&]+)/.exec(nextLink) : null;
     return { pages: (data.results || []).map(toPage), next: m ? decodeURIComponent(m[1]) : null };
+  },
+
+  /** A page's parent and labels, without its body. */
+  async getPageMeta(id, as) {
+    const res = await client(as).requestConfluence(route`/wiki/api/v2/pages/${id}?include-labels=true`, { headers: { Accept: 'application/json' } });
+    const raw = await json(res, 'Reading the page');
+    return {
+      id: String(raw.id),
+      parentId: raw.parentId && (!raw.parentType || raw.parentType === 'page') ? String(raw.parentId) : null,
+      labels: raw.labels && Array.isArray(raw.labels.results) ? raw.labels.results.map((l) => l.name) : [],
+    };
   },
 
   async getLabels(id, as) {

@@ -12,6 +12,7 @@ import {
 
 const MAX_HISTORY_LOOKUPS = 8;
 const MAX_PAGES_PER_ISSUE = 200;
+const MAX_PARENT_DEPTH = 8;
 
 /** A page with this label is left out of background checks, the badge and the banner. */
 export const IGNORE_LABEL = 'tieout-ignore';
@@ -45,12 +46,36 @@ export function createTieOut({ jira, confluence, store, graph, now = () => new D
     };
   }
 
-  async function isIgnored(page, as) {
-    let labels = page.labels;
-    if (!labels && confluence.getLabels) {
-      try { labels = await confluence.getLabels(page.id, as); } catch (e) { labels = []; }
+  /**
+   * Why a page is left out: 'self' when it carries the label, 'parent' when a page above it
+   * does (so labelling a parent, or a space's home page, leaves out the whole tree), else null.
+   */
+  async function ignoreSource(pageId, labels, as, parentOf = undefined) {
+    let own = labels;
+    let parentKnown = parentOf;
+    if (!own && confluence.getPageMeta) {
+      // One request gives the page's labels and its parent.
+      try {
+        const meta = await confluence.getPageMeta(pageId, as);
+        own = meta.labels;
+        if (parentKnown === undefined) parentKnown = meta.parentId;
+      } catch (e) { own = []; }
+    } else if (!own && confluence.getLabels) {
+      try { own = await confluence.getLabels(pageId, as); } catch (e) { own = []; }
     }
-    return (labels || []).includes(IGNORE_LABEL);
+    if ((own || []).includes(IGNORE_LABEL)) return 'self';
+    if (!confluence.getPageMeta) return null;
+    // Walk up one parent at a time; each step reads the parent's labels with the page.
+    let parentId = parentKnown;
+    try {
+      if (parentId === undefined) parentId = (await confluence.getPageMeta(pageId, as)).parentId;
+      for (let depth = 0; parentId && depth < MAX_PARENT_DEPTH; depth += 1) {
+        const parent = await confluence.getPageMeta(parentId, as);
+        if (parent.labels.includes(IGNORE_LABEL)) return 'parent';
+        parentId = parent.parentId;
+      }
+    } catch (e) { /* a page above that this caller cannot read */ }
+    return null;
   }
 
   /**
@@ -63,8 +88,9 @@ export function createTieOut({ jira, confluence, store, graph, now = () => new D
   async function record(page, as = 'app') {
     const report = await verifyDoc(page.doc, { as });
     const before = (await store.getPage(page.id)) || { issueKeys: [] };
-    const ignored = (report.issueKeys.length || before.issueKeys.length || before.ignored)
-      ? await isIgnored(page, as) : false;
+    const source = (report.issueKeys.length || before.issueKeys.length || before.ignored)
+      ? await ignoreSource(page.id, page.labels, as, page.parentId === undefined ? undefined : page.parentId) : null;
+    const ignored = !!source;
     const issueKeys = ignored ? [] : report.issueKeys;
     // Facts about work items the app cannot read (r.actual is null) or that carry an issue
     // security level are left out, so the badge says nothing about them either way.
@@ -75,7 +101,7 @@ export function createTieOut({ jira, confluence, store, graph, now = () => new D
       restricted: ignored ? 0 : report.results.length - shown.length,
       issueKeys, checkedAt: now(),
     };
-    if (ignored) summary.ignored = true;
+    if (ignored) { summary.ignored = true; summary.ignoredFrom = source; }
     if (!issueKeys.length && !before.issueKeys.length && !ignored && !before.ignored) return summary;
     await store.setPage(page.id, summary);
     const gone = before.issueKeys.filter((k) => !issueKeys.includes(k));
@@ -105,11 +131,13 @@ export function createTieOut({ jira, confluence, store, graph, now = () => new D
         context.linked = context.linked.map((l, i) => ({ ...l, counts: stored[i] ? stored[i].counts : null }));
       }
     }
-    try { await record(page, 'app'); } catch (e) { /* the report still stands without the index */ }
+    let summary = null;
+    try { summary = await record(page, 'app'); } catch (e) { /* the report still stands without the index */ }
     return {
       page: { id: page.id, title: page.title, version: page.version, url: page.url },
       ...report,
-      ignored: (page.labels || []).includes(IGNORE_LABEL),
+      ignored: summary ? !!summary.ignored : (page.labels || []).includes(IGNORE_LABEL),
+      ignoredFrom: summary && summary.ignored ? summary.ignoredFrom : null,
       liveTables: findLiveTables(page.doc).map(({ path, ...t }) => t),
       context,
       checkedAt: now(),
@@ -123,9 +151,7 @@ export function createTieOut({ jira, confluence, store, graph, now = () => new D
   async function pageSummary(pageId, { as = 'user' } = {}) {
     const stored = await store.getPage(pageId);
     if (stored && stored.counts && stored.counts.drift > 0 && confluence.getLabels) {
-      let labels = null;
-      try { labels = await confluence.getLabels(pageId, as); } catch (e) { labels = null; }
-      if (labels && labels.includes(IGNORE_LABEL)) {
+      if (await ignoreSource(pageId, null, as)) {
         const page = await confluence.getPage(pageId, 'app');
         return record(page, 'app');
       }
