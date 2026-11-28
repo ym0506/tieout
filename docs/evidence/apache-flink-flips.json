@@ -1,31 +1,31 @@
 {
   "summary": {
-    "measuredAt": "2026-11-20",
+    "measuredAt": "2026-11-27",
     "source": {
       "pages": "cwiki.apache.org, space FLINK, design pages titled \"FLIP-<n>\"",
       "issues": "issues.apache.org/jira"
     },
     "pages": 609,
     "pagesWithClaims": 293,
-    "pagesWithDrift": 63,
+    "pagesWithDrift": 71,
     "workItems": 303,
-    "workItemsFound": 295,
+    "workItemsFound": 294,
     "claims": {
       "total": 302,
-      "match": 205,
-      "drift": 63,
-      "unverifiable": 34
+      "match": 217,
+      "drift": 71,
+      "unverifiable": 14
     },
-    "checkable": 268,
-    "driftShareOfCheckable": "23.5%",
-    "driftJiraHasOtherValue": 25,
-    "driftJiraHasNoValue": 38,
+    "checkable": 288,
+    "driftShareOfCheckable": "24.7%",
+    "driftJiraHasOtherValue": 30,
+    "driftJiraHasNoValue": 41,
     "byField": {
       "fixVersion": {
         "total": 288,
-        "match": 204,
-        "drift": 61,
-        "unverifiable": 23
+        "match": 216,
+        "drift": 69,
+        "unverifiable": 3
       },
       "status": {
         "total": 13,
@@ -59,8 +59,8 @@
       "lastEdited": "2026-11-18",
       "counts": {
         "total": 1,
-        "match": 0,
-        "drift": 1,
+        "match": 1,
+        "drift": 0,
         "unverifiable": 0
       }
     },
@@ -257,8 +257,8 @@
       "lastEdited": "2026-09-10",
       "counts": {
         "total": 1,
-        "match": 1,
-        "drift": 0,
+        "match": 0,
+        "drift": 1,
         "unverifiable": 0
       }
     },
@@ -356,9 +356,9 @@
       "lastEdited": "2026-07-27",
       "counts": {
         "total": 1,
-        "match": 0,
+        "match": 1,
         "drift": 0,
-        "unverifiable": 1
+        "unverifiable": 0
       }
     },
     {
@@ -907,8 +907,8 @@
       "counts": {
         "total": 1,
         "match": 0,
-        "drift": 0,
-        "unverifiable": 1
+        "drift": 1,
+        "unverifiable": 0
       }
     },
     {
@@ -950,9 +950,9 @@
       "lastEdited": "2022-09-16",
       "counts": {
         "total": 1,
-        "match": 0,
+        "match": 1,
         "drift": 0,
-        "unverifiable": 1
+        "unverifiable": 0
       }
     },
     {
@@ -961,9 +961,9 @@
       "lastEdited": "2022-09-16",
       "counts": {
         "total": 1,
-        "match": 0,
+        "match": 1,
         "drift": 0,
-        "unverifiable": 1
+        "unverifiable": 0
       }
     },
     {
@@ -994,9 +994,9 @@
       "lastEdited": "2025-11-06",
       "counts": {
         "total": 1,
-        "match": 0,
+        "match": 1,
         "drift": 0,
-        "unverifiable": 1
+        "unverifiable": 0
       }
     },
     {
@@ -1039,8 +1039,8 @@
       "counts": {
         "total": 1,
         "match": 0,
-        "drift": 0,
-        "unverifiable": 1
+        "drift": 1,
+        "unverifiable": 0
       }
     },
     {
@@ -1060,9 +1060,9 @@
       "lastEdited": "2026-01-29",
       "counts": {
         "total": 1,
-        "match": 0,
+        "match": 1,
         "drift": 0,
-        "unverifiable": 1
+        "unverifiable": 0
       }
     },
     {
@@ -1072,8 +1072,8 @@
       "counts": {
         "total": 1,
         "match": 0,
-        "drift": 0,
-        "unverifiable": 1
+        "drift": 1,
+        "unverifiable": 0
       }
     },
     {
@@ -1082,9 +1082,9 @@
       "lastEdited": "2026-01-29",
       "counts": {
         "total": 1,
-        "match": 0,
+        "match": 1,
         "drift": 0,
-        "unverifiable": 1
+        "unverifiable": 0
       }
     },
     {
@@ -1104,9 +1104,9 @@
       "lastEdited": "2024-08-20",
       "counts": {
         "total": 1,
-        "match": 0,
+        "match": 1,
         "drift": 0,
-        "unverifiable": 1
+        "unverifiable": 0
       }
     },
     {
@@ -1115,9 +1115,9 @@
       "lastEdited": "2026-01-15",
       "counts": {
         "total": 1,
-        "match": 0,
+        "match": 1,
         "drift": 0,
-        "unverifiable": 1
+        "unverifiable": 0
       }
     },
     {
@@ -1236,9 +1236,9 @@
       "lastEdited": "2023-06-05",
       "counts": {
         "total": 1,
-        "match": 0,
+        "match": 1,
         "drift": 0,
-        "unverifiable": 1
+        "unverifiable": 0
       }
     },
     {
@@ -1248,8 +1248,8 @@
       "counts": {
         "total": 1,
         "match": 0,
-        "drift": 0,
-        "unverifiable": 1
+        "drift": 1,
+        "unverifiable": 0
       }
     },
     {
@@ -1269,9 +1269,9 @@
       "lastEdited": "2025-01-20",
       "counts": {
         "total": 1,
-        "match": 0,
+        "match": 1,
         "drift": 0,
-        "unverifiable": 1
+        "unverifiable": 0
       }
     },
     {
@@ -1291,9 +1291,9 @@
       "lastEdited": "2022-09-18",
       "counts": {
         "total": 1,
-        "match": 0,
+        "match": 1,
         "drift": 0,
-        "unverifiable": 1
+        "unverifiable": 0
       }
     },
     {
@@ -1302,9 +1302,9 @@
       "lastEdited": "2022-09-18",
       "counts": {
         "total": 1,
-        "match": 0,
+        "match": 1,
         "drift": 0,
-        "unverifiable": 1
+        "unverifiable": 0
       }
     },
     {
@@ -1313,9 +1313,9 @@
       "lastEdited": "2022-09-18",
       "counts": {
         "total": 1,
-        "match": 0,
+        "match": 1,
         "drift": 0,
-        "unverifiable": 1
+        "unverifiable": 0
       }
     },
     {
@@ -1346,9 +1346,9 @@
       "lastEdited": "2022-09-16",
       "counts": {
         "total": 1,
-        "match": 0,
+        "match": 1,
         "drift": 0,
-        "unverifiable": 1
+        "unverifiable": 0
       }
     },
     {
@@ -1357,9 +1357,9 @@
       "lastEdited": "2022-09-16",
       "counts": {
         "total": 1,
-        "match": 0,
+        "match": 1,
         "drift": 0,
-        "unverifiable": 1
+        "unverifiable": 0
       }
     },
     {
@@ -1369,8 +1369,8 @@
       "counts": {
         "total": 1,
         "match": 0,
-        "drift": 0,
-        "unverifiable": 1
+        "drift": 1,
+        "unverifiable": 0
       }
     },
     {
@@ -3491,8 +3491,8 @@
       "lastEdited": "2022-11-23",
       "counts": {
         "total": 1,
-        "match": 1,
-        "drift": 0,
+        "match": 0,
+        "drift": 1,
         "unverifiable": 0
       }
     },
@@ -3579,8 +3579,8 @@
       "lastEdited": "2022-09-18",
       "counts": {
         "total": 1,
-        "match": 1,
-        "drift": 0,
+        "match": 0,
+        "drift": 1,
         "unverifiable": 0
       }
     },
@@ -5625,8 +5625,8 @@
       "lastEdited": "2023-04-27",
       "counts": {
         "total": 1,
-        "match": 1,
-        "drift": 0,
+        "match": 0,
+        "drift": 1,
         "unverifiable": 0
       }
     },
@@ -6744,14 +6744,6 @@
   ],
   "drift": [
     {
-      "page": "FLIP-621: Add built-in TO_APPEND PTF",
-      "pageLastEdited": "2026-11-18",
-      "workItem": "FLINK-41549",
-      "field": "fixVersion",
-      "pageSays": "2.5",
-      "jiraSays": "no fix version"
-    },
-    {
       "page": "FLIP-618: Edit, Inspect and Build VARIANT Values",
       "pageLastEdited": "2026-11-04",
       "workItem": "FLINK-41336",
@@ -6760,12 +6752,60 @@
       "jiraSays": "no fix version"
     },
     {
+      "page": "FLIP-585:  Introduce Lazy Loading for HistoryServer",
+      "pageLastEdited": "2026-09-10",
+      "workItem": "FLINK-40097",
+      "field": "fixVersion",
+      "pageSays": "2.4.0",
+      "jiraSays": "2.5.0"
+    },
+    {
       "page": "FLIP-586: Composable Parallelism Alignment Modes for Flink Autoscaler",
       "pageLastEdited": "2026-09-10",
       "workItem": "FLINK-39938",
       "field": "fixVersion",
       "pageSays": "2.4.0",
       "jiraSays": "kubernetes-operator-1.16.0"
+    },
+    {
+      "page": "FLIP-423: Disaggregated State Storage and Management (Umbrella FLIP)",
+      "pageLastEdited": "2024-06-03",
+      "workItem": "FLINK-34984",
+      "field": "fixVersion",
+      "pageSays": "2.0 2.1",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-425: Asynchronous Execution Model",
+      "pageLastEdited": "2025-06-03",
+      "workItem": "FLINK-34973",
+      "field": "fixVersion",
+      "pageSays": "2.0",
+      "jiraSays": "2.5.0"
+    },
+    {
+      "page": "FLIP-530: Dynamic job configuration",
+      "pageLastEdited": "2025-05-26",
+      "workItem": "FLINK-37853",
+      "field": "fixVersion",
+      "pageSays": "2.0",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-24: SQL Client",
+      "pageLastEdited": "2023-04-04",
+      "workItem": "FLINK-7594",
+      "field": "fixVersion",
+      "pageSays": "1.5",
+      "jiraSays": "no fix version"
+    },
+    {
+      "page": "FLIP-3: Organization of Documentation",
+      "pageLastEdited": "2022-09-16",
+      "workItem": "FLINK-4463",
+      "field": "fixVersion",
+      "pageSays": "1.2",
+      "jiraSays": "no fix version"
     },
     {
       "page": "FLIP-424: Asynchronous State APIs",
@@ -7000,6 +7040,14 @@
       "jiraSays": "2.5.0"
     },
     {
+      "page": "FLIP-252: Amazon DynamoDB Sink Connector",
+      "pageLastEdited": "2022-11-23",
+      "workItem": "FLINK-24229",
+      "field": "fixVersion",
+      "pageSays": "AWS Connectors 2.0.0",
+      "jiraSays": "aws-connector-3.0.0"
+    },
+    {
       "page": "FLIP-265 Deprecate and remove Scala API support",
       "pageLastEdited": "2022-10-24",
       "workItem": "FLINK-29739",
@@ -7014,6 +7062,14 @@
       "field": "fixVersion",
       "pageSays": "1.3",
       "jiraSays": "1.4.0"
+    },
+    {
+      "page": "FLIP-212: Introduce Flink Kubernetes Operator",
+      "pageLastEdited": "2022-09-18",
+      "workItem": "FLINK-25963",
+      "field": "fixVersion",
+      "pageSays": "kubernetes-operator-1.0",
+      "jiraSays": "kubernetes-operator-0.1.0"
     },
     {
       "page": "FLIP-164: Improve Schema Handling in Catalogs",
@@ -7184,6 +7240,14 @@
       "jiraSays": "2.5.0"
     },
     {
+      "page": "FLIP-288: Enable Dynamic Partition Discovery by Default in Kafka Source",
+      "pageLastEdited": "2023-04-27",
+      "workItem": "FLINK-31953",
+      "field": "fixVersion",
+      "pageSays": "kafka-4.0.0",
+      "jiraSays": "kafka-3.1.0"
+    },
+    {
       "page": "FLIP-286: Fix the API stability/scope annotation inconsistency in AbstractStreamOperator",
       "pageLastEdited": "2023-01-12",
       "workItem": "FLINK-30645",
@@ -7258,67 +7322,7 @@
       4
     ],
     [
-      "fixVersion: 1.15",
-      4
-    ],
-    [
-      "fixVersion: 2.0",
-      3
-    ],
-    [
       "status: Jira",
-      1
-    ],
-    [
-      "fixVersion: FLINK-2.3",
-      1
-    ],
-    [
-      "fixVersion: 2.0 2.1",
-      1
-    ],
-    [
-      "fixVersion: 1.17",
-      1
-    ],
-    [
-      "fixVersion: 2.2",
-      1
-    ],
-    [
-      "fixVersion: 2.0-preview",
-      1
-    ],
-    [
-      "fixVersion: 2.1.0",
-      1
-    ],
-    [
-      "fixVersion: 1.13",
-      1
-    ],
-    [
-      "fixVersion: 1.5",
-      1
-    ],
-    [
-      "fixVersion: 2.0.0",
-      1
-    ],
-    [
-      "fixVersion: 1.10",
-      1
-    ],
-    [
-      "fixVersion: 1.11",
-      1
-    ],
-    [
-      "fixVersion: 1.16",
-      1
-    ],
-    [
-      "fixVersion: 1.2",
       1
     ],
     [

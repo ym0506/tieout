@@ -1,0 +1,64 @@
+{
+  "measuredAt": "2026-11-27",
+  "datasets": {
+    "flink": {
+      "realChanges": {
+        "seeded": 217,
+        "flagged": 216,
+        "share": "99.5%",
+        "missed": [
+          {
+            "page": "FLIP-258: Guarantee binary compatibility for Public/-Evolving APIs between patch releases",
+            "id": "FLINK-29255|fixVersion|1",
+            "pageSays": "1.15.3/1.16",
+            "now": "match"
+          }
+        ]
+      },
+      "cosmeticChanges": {
+        "seeded": 202,
+        "quiet": 202,
+        "share": "100.0%",
+        "alarms": []
+      },
+      "factsAboutOtherWorkItemsThatMoved": 0,
+      "byField": {
+        "fixVersion": {
+          "real": 216,
+          "flagged": 215,
+          "cosmetic": 201,
+          "quiet": 201
+        },
+        "status": {
+          "real": 1,
+          "flagged": 1,
+          "cosmetic": 1,
+          "quiet": 1
+        }
+      }
+    },
+    "kafka": {
+      "realChanges": {
+        "seeded": 100,
+        "flagged": 100,
+        "share": "100.0%",
+        "missed": []
+      },
+      "cosmeticChanges": {
+        "seeded": 100,
+        "quiet": 100,
+        "share": "100.0%",
+        "alarms": []
+      },
+      "factsAboutOtherWorkItemsThatMoved": 0,
+      "byField": {
+        "status": {
+          "real": 100,
+          "flagged": 100,
+          "cosmetic": 100,
+          "quiet": 100
+        }
+      }
+    }
+  }
+}

@@ -13,6 +13,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { extractClaims, evaluate, countVerdicts, reduceIssue } from '../src/engine/index.js';
 import { storageToAdf } from './storage-to-adf.mjs';
 
@@ -22,6 +24,8 @@ fs.mkdirSync(cache, { recursive: true });
 const DATASETS = {
   kafka: { cql: 'space=KAFKA and type=page and title~"Release Plan"', keep: /^release plan \d/i, label: 'cwiki.apache.org, space KAFKA, pages titled "Release Plan <version>"', out: 'apache-kafka-release-plans.json' },
   flink: { cql: 'space=FLINK and type=page and title~"FLIP"', keep: /^FLIP-\d+/i, label: 'cwiki.apache.org, space FLINK, design pages titled "FLIP-<n>"', out: 'apache-flink-flips.json' },
+  // Held out: not looked at while the rules were tuned. Measured once, after the last rule change.
+  kips: { cql: 'space=KAFKA and type=page and title~"KIP"', keep: /^KIP-\d+/i, label: 'cwiki.apache.org, space KAFKA, design pages titled "KIP-<n>" (held out)', out: 'apache-kafka-kips-heldout.json' },
 };
 const name = process.argv[2] || 'kafka';
 const dataset = DATASETS[name];
@@ -29,12 +33,25 @@ if (!dataset) { console.error(`unknown dataset ${name}`); process.exit(1); }
 const WIKI = 'https://cwiki.apache.org/confluence/rest/api';
 const JIRA = 'https://issues.apache.org/jira/rest/api/2';
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+export const chunkId = (keys) => createHash('sha1').update(keys.join(',')).digest('hex').slice(0, 16);
+
+const UA = 'tieout-measurement/0.1 (read-only research script)';
+
+// FETCH=curl uses the curl binary instead of Node's fetch, for networks where only curl gets through.
+function viaCurl(url) {
+  const out = execFileSync('curl', ['-sS', '--max-time', '60', '-H', 'Accept: application/json', '-A', UA, '-w', '\n%{http_code}', url], { maxBuffer: 64 * 1024 * 1024 }).toString();
+  const cut = out.lastIndexOf('\n');
+  const status = Number(out.slice(cut + 1));
+  return { ok: status >= 200 && status < 300, status, json: async () => JSON.parse(out.slice(0, cut)) };
+}
 
 async function getJson(url, file) {
   const f = path.join(cache, file);
   if (fs.existsSync(f)) return JSON.parse(fs.readFileSync(f, 'utf8'));
   await sleep(350);
-  const res = await fetch(url, { headers: { Accept: 'application/json', 'User-Agent': 'tieout-measurement/0.1 (read-only research script)' } });
+  const res = process.env.FETCH === 'curl'
+    ? viaCurl(url)
+    : await fetch(url, { headers: { Accept: 'application/json', 'User-Agent': UA } });
   if (!res.ok) throw new Error(`${res.status} for ${url}`);
   const data = await res.json();
   fs.writeFileSync(f, JSON.stringify(data));
@@ -58,7 +75,8 @@ async function fetchIssues(keys) {
     const chunk = keys.slice(i, i + 40);
     const jql = encodeURIComponent(`key in (${chunk.join(',')})`);
     try {
-      const data = await getJson(`${JIRA}/search?jql=${jql}&maxResults=100&validateQuery=false&fields=summary,status,assignee,duedate,fixVersions,priority`, `issues-${chunk[0]}-${chunk.length}.json`);
+      // The cache name covers every key in the chunk: when the rules change, the chunks change too.
+      const data = await getJson(`${JIRA}/search?jql=${jql}&maxResults=100&validateQuery=false&fields=summary,status,assignee,duedate,fixVersions,priority`, `jira-${chunkId(chunk)}.json`);
       for (const issue of data.issues || []) out[issue.key] = reduceIssue(issue);
     } catch (e) {
       for (const key of chunk) {
