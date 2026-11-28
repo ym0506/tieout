@@ -6,7 +6,7 @@ Installation link: `<paste the link from the Forge developer console>`
 
 - An Atlassian Cloud site with **Confluence and Jira** (the Codegeist demo site works as is).
 - **Rovo enabled** on the site, for the agent and MCP tools. Everything else works without Rovo.
-- You install as a site admin. The Teamwork Graph scopes need an organization admin to approve; if they are not granted the app still works and simply leaves out the "owner and linked pages" section.
+- You install as a site admin. The Teamwork Graph scopes need an organization admin to approve. If they are not granted, the app still works and leaves out the "owner and linked pages" section.
 
 ## Install (about 2 minutes)
 
@@ -14,27 +14,31 @@ Installation link: `<paste the link from the Forge developer console>`
 2. In the dialog, choose your site. Confluence is selected already; tick **Jira** under "additional Atlassian apps" so the app can read work items.
 3. Press **Install** and wait until both lines say "Installation successful".
 
-The first time you open a Tie-Out screen, Atlassian asks you to **Allow access**. This is what lets the report use your own permissions.
+The first time you open a Tie-Out screen, Atlassian asks you to **Allow access**. This lets the report read Jira and Confluence with your own permissions.
 
 ## See it work on your own data (about 3 minutes)
 
 1. In Confluence, open **Apps → Tie-Out**.
-2. Under *Try it on your own data*, pick a space and press **Create sample page**. Tie-Out builds a status page from your most recent Jira work items. Two facts are out of date on purpose and the page says which.
-3. Open the sample page. Under the title you see **Tie-Out: 3 out of date** when your first work item has a due date (the date is written twice, in the table and in the summary), otherwise **2 out of date**. A banner appears at the top.
+2. Under *Try it on your own data*, pick a space and press **Create sample page**. Tie-Out builds a status page from recent Jira work items, preferring ones with a due date and an owner, and writes a few facts out of date on purpose. A note at the top of the page says exactly which ones and how many.
+3. Open the sample page. The badge under the title shows the same number, for example **Tie-Out: 3 out of date**, and a banner appears at the top.
 4. Click the badge. The report lists what the page says, what Jira says, and the result for each fact.
-5. Press **Write "…"** on one row, then **Reload the page**. That one cell changed; the page history shows a new version by you.
+5. Press **Write "…"** on one row, then **Reload the page**. That one cell changed, and the page history shows a new version by you.
 
-## The part that matters: change Jira, watch the page
+## Change Jira, then look at the page
 
-1. In Jira, open one of the work items on the sample page and change its **due date** (or assignee, or status).
-2. Go back to the Confluence page and reload. Within a few seconds of the change the badge count has gone up and the report shows the new disagreement, with "True until <today> · changed by <you>".
+1. In Jira, open one of the work items on the sample page and change its **due date**, assignee or status.
+2. Go back to the Confluence page and reload. Once the Jira event has been processed the badge count goes up (reload again if it has not yet), and the report shows the new disagreement with "True until <today> · changed by <you>".
 3. Open that work item in Jira. Under the title, press the apps button (**View app actions**) and choose **Tie-Out**. The panel lists the page and what it now gets wrong.
 
-No sample needed: any page of yours works. Write a table with columns `Work item | Owner | Due | Status`, or a sentence such as `KEY-1 ships Dec 3, owner: Alice.`, and Tie-Out reads it.
+You don't need the sample: any page works. Write a table with the columns `Work item | Owner | Due | Status`, or a sentence such as `KEY-1 ships Dec 3, owner: Alice.`, and Tie-Out reads it.
 
 ## Existing pages
 
-**Apps → Tie-Out → Scan pages** indexes pages that existed before the install, 20 at a time. New and edited pages are indexed automatically.
+Tie-Out scans pages that existed before the install in the background, after the install and then every hour. **Apps → Tie-Out → Scan pages** runs the scan now. New and edited pages are indexed when they are saved.
+
+## Keep a page out of it
+
+Add the label `tieout-ignore` to a page, click the badge once to open the report, and reload. The badge now reads **Tie-Out: off**, no banner appears, and the report notes that background checks are off. To switch it back on, remove the label and open the report again.
 
 ## Rovo agent
 
@@ -49,7 +53,17 @@ The agent calls `verify-claims`, corrects what is out of date, and tells you wha
 
 In **Rovo Studio**, create an agent and add the **Tie-Out** tools (`verify-claims`, `check-page`, `get-fact`).
 
-For a third-party MCP client: an admin enables the tools under *Atlassian Administration → Apps → your site → Connected apps → Tie-Out*, then the client connects to `https://mcp.atlassian.com/forge/<appId>` and approves access for the site.
+For a third-party MCP client:
+
+1. A site or org admin opens *Atlassian Administration → Apps → Sites → your site → Connected apps*, selects **Tie-Out**, and turns on the tools to expose.
+2. Add `https://mcp.atlassian.com/forge/472dda99-d578-4070-b2ab-05a2797cf96b` as a remote MCP server in the client.
+3. The client opens an Atlassian consent screen. Choose the site and approve.
+
+The repository's `skills/verify-before-publish/SKILL.md` tells an agent how to use the three tools.
+
+## Who sees what
+
+The report, the Jira panel and the tools read Jira and Confluence with the permissions of the person using them. The badge count is worked out in the background and is shown to everyone who can read the page, so it leaves out facts about work items that have an issue security level or that the app cannot read. The report still checks facts about those work items for anyone who can open them.
 
 ## What Tie-Out reads, and what it leaves alone
 

@@ -3,10 +3,10 @@
 Tie-Out checks the facts written on Confluence pages against Jira, the system of record.
 
 A status page says "PAY-12 ships Dec 3, owner Minsu". Two weeks ago Jira moved it to Dec 17 and reassigned it.
-Nobody edited the page. People read the page, and so do AI assistants, and both repeat the old date.
+Nobody edited the page. People read the page, and when an AI assistant is asked to summarise it, it repeats the old date too.
 
-Tie-Out finds every due date, owner, status, fix version and priority that a page states about a Jira work item,
-compares it with Jira, and marks the ones that are no longer true, with the date they stopped being true and one click to correct them.
+Tie-Out reads the due dates, owners, statuses, fix versions and priorities that a page states next to a Jira work item,
+compares each with Jira, and marks the ones that are no longer true, with the date they stopped being true and one click to correct them.
 The same check is available to Rovo agents and to any MCP client, so a draft can be verified before it is published.
 
 The name comes from audit practice: a report is "tied out" when every figure in it has been traced to its source.
@@ -15,7 +15,7 @@ The name comes from audit practice: a report is "tied out" when every figure in 
 
 | Where | What you see |
 |---|---|
-| Confluence page, under the title | `Tie-Out: 2 out of date` or `Tie-Out: 7/7 tied`. Click for the full report. |
+| Confluence page, under the title | `Tie-Out: 2 out of date` or `Tie-Out: 7/7 match`. Click for the full report. A page labelled `tieout-ignore` shows `Tie-Out: off`. |
 | Confluence page, top banner | Shown only when something on the page is out of date. "Update from Jira" rewrites the facts in place. |
 | Jira work item panel | The pages that quote this work item, and which of them now say something it no longer says. |
 | Confluence → Apps → Tie-Out | Site overview, page scan, and a sample page built from your own work items. |
@@ -35,16 +35,19 @@ By rule, not by a language model.
 5. For out-of-date facts, read the work item's change history to say when the page stopped being true and who changed it.
 
 When a work item changes, a Jira event re-checks only the pages that quote it.
-The report a person sees is read with that person's permissions. The app stores counts and work item keys, never field values.
+The report a person sees is read with that person's permissions. The badge count is worked out in the background and shown to
+everyone who can read the page, so it leaves out work items that have an issue security level or that the app cannot read. The app stores counts and work item keys,
+never field values.
 
 Rules are deliberately conservative. A date with no cue word, a row naming two work items, a day/month order that could be read
 two ways, a status word that is not in the workflow: these are left alone or reported as "not checked".
 
 ## Evidence
 
-`docs/evidence/README.md`: run on 609 public Apache Flink design pages, 63 of 268 checkable facts (23.5%) disagree with Jira,
-19 of them (7.1%) naming a release Jira contradicts outright. On 72 Apache Kafka release plans, 0 of 100 disagree.
-The script is in this repository and can be re-run.
+`docs/evidence/README.md`: on 609 public Apache Flink design pages, 71 of 288 checkable facts (24.7%) disagree with Jira,
+24 of the 288 (8.3%) naming a release that Jira contradicts outright. On 72 Apache Kafka release plans, 0 of 100 disagree.
+Changing the Jira value under 317 facts that were right, Tie-Out flagged 316; under 302 cosmetic changes it flagged none.
+The scripts are in this repository and can be re-run.
 
 ## Develop
 
@@ -60,8 +63,8 @@ npm test
 node scripts/validate-manifest.cjs
 ```
 
-90 tests: the engine (dates, names, statuses, tables, sentences, fixes), the Forge handlers end to end against an in-memory
-site (`test/fake-site.js`), and every UI state.
+96 tests: the engine (dates, names, statuses, tables, sentences, fixes), the Forge handlers against an in-memory stand-in
+for the Jira and Confluence REST APIs (`test/fake-site.js`), and the UI states.
 
 Forge CLI 15 needs Node 22.23+ or 24.22+. `scripts/forge.sh` runs the project's CLI with Node 24 from `~/.nvm` when present.
 
@@ -83,7 +86,7 @@ docs/            evidence, submission notes
 
 ## Limits
 
-- Reads facts in tables and sentences. A fact spread over several sentences ("PAY-12 is late. It now ships Dec 17.") is not tied to the work item.
+- Reads facts in tables and sentences. A fact spread over several sentences ("PAY-12 is late. It now ships Dec 17.") is not linked to the work item.
 - Fields: due date, assignee, status, fix version, priority. Custom fields are not read yet.
 - A fact formatted across styles (`**Dec** 3`) is reported but must be edited by hand.
 - Teamwork Graph and Rovo MCP are Preview features; the app works without them and adds owner and linked-page context when they are available.

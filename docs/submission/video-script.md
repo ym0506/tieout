@@ -1,29 +1,34 @@
-# Demo video script (target 4:30, hard limit 5:00)
+# Demo video script (target 3:45, hard limit 5:00)
 
 Rules that apply: under 5 minutes, public on YouTube, English (or English subtitles), shows the app working,
 no third-party logos or copyrighted music. For the MCP part use Rovo Studio, so no outside product's logo is on screen.
 
-Record at 1920×1080, browser zoom 110%, a clean demo site, notifications off.
-Prepare beforehand: the sample page created and one fact already fixed, one Jira work item open in a second tab.
+Recorded from the real demo site with on-screen captions; a voice track reading the same lines is optional.
+1920×1080, browser zoom 110%, notifications off. Rovo answers vary from run to run: record the Rovo scene
+several times and use a run whose answer matches what the caption says, or change the caption.
 
-| Time | On screen | Say |
+Prepare beforehand: the "Onboarding weekly status" page (no Tie-Out note on it), one Jira work item open in a second tab,
+a Rovo Studio agent with the three Tie-Out tools added.
+
+| Time | On screen | Caption |
 |---|---|---|
-| 0:00–0:20 | A Confluence status page. Zoom on one row: smart link `PAY-12` with a live status lozenge, next to it "Dec 3" and "Minsu". Then the Jira work item: due Dec 17, assignee Jiyoung. | "This page says PAY-12 ships December 3rd. Jira says the 17th, and has for two weeks. The status lozenge is live, so the page looks current. The date and the owner next to it are just text. Nobody noticed." |
-| 0:20–0:40 | Title card: "Tie-Out — every fact on the page, tied to Jira." Then the Apache numbers on one slide: 609 pages, 268 facts, 63 disagree. | "Auditors tie every figure in a report back to its source. Tie-Out does that for team pages. I ran it on six hundred public Apache design pages: nearly one checkable fact in four disagreed with Jira." |
-| 0:40–1:25 | Confluence → Apps → Tie-Out → Create sample page → open it. Badge "3 out of date", banner. Click the badge: the report. Point at page says / Jira says / "True until…". | "On your own site it takes a minute. Tie-Out builds a status page from your work items, with two facts out of date on purpose. Under the title: three out of date. For each fact you see what the page says, what Jira says, and when it stopped being true and who changed it." |
-| 1:25–1:50 | Click `Write "Dec 17"`. Reload. The one cell changed. Open page history: new version, message "Tie-Out: synced 1 fact with Jira". | "One click rewrites that cell, in the style the author used, as a new page version. Nothing else is touched." |
-| 1:50–2:35 | Second tab: Jira, change the due date of another work item. Back to the page, reload: badge count went up, report shows the new row. Then the Jira panel on that work item. | "Now the part that matters. I change a due date in Jira. A Jira event re-checks only the pages that quote this work item. The page knows within seconds. And in Jira, the work item shows which pages quote it and which are now wrong." |
-| 2:35–3:20 | Rovo Chat with the Tie-Out agent. Paste a short draft update with one wrong date. The agent's answer with the correction. | "People are not the only ones who read pages. Before an agent sends a status update, the Tie-Out agent checks it: this date is out of date, here is the current one, changed on November 6th. It corrects the draft and says what it changed." |
-| 3:20–3:50 | Rovo Studio: a custom agent with the three Tie-Out tools listed; run `verify-claims`. | "The same three tools are exposed over MCP, so any agent in Rovo Studio, or an outside MCP client, can verify before it writes." |
-| 3:50–4:10 | The report on a drifted page, section "Who and what else is affected (from Teamwork Graph)". | "When a page has drifted, Teamwork Graph tells Tie-Out who owns it and which linked pages may repeat the same fact." |
-| 4:10–4:30 | Slide: "Rules, not a model · your permissions · counts only in storage · runs on Forge". Then the three-state legend: Matches / Out of date / Not checked. | "Verdicts come from rules, not a model, so the same page always gets the same answer. Reports use your own permissions. When Tie-Out can't tell, it says so. Context is only useful while it's true. Tie-Out tells you when it stops." |
+| 0:00–0:25 | "Onboarding weekly status" page. Rovo panel: "Summarise the Weekly status table on this page for my manager". The answer: MOBL-57 due Nov 6, Mitch Davis, overdue. | "A weekly status page. I ask Rovo to summarise it for my manager." / "Rovo reports MOBL-57 as due Nov 6, owned by Mitch Davis, overdue." |
+| 0:25–0:40 | Second tab, Jira MOBL-57: no due date, a different assignee. | "In Jira, MOBL-57 has no due date and a different owner. Nothing on the page says so." |
+| 0:40–0:55 | Back on the page: Tie-Out banner, badge "Tie-Out: 3 out of date". | "Tie-Out checks each date, owner and status on the page against Jira." |
+| 0:55–1:30 | Click the badge: the report. Point at page says / Jira says / "True until … · changed by …". | "For each fact: what the page says, what Jira says, and when it stopped being true, from the Jira history." |
+| 1:30–1:50 | Press `Write "…"` on one row, reload, open page history: new version "Tie-Out: synced 1 fact with Jira". | "One click rewrites only that cell and saves a new page version." |
+| 1:50–2:25 | Jira tab: change the due date of another work item. Back to the page, reload: the badge count goes up. Then the Tie-Out panel on that work item. | "I change a due date in Jira. An event re-checks only the pages that quote this work item." / "In Jira, the work item lists the pages that quote it and what each now gets wrong." |
+| 2:25–2:55 | Rovo Chat with the Tie-Out agent: "Check this before I send it: …" with one wrong date. The agent's corrected draft. | "Before an update goes out, the Tie-Out agent checks it and corrects what is out of date." |
+| 2:55–3:10 | Rovo Studio: a custom agent with `verify-claims`, `check-page`, `get-fact` listed; one call to `verify-claims`. | "The same check is exposed as MCP tools, for agents in Rovo Studio and outside MCP clients." |
+| 3:10–3:30 | Slide with two tables from `docs/evidence`: Flink 71 of 288 flagged (24 name a different release, 1 misread), Kafka 0 of 100; seeded changes 316 of 317 caught, 0 alarms on 302 cosmetic changes. | "On 609 public Apache Flink design pages, Tie-Out flags 71 of 288 checkable facts. 70 are real disagreements with Jira." / "When I changed the Jira value under 317 correct facts, it caught 316. It raised no alarm on 302 cosmetic changes." |
+| 3:30–3:45 | Page with label `tieout-ignore`, badge "Tie-Out: off". End card: "Tie-Out · github.com/ym0506/tieout". | "Pages meant to stay as written can be left out with a label." / "Tie-Out. Rules decide each verdict, and it reads Jira and Confluence with your own permissions." |
 
 ## Shots to capture separately
 
 - Page history showing the new version and its message.
 - The "Not checked" row with its reason (write `early Q1` in a Due cell).
-- Dashboard after a scan, with a few pages listed.
+- The report section "Who and what else is affected (from Teamwork Graph)" on a page that links to another page.
 
 ## Thumbnail
 
-Left half: "Page says Dec 3". Right half: "Jira says Dec 17". Small caption: Tie-Out.
+Left half: "Page says Nov 6". Right half: "Jira: no due date". Small caption: Tie-Out.
