@@ -155,7 +155,7 @@ export const Dashboard = () => {
         <Stack space="space.100">
           <Heading as="h2" size="small">Try it on your own data</Heading>
           <Text>
-            Creates a status page from your most recent Jira work items. Two facts are written out of date on purpose and the page says which.
+            Creates a status page from your most recent Jira work items. A few facts are written out of date on purpose, and the page says which.
           </Text>
           <Inline space="space.100" alignBlock="center">
             <Box xcss={xcss({ minWidth: '260px' })}>

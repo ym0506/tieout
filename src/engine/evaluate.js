@@ -10,7 +10,8 @@ import {
 /**
  * Shape every Jira issue is reduced to before comparing:
  * { key, found, duedate: 'YYYY-MM-DD'|null, assignee: {accountId, displayName}|null,
- *   status: {name, category}, fixVersions: string[], priority: string|null, summary }
+ *   status: {name, category}, fixVersions: string[], priority: string|null, summary,
+ *   restricted: true when an issue security level limits who can see it }
  */
 export function reduceIssue(raw) {
   const f = (raw && raw.fields) || {};
@@ -23,6 +24,7 @@ export function reduceIssue(raw) {
     status: f.status ? { name: f.status.name, category: (f.status.statusCategory && f.status.statusCategory.key) || null } : null,
     fixVersions: (f.fixVersions || []).map((v) => v.name),
     priority: f.priority ? f.priority.name : null,
+    restricted: !!f.security,
   };
 }
 

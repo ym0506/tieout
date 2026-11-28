@@ -281,9 +281,10 @@ describe('helpers', () => {
     });
     expect(r).toEqual({
       key: 'PAY-1', found: true, summary: 'S', duedate: '2026-12-17', assignee: { accountId: 'a', displayName: 'A B' },
-      status: { name: 'Done', category: 'done' }, fixVersions: ['1.0'], priority: 'High',
+      status: { name: 'Done', category: 'done' }, fixVersions: ['1.0'], priority: 'High', restricted: false,
     });
-    expect(reduceIssue({ key: 'PAY-2', fields: {} })).toMatchObject({ assignee: null, duedate: null, fixVersions: [], priority: null });
+    expect(reduceIssue({ key: 'PAY-2', fields: {} })).toMatchObject({ assignee: null, duedate: null, fixVersions: [], priority: null, restricted: false });
+    expect(reduceIssue({ key: 'PAY-3', fields: { security: { id: '10000', name: 'Staff only' } } }).restricted).toBe(true);
   });
 });
 

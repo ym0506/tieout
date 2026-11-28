@@ -162,7 +162,7 @@ describe('events', () => {
     await app.onConfluencePageEvent({ eventType: 'avi:confluence:updated:page', content: { id: '1001' } }, ctx);
     expect(await app.bylineProperties(payload)).toMatchObject({ title: 'Tie-Out: 3 out of date' });
     await call('fixPage', onPage('1001', {}));
-    expect(await app.bylineProperties(payload)).toMatchObject({ title: 'Tie-Out: 7/7 tied' });
+    expect(await app.bylineProperties(payload)).toMatchObject({ title: 'Tie-Out: 7/7 match' });
   });
 
   it('forgets a page that was deleted', async () => {
@@ -185,6 +185,72 @@ describe('events', () => {
     await app.onJiraIssueEvent({}, ctx);
     await app.onConfluencePageEvent({}, ctx);
     expect(site.calls).toEqual([]);
+  });
+});
+
+describe('who sees what', () => {
+  it('leaves work items with an issue security level out of the badge, not out of the report', async () => {
+    site.issues['PAY-12'].fields.security = { id: '10000', name: 'Staff only' };
+    const payload = { extension: { content: { id: '1001' } } };
+    await app.onConfluencePageEvent({ eventType: 'avi:confluence:updated:page', content: { id: '1001' } }, ctx);
+
+    const stored = JSON.parse(site.kv.get('page:1001'));
+    expect(stored.counts).toEqual({ total: 3, match: 3, drift: 0, unverifiable: 0 });
+    expect(stored.restricted).toBe(4);
+    const badge = await app.bylineProperties(payload);
+    expect(badge.title).toBe('Tie-Out: 3/3 match');
+    expect(badge.tooltip).toMatch(/restricted access/);
+    expect(JSON.parse(site.kv.get('issue:PAY-12'))).toEqual({ pageIds: ['1001'] });
+
+    // Someone who can open PAY-12 still sees every fact about it in the report.
+    const report = await call('getPageReport', onPage('1001'));
+    expect(report.counts.drift).toBe(3);
+  });
+
+  it('leaves work items the app cannot read out of the badge as well', async () => {
+    site.addPage('1003', 'Mixed', doc(table(
+      row(th('Work item'), th('Owner'), th('Due')),
+      row(cell(card('PAY-12')), cell('Jiyoung Park'), cell('Dec 17')),
+      row(cell(card('HIDDEN-1')), cell('Someone'), cell('Jan 9')),
+    )));
+    await app.onConfluencePageEvent({ eventType: 'avi:confluence:created:page', content: { id: '1003' } }, ctx);
+    const stored = JSON.parse(site.kv.get('page:1003'));
+    expect(stored.counts).toEqual({ total: 2, match: 2, drift: 0, unverifiable: 0 });
+    expect((await app.bylineProperties({ extension: { content: { id: '1003' } } })).title).toBe('Tie-Out: 2/2 match');
+  });
+
+  it('stops background checks on a page labelled tieout-ignore, and starts again without it', async () => {
+    const payload = { extension: { content: { id: '1001' } } };
+    site.pages['1001'].labels = ['tieout-ignore'];
+    await app.onConfluencePageEvent({ eventType: 'avi:confluence:updated:page', content: { id: '1001' } }, ctx);
+    expect(JSON.parse(site.kv.get('page:1001'))).toMatchObject({ ignored: true, issueKeys: [], counts: { total: 0, drift: 0 } });
+    expect(site.kv.has('issue:PAY-12')).toBe(false);
+    expect((await app.bylineProperties(payload)).title).toBe('Tie-Out: off');
+    expect((await call('getDashboard', { payload: {}, context: ctx })).totals.pages).toBe(0);
+
+    // The report can still be opened on request and says why there is no badge.
+    const report = await call('getPageReport', onPage('1001'));
+    expect(report).toMatchObject({ ignored: true, counts: { drift: 3 } });
+
+    site.pages['1001'].labels = [];
+    await app.onConfluencePageEvent({ eventType: 'avi:confluence:updated:page', content: { id: '1001' } }, ctx);
+    expect((await app.bylineProperties(payload)).title).toBe('Tie-Out: 3 out of date');
+    expect(JSON.parse(site.kv.get('issue:PAY-12'))).toEqual({ pageIds: ['1001'] });
+  });
+
+  it('the banner notices a tieout-ignore label added since the last check', async () => {
+    await app.onConfluencePageEvent({ eventType: 'avi:confluence:updated:page', content: { id: '1001' } }, ctx);
+    expect((await call('getPageSummary', onPage('1001'))).counts.drift).toBe(3);
+    site.pages['1001'].labels = ['tieout-ignore'];
+    const summary = await call('getPageSummary', onPage('1001'));
+    expect(summary).toMatchObject({ ignored: true, counts: { drift: 0 } });
+  });
+
+  it('the banner does not look up labels on pages with nothing out of date', async () => {
+    await call('fixPage', onPage('1001', {}));
+    site.calls.length = 0;
+    await call('getPageSummary', onPage('1001'));
+    expect(site.calls.filter((c) => c.path.includes('/labels'))).toEqual([]);
   });
 });
 
@@ -235,6 +301,9 @@ describe('sample page', () => {
     const res = await call('createSample', { payload: { spaceId: '100' }, context: ctx });
     expect(res.used).toEqual(['PAY-12', 'PAY-13', 'PAY-14']);
     expect(res.stale).toEqual(['PAY-12 due date', 'PAY-13 status']);
+    expect(res.count).toBe(3);
+    const note = JSON.stringify(site.pages[res.page.id].doc.content[0]);
+    expect(note).toContain('Three facts are out of date on purpose: PAY-12 due date (in the table and again in the summary) and PAY-13 status.');
     const report = await call('getPageReport', onPage(res.page.id));
     const drifted = report.results.filter((r) => r.verdict === 'drift').map((r) => r.id).sort();
     expect(drifted).toEqual(['PAY-12|due|1', 'PAY-12|due|2', 'PAY-13|status|1']);

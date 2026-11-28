@@ -12,6 +12,9 @@ import {
 const MAX_HISTORY_LOOKUPS = 8;
 const MAX_PAGES_PER_ISSUE = 200;
 
+/** A page with this label is left out of background checks, the badge and the banner. */
+export const IGNORE_LABEL = 'tieout-ignore';
+
 export function createTieOut({ jira, confluence, store, graph, now = () => new Date().toISOString() }) {
   async function verifyDoc(doc, { as, withHistory = false, keepUnknownTextKeys = false } = {}) {
     const ex = extractClaims(doc);
@@ -36,19 +39,43 @@ export function createTieOut({ jira, confluence, store, graph, now = () => new D
       results,
       counts: countVerdicts(results),
       issueKeys: knownKeys,
+      restrictedKeys: knownKeys.filter((k) => issues[k].restricted),
       mentioned: ex.issueKeys.length,
     };
   }
 
-  /** Background bookkeeping: counts for the byline badge and the issue → pages index. */
+  async function isIgnored(page, as) {
+    let labels = page.labels;
+    if (!labels && confluence.getLabels) {
+      try { labels = await confluence.getLabels(page.id, as); } catch (e) { labels = []; }
+    }
+    return (labels || []).includes(IGNORE_LABEL);
+  }
+
+  /**
+   * Background bookkeeping: counts for the byline badge and the issue → pages index.
+   * The badge is shown to everyone who can read the page, but these counts are worked out
+   * with the app's access, so facts about work items under an issue security level, or that
+   * the app cannot read, are left out of them. The report re-checks everything with the
+   * viewer's own access.
+   */
   async function record(page, as = 'app') {
-    const { counts, issueKeys } = await verifyDoc(page.doc, { as });
+    const report = await verifyDoc(page.doc, { as });
     const before = (await store.getPage(page.id)) || { issueKeys: [] };
+    const ignored = (report.issueKeys.length || before.issueKeys.length || before.ignored)
+      ? await isIgnored(page, as) : false;
+    const issueKeys = ignored ? [] : report.issueKeys;
+    // Facts about work items the app cannot read (r.actual is null) or that carry an issue
+    // security level are left out, so the badge says nothing about them either way.
+    const shown = ignored ? [] : report.results.filter((r) => r.actual !== null && !report.restrictedKeys.includes(r.issueKey));
     const summary = {
       id: page.id, title: page.title, spaceId: page.spaceId, version: page.version,
-      counts, issueKeys, checkedAt: now(),
+      counts: countVerdicts(shown),
+      restricted: ignored ? 0 : report.results.length - shown.length,
+      issueKeys, checkedAt: now(),
     };
-    if (!issueKeys.length && !before.issueKeys.length) return summary;
+    if (ignored) summary.ignored = true;
+    if (!issueKeys.length && !before.issueKeys.length && !ignored && !before.ignored) return summary;
     await store.setPage(page.id, summary);
     const gone = before.issueKeys.filter((k) => !issueKeys.includes(k));
     const added = issueKeys.filter((k) => !before.issueKeys.includes(k));
@@ -81,9 +108,27 @@ export function createTieOut({ jira, confluence, store, graph, now = () => new D
     return {
       page: { id: page.id, title: page.title, version: page.version, url: page.url },
       ...report,
+      ignored: (page.labels || []).includes(IGNORE_LABEL),
       context,
       checkedAt: now(),
     };
+  }
+
+  /**
+   * What the banner and badge show. A label added since the last check takes effect here,
+   * because Confluence does not tell the app about labels without an extra permission.
+   */
+  async function pageSummary(pageId, { as = 'user' } = {}) {
+    const stored = await store.getPage(pageId);
+    if (stored && stored.counts && stored.counts.drift > 0 && confluence.getLabels) {
+      let labels = null;
+      try { labels = await confluence.getLabels(pageId, as); } catch (e) { labels = null; }
+      if (labels && labels.includes(IGNORE_LABEL)) {
+        const page = await confluence.getPage(pageId, 'app');
+        return record(page, 'app');
+      }
+    }
+    return stored || null;
   }
 
   /** Rewrite drifted facts on the page with what Jira says now. Runs as the person who clicked. */
@@ -194,7 +239,7 @@ export function createTieOut({ jira, confluence, store, graph, now = () => new D
   }
 
   async function dashboard() {
-    const pages = await store.listPages();
+    const pages = (await store.listPages()).filter((p) => !p.ignored);
     pages.sort((a, b) => (b.counts.drift - a.counts.drift) || String(b.checkedAt).localeCompare(String(a.checkedAt)));
     const totals = pages.reduce((t, p) => ({
       pages: t.pages + 1,
@@ -208,7 +253,7 @@ export function createTieOut({ jira, confluence, store, graph, now = () => new D
   }
 
   return {
-    verifyDoc, record, checkPage, fixPage, onIssueChanged, onPageChanged, onPageRemoved,
+    verifyDoc, record, checkPage, pageSummary, fixPage, onIssueChanged, onPageChanged, onPageRemoved,
     verifyText, getFact, citations, scan, dashboard,
   };
 }

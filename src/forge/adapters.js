@@ -5,7 +5,7 @@ import api, { route } from '@forge/api';
 import { kvs, WhereConditions } from '@forge/kvs';
 import { reduceIssue } from '../engine/index.js';
 
-const FIELDS = ['summary', 'status', 'assignee', 'duedate', 'fixVersions', 'priority'];
+const FIELDS = ['summary', 'status', 'assignee', 'duedate', 'fixVersions', 'priority', 'security'];
 
 const client = (as) => (as === 'app' ? api.asApp() : api.asUser());
 
@@ -117,12 +117,14 @@ function toPage(raw) {
     version: raw.version ? raw.version.number : 1,
     doc,
     url: links.webui ? `/wiki${links.webui}` : null,
+    // null when the response did not include labels (page lists); fetched separately when needed
+    labels: raw.labels && Array.isArray(raw.labels.results) ? raw.labels.results.map((l) => l.name) : null,
   };
 }
 
 export const confluence = {
   async getPage(id, as) {
-    const res = await client(as).requestConfluence(route`/wiki/api/v2/pages/${id}?body-format=atlas_doc_format`, { headers: { Accept: 'application/json' } });
+    const res = await client(as).requestConfluence(route`/wiki/api/v2/pages/${id}?body-format=atlas_doc_format&include-labels=true`, { headers: { Accept: 'application/json' } });
     return toPage(await json(res, 'Reading the page'));
   },
 
@@ -150,6 +152,12 @@ export const confluence = {
     const nextLink = data._links && data._links.next;
     const m = nextLink ? /[?&]cursor=([^&]+)/.exec(nextLink) : null;
     return { pages: (data.results || []).map(toPage), next: m ? decodeURIComponent(m[1]) : null };
+  },
+
+  async getLabels(id, as) {
+    const res = await client(as).requestConfluence(route`/wiki/api/v2/pages/${id}/labels?limit=100`, { headers: { Accept: 'application/json' } });
+    const data = await json(res, 'Reading page labels');
+    return (data.results || []).map((l) => l.name);
   },
 
   async listSpaces(as) {

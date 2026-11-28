@@ -49,7 +49,7 @@ export const Banner = () => {
       <Inline spread="space-between" alignBlock="center" space="space.200">
         <Text>
           <Strong>{`${plural(n, 'fact')} on this page no longer ${n === 1 ? 'matches' : 'match'} Jira.`}</Strong>
-          {done ? ` ${plural(done, 'fact')} updated, reloading…` : ' Readers and AI assistants will repeat what is written here.'}
+          {done ? ` ${plural(done, 'fact')} updated, reloading…` : ' People reading it, and AI assistants summarising it, get the old values.'}
         </Text>
         <Inline space="space.100">
           <Button onClick={() => setOpen(true)}>Review</Button>

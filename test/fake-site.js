@@ -20,13 +20,16 @@ export function createFakeSite() {
 
   const visible = (key, as) => site.issues[key] && !(as === 'user' && site.hiddenFromUser.has(key));
 
-  const pageBody = (p) => ({
+  const labelList = (p) => ({ results: (p.labels || []).map((name, i) => ({ id: String(i + 1), name, prefix: 'global' })) });
+
+  const pageBody = (p, withLabels = false) => ({
     id: p.id,
     title: p.title,
     spaceId: p.spaceId,
     version: { number: p.version },
     body: { atlas_doc_format: { value: JSON.stringify(p.doc) } },
     _links: { webui: `/spaces/TEAM/pages/${p.id}` },
+    ...(withLabels ? { labels: labelList(p) } : {}),
   });
 
   async function jira(as, path, opts = {}) {
@@ -58,7 +61,12 @@ export function createFakeSite() {
   async function confluence(as, path, opts = {}) {
     site.calls.push({ product: 'confluence', as, path, method: opts.method || 'GET' });
     const body = opts.body ? JSON.parse(opts.body) : null;
-    let m = /^\/wiki\/api\/v2\/pages\/(\d+)/.exec(path);
+    let m = /^\/wiki\/api\/v2\/pages\/(\d+)\/labels/.exec(path);
+    if (m) {
+      const page = site.pages[m[1]];
+      return page && !page.deleted ? ok(labelList(page)) : fail(404);
+    }
+    m = /^\/wiki\/api\/v2\/pages\/(\d+)/.exec(path);
     if (m) {
       const page = site.pages[m[1]];
       if (!page || page.deleted) return fail(404);
@@ -70,7 +78,7 @@ export function createFakeSite() {
         page.lastEditedAs = as;
         return ok(pageBody(page));
       }
-      return ok(pageBody(page));
+      return ok(pageBody(page, path.includes('include-labels=true')));
     }
     if (path.startsWith('/wiki/api/v2/pages')) {
       if ((opts.method || 'GET') === 'POST') {

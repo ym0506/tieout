@@ -1,6 +1,7 @@
 // Builds a sample status page from the site's own work items, so anyone
 // installing Tie-Out sees it work on their data within a minute.
-// Two cells are written out of date on purpose and the page says so.
+// A few cells are written out of date on purpose and the page says exactly which,
+// so the count under the title matches what the page announces.
 
 import { humanDate, parseIso, toIso } from './engine/normalize.js';
 
@@ -56,6 +57,11 @@ export function buildSamplePage(issues, siteUrl) {
   });
 
   const first = rows[0];
+  // The first due date is repeated in the summary, so it is out of date in two places.
+  const twice = !!(first && first.duedate);
+  const items = stale.map((s, i) => (i === 0 && twice ? `${s} (in the table and again in the summary)` : s));
+  const count = stale.length + (twice ? 1 : 0);
+  const announced = `${['No facts are', 'One fact is', 'Two facts are', 'Three facts are'][count] || `${count} facts are`} out of date on purpose: ${items.join(' and ')}. `;
   const doc = {
     type: 'doc',
     version: 1,
@@ -65,9 +71,8 @@ export function buildSamplePage(issues, siteUrl) {
         attrs: { panelType: 'info' },
         content: [p(
           text('This page was created by Tie-Out from your own Jira work items. '),
-          text(`${stale.length === 1 ? 'One fact is' : 'Two facts are'} out of date on purpose (${stale.join(', ')}) so you can see a drift right away. `, [{ type: 'strong' }]),
-          first && first.duedate ? text('The due date is written twice, in the table and in the summary. ') : null,
-          text('Everything else matches Jira. Change a due date, owner or status in Jira and this page is re-checked within seconds.'),
+          text(announced, [{ type: 'strong' }]),
+          text('Everything else matches Jira. Change a due date, owner or status in Jira and this page is checked again, usually within a minute.'),
         )],
       },
       { type: 'heading', attrs: { level: 2 }, content: [text('Weekly status')] },
@@ -90,5 +95,5 @@ export function buildSamplePage(issues, siteUrl) {
       ) : p(text(first ? 'None of the first work items has a due date yet. Set one in Jira, write it here, then change it in Jira to see this page react.' : 'No work items yet.')),
     ],
   };
-  return { doc, stale, used: rows.map((r) => r.key) };
+  return { doc, stale, count, used: rows.map((r) => r.key) };
 }

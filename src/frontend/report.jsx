@@ -94,6 +94,12 @@ export const Report = ({ compact = false }) => {
           )}
         </Inline>
 
+        {report.ignored && (
+          <SectionMessage appearance="information" title="Background checks are off for this page">
+            <Text>This page has the label tieout-ignore, so it gets no badge count or banner. You can still check it here. Remove the label to turn background checks back on.</Text>
+          </SectionMessage>
+        )}
+
         {fixed && fixed.applied && fixed.applied.length > 0 && (
           <SectionMessage appearance="success" title={`${plural(fixed.applied.length, 'fact')} updated on the page`}>
             <Stack space="space.100">

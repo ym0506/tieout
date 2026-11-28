@@ -2,7 +2,7 @@
 // badge, and the Rovo actions that are also exposed as MCP tools.
 
 import Resolver from '@forge/resolver';
-import { createTieOut } from '../core.js';
+import { createTieOut, IGNORE_LABEL } from '../core.js';
 import { buildSamplePage } from '../sample.js';
 import { keyFromUrl } from '../engine/index.js';
 import { jira, confluence, store, makeGraph } from './adapters.js';
@@ -42,7 +42,7 @@ resolver.define('getPageReport', (req) => guarded(async () => {
 resolver.define('getPageSummary', (req) => guarded(async () => {
   const pageId = pageIdOf(req);
   if (!pageId) return null;
-  return (await store.getPage(pageId)) || null;
+  return tieout(req.context.cloudId).pageSummary(pageId, { as: 'user' });
 }));
 
 resolver.define('fixPage', (req) => guarded(async () => {
@@ -83,11 +83,11 @@ resolver.define('createSample', (req) => guarded(async () => {
   const issues = await jira.sampleIssues(6, 'user');
   if (!issues.length) return { error: true, message: 'No Jira work items found. Create one in Jira, then try again.' };
   const siteUrl = (req.context && req.context.siteUrl) || '';
-  const { doc, stale, used } = buildSamplePage(issues, siteUrl);
+  const { doc, stale, count, used } = buildSamplePage(issues, siteUrl);
   const stamp = new Date().toISOString().slice(0, 16).replace('T', ' ');
   const page = await confluence.createPage({ spaceId, title: `Tie-Out sample status (${stamp})`, doc }, 'user');
   try { await tieout(req.context.cloudId).onPageChanged(page.id); } catch (e) { /* the page event will index it */ }
-  return { page, stale, used };
+  return { page, stale, count, used };
 }));
 
 export const resolverHandler = resolver.getDefinitions();
@@ -99,14 +99,20 @@ export async function bylineProperties(payload) {
   const pageId = payload && payload.extension && payload.extension.content && payload.extension.content.id;
   let summary = null;
   try { summary = pageId ? await store.getPage(pageId) : null; } catch (e) { summary = null; }
+  if (summary && summary.ignored) {
+    return { title: 'Tie-Out: off', tooltip: `Not checked in the background: this page has the label ${IGNORE_LABEL}` };
+  }
+  const restricted = summary && summary.restricted
+    ? ` Facts about ${summary.restricted === 1 ? 'a work item' : 'work items'} with restricted access are not counted here; open the report to check them with your access.`
+    : '';
   if (!summary || !summary.counts || !summary.counts.total) {
-    return { title: 'Tie-Out', tooltip: 'Check the facts on this page against Jira' };
+    return { title: 'Tie-Out', tooltip: `Check the facts on this page against Jira.${restricted}` };
   }
   const { drift, match, total } = summary.counts;
   if (drift > 0) {
-    return { title: `Tie-Out: ${drift} out of date`, tooltip: `${drift} of ${total} facts on this page no longer match Jira` };
+    return { title: `Tie-Out: ${drift} out of date`, tooltip: `${drift} of ${total} facts on this page no longer match Jira.${restricted}` };
   }
-  return { title: `Tie-Out: ${match}/${total} tied`, tooltip: 'Facts on this page that match Jira' };
+  return { title: `Tie-Out: ${match}/${total} match`, tooltip: `Facts on this page that match Jira.${restricted}` };
 }
 
 // ---- product events --------------------------------------------------------
