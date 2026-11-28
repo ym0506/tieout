@@ -124,8 +124,8 @@ export const Dashboard = () => {
         <Stack space="space.100">
           <Heading as="h1" size="large">Tie-Out</Heading>
           <Text>
-            Pages state facts about Jira work items: due dates, owners, statuses. Jira changes; the page does not.
-            Tie-Out ties every such fact back to Jira and shows which ones are no longer true.
+            Pages state facts about Jira work items: due dates, owners, statuses. When Jira changes, the page stays as it was.
+            Tie-Out checks those facts against Jira and shows which ones are no longer true.
           </Text>
         </Stack>
 
@@ -140,7 +140,7 @@ export const Dashboard = () => {
         <Stack space="space.100">
           <Heading as="h2" size="small">Index your pages</Heading>
           <Text>
-            New and edited pages are indexed automatically, and a page is re-checked the moment a work item it quotes changes.
+            New and edited pages are indexed automatically, and a page is checked again a few seconds after a work item it quotes changes.
             Scan to bring in pages that existed before Tie-Out was installed. Only counts and work item keys are stored, never field values.
           </Text>
           <Inline space="space.100" alignBlock="center">
@@ -172,7 +172,7 @@ export const Dashboard = () => {
           {sample && sample.page && (
             <SectionMessage appearance="success" title="Sample page created">
               <Stack space="space.050">
-                <Text>{`Built from ${sample.used.join(', ')}. Out of date on purpose: ${sample.stale.join(', ')}.`}</Text>
+                <Text>{`Built from ${sample.used.join(', ')}. ${sample.count || sample.stale.length} out of date on purpose: ${sample.stale.join(', ')}${sample.count > sample.stale.length ? ' (the due date is written twice)' : ''}.`}</Text>
                 <Link href={sample.page.url || pageUrl(sample.page.id)} openNewTab>Open the sample page</Link>
               </Stack>
             </SectionMessage>

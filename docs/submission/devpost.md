@@ -31,7 +31,7 @@ A badge under the page title shows the result, for example "Tie-Out: 3 out of da
 
 An out-of-date row has a button such as `Write "Dec 17"`. It rewrites that cell or word in the author's own date style and saves a new page version, leaving the rest of the page as it was. "Update from Jira" in the banner does all of them at once. A fact Tie-Out cannot rewrite safely is marked "edit by hand" instead.
 
-When a work item changes in Jira, an event re-checks only the pages that quote it, and the badge changes once that check has run. In Jira, a panel on the work item lists the pages that quote it and what each one now gets wrong.
+When a work item changes in Jira, an event re-checks only the pages that quote it. On the demo site I timed this twice: the pages were checked again 5 and 8 seconds after the change. In Jira, a panel on the work item lists the pages that quote it and what each one now gets wrong.
 
 For agents, the Tie-Out Rovo agent and its `verify-before-publish` skill check a draft before it is sent and correct it. The same check is available as three MCP tools through `rovo:mcp`: `verify-claims`, `check-page` and `get-fact`. Custom agents in Rovo Studio can use them, and outside MCP clients can too once an admin turns that on.
 

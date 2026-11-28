@@ -276,14 +276,14 @@ describe('Dashboard', () => {
   });
 
   it('creates the sample page in the chosen space', async () => {
-    const created = vi.fn(() => ({ page: { id: '5000', url: '/wiki/spaces/TEAM/pages/5000' }, stale: ['PAY-12 due date', 'PAY-13 status'], used: ['PAY-12', 'PAY-13'] }));
+    const created = vi.fn(() => ({ page: { id: '5000', url: '/wiki/spaces/TEAM/pages/5000' }, stale: ['PAY-12 due date', 'PAY-13 status'], count: 3, used: ['PAY-12', 'PAY-13'] }));
     wire(dash(), { createSample: created });
     const r = await render(<Dashboard />);
     const button = r.root.findAllByType('LoadingButton').find((b) => textOf(b.props.children) === 'Create sample page');
     expect(button.props.isDisabled).toBe(false);
     await act(async () => { await button.props.onClick(); });
     expect(created).toHaveBeenCalledWith({ spaceId: '100' });
-    expect(textOf(r.toJSON())).toContain('Out of date on purpose: PAY-12 due date, PAY-13 status.');
+    expect(textOf(r.toJSON())).toContain('3 out of date on purpose: PAY-12 due date, PAY-13 status (the due date is written twice).');
   });
 
   it('shows a retry when loading fails', async () => {

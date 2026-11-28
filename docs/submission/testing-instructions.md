@@ -27,7 +27,7 @@ The first time you open a Tie-Out screen, Atlassian asks you to **Allow access**
 ## Change Jira, then look at the page
 
 1. In Jira, open one of the work items on the sample page and change its **due date**, assignee or status.
-2. Go back to the Confluence page and reload. Once the Jira event has been processed the badge count goes up (reload again if it has not yet), and the report shows the new disagreement with "True until <today> · changed by <you>".
+2. Go back to the Confluence page and reload. Once the Jira event has been processed (5 to 8 seconds in two tries on the demo site) the badge count goes up, and the report shows the new disagreement with "True until <today> · changed by <you>".
 3. Open that work item in Jira. Under the title, press the apps button (**View app actions**) and choose **Tie-Out**. The panel lists the page and what it now gets wrong.
 
 You don't need the sample: any page works. Write a table with the columns `Work item | Owner | Due | Status`, or a sentence such as `KEY-1 ships Dec 3, owner: Alice.`, and Tie-Out reads it.
