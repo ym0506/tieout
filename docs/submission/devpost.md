@@ -15,7 +15,7 @@ A status page says Nov 6 and Mitch. Jira says no due date and someone else. Tie-
 
 ## Inspiration
 
-Many teams keep a weekly status page in Confluence: a table of work items with an owner, a due date and a status. The work is tracked in Jira and keeps changing, and the page gets updated when someone remembers.
+Program managers, marketing operations leads and HR coordinators often keep a weekly status page in Confluence: a table of work items with an owner, a due date and a status. The work is tracked in Jira and keeps changing, and the page gets updated when someone remembers.
 
 I wanted to see what an AI assistant does with such a page, so I tried it on a Codegeist demo site. I took the sample status page Tie-Out builds, which has a few facts written wrong on purpose, and removed the note that says so. Its row for MOBL-57 says "Mitch Davis, Nov 6, 2026". In Jira, MOBL-57 has no due date and is assigned to someone else. On 27 November I asked Rovo, in three fresh chats, to "summarise the Weekly status table on this page for my manager". Each time it reported MOBL-57 as due Nov 6, owned by Mitch Davis, and overdue. When I asked once instead "Who owns MOBL-57 and when is it due?", Rovo looked in Jira and pointed out that the page disagreed. On the copy that still had the note, Rovo also checked Jira before summarising. Rovo got the facts right when something prompted it to look. When it summarised an ordinary page, it took the values from the page. Then I chose the Tie-Out agent in Rovo and asked the same thing, again in three fresh chats. Each summary used Jira's values and listed what it had corrected.
 
@@ -23,7 +23,7 @@ This matches an accepted answer on the Atlassian Community: Rovo works from what
 
 The name comes from auditing, where checking each figure in a report against its source is called tying out. Tie-Out does that for the dates, owners and statuses written on Confluence pages.
 
-I also wanted to know how often pages and Jira disagree, so I ran Tie-Out's engine over public Apache data. On 609 Apache Flink design pages, Tie-Out flags 71 of the 288 facts it could check (24.7%). In 24 of them the page names one release and Jira another, and in 41 the page names a release where Jira has no fix version. The other 6 are 4 version-naming differences, 1 status and 1 case where Tie-Out misread the page, so 70 of the 71 are real disagreements between the page and Jira. On 72 Apache Kafka release plans, none of the 100 checkable facts disagree. The script, the raw results and the limits of this data are in the repository (`docs/evidence`).
+I also wanted to know how often pages and Jira disagree, so I ran Tie-Out's engine over public Apache data. On 609 Apache Flink design pages, Tie-Out flags 71 of the 288 facts it could check (24.7%). In 24 of them the page names one release and Jira another, and in 41 the page names a release where Jira has no fix version. The other 6 are 4 version-naming differences, 1 status and 1 case where Tie-Out misread the page, so in 70 of the 71 the page and Jira really do differ, though not always because the page is wrong. On 72 Apache Kafka release plans, none of the 100 checkable facts disagree. These pages state releases and statuses, so this measures those two fields; due dates and owners are covered by the tests and the demo site, not by this data. The scripts, the raw results and the limits are in the repository (`docs/evidence`), with the Rovo runs in `docs/evidence/rovo-summaries.md`.
 
 ## What it does
 
@@ -31,7 +31,7 @@ Tie-Out reads the due date, owner, status and fix version that a Confluence page
 
 A badge under the page title shows the result, for example "Tie-Out: 3 out of date", and a banner appears while anything is out of date. Clicking the badge opens the report: what the page says, what Jira says, and, from the Jira change history, when the page stopped being right and who made the change ("True until Nov 20, 2026 · changed by Jiyoung Park").
 
-An out-of-date row has a button such as `Write "Dec 17"`. It rewrites that cell or word in the author's own date style and saves a new page version, leaving the rest of the page as it was. "Update from Jira" in the banner does all of them at once. A fact Tie-Out cannot rewrite safely is marked "edit by hand" instead.
+An out-of-date row has a button such as `Write "Dec 17"`. It rewrites that cell or word in the author's own date style and saves a new page version; only that text changes in the page body. "Update from Jira" in the banner does all of them at once. A fact Tie-Out cannot rewrite safely is marked "edit by hand" instead.
 
 When a work item changes in Jira, an event re-checks only the pages that quote it. On the demo site I timed this twice: the pages were checked again 5 and 8 seconds after the change. In Jira, a panel on the work item lists the pages that quote it and what each one now gets wrong.
 
@@ -39,15 +39,15 @@ For agents, the Tie-Out Rovo agent and its `verify-before-publish` skill check a
 
 When a page is out of date, Tie-Out asks Teamwork Graph who owns the page and which pages it links to, so you can see who should fix it and where the same fact may be repeated.
 
-When every column of a status table is one Tie-Out understands (work item, summary, owner, due date, status, fix version, priority), the report offers "Make this table live". After one more confirmation it replaces the table with a Jira table, the Confluence Jira macro, which always shows Jira's current values. A table with any other column, such as Notes, is left alone, and the report says which column is in the way.
+When every column of a status table is one Tie-Out understands (work item, summary, owner, due date, status, fix version, priority), the report offers "Make this table live". After one more confirmation it replaces the table with a Jira table, the Confluence Jira macro, which shows Jira's current values to everyone who can open Jira. Rows are then sorted by work item key. A table with any other column, such as Notes, is left alone, and the report says which column is in the way.
 
 Some pages are meant to stay as they were written, such as a design record. A page with the label `tieout-ignore` gets no badge count or banner, starting from its next check. The report can still be opened by hand.
 
 ## How it differs from what teams use today
 
 - Stale-page tools flag a page by its age or by how often it is viewed. Tie-Out checks the values on the page against Jira, so a page edited yesterday can be flagged and a page from 2022 can pass.
-- Change-review tools flag a page when a linked work item changes after they are installed. Tie-Out also finds facts that were already wrong before it was installed, which is most of what it found on the Apache pages, and it can correct the cell or make the table live.
-- Rovo finds the right value if someone asks about one work item, but only someone who already suspects a problem will ask. Tie-Out puts the result on the page for everyone, and its agent checks a summary before it is sent.
+- Change-review tools react when a linked work item changes. Tie-Out compares the page with Jira as it is now, whether or not anything changed recently, which is how it found disagreements on the Apache pages that are years old. It can also correct the cell or make the table live.
+- Rovo finds the right value if someone asks about one work item, but only someone who already suspects a problem will ask. A prompt can tell an agent to check; Tie-Out gives it a tool that returns the same answer every time, and puts the same result on the page for people.
 
 ## How I built it
 

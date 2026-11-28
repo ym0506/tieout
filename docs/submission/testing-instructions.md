@@ -40,7 +40,7 @@ Try it on a table that also has a column such as `Notes`: Tie-Out does not offer
 
 ## Existing pages
 
-Tie-Out scans pages that existed before the install in the background, after the install and then every hour. **Apps → Tie-Out → Scan pages** runs the scan now. New and edited pages are indexed when they are saved.
+After the install Tie-Out reads the pages that already existed in the background, in hourly batches, until each page has been read once. **Apps → Tie-Out → Scan pages** runs the scan now. New and edited pages are indexed when they are saved.
 
 ## Keep a page out of it
 

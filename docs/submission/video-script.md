@@ -4,8 +4,8 @@ Rules that apply: under 5 minutes, public on YouTube, English (or English subtit
 no third-party logos or copyrighted music. For the MCP part use Rovo Studio, so no outside product's logo is on screen.
 
 Recorded from the real demo site with on-screen captions; a voice track reading the same lines is optional.
-1920×1080, browser zoom 110%, notifications off. Rovo answers vary from run to run: record the Rovo scene
-several times and use a run whose answer matches what the caption says, or change the caption.
+1920×1080, browser zoom 110%, notifications off. Rovo answers vary from run to run. Record the Rovo scene once and keep that run: if the answer differs
+from the three recorded in docs/evidence/rovo-summaries.md, show it as it is and change the caption.
 
 Prepare beforehand: the "Onboarding weekly status" page (no Tie-Out note on it), one Jira work item open in a second tab,
 a Rovo Studio agent with the three Tie-Out tools added, and a fresh sample page for "Make this table live" (the change cannot be shown twice on one page).
@@ -21,7 +21,7 @@ a Rovo Studio agent with the three Tie-Out tools added, and a fresh sample page 
 | 1:55–2:20 | Marketing sample page: report, "Make this table live", confirm, reload: the typed table is now a Jira table. | "Or replace the typed table with a Jira table that always shows current values." |
 | 2:20–2:50 | Jira tab: change the due date of another work item. Back to the page, reload: the badge count goes up. Then the Tie-Out panel on that work item. | "I change a due date in Jira. Seconds later the pages that quote it are checked again." / "In Jira, the work item lists the pages that quote it and what each now gets wrong." |
 | 2:50–3:10 | Rovo Studio: a custom agent with `verify-claims`, `check-page`, `get-fact`; one call to `verify-claims`. | "The same check is exposed as MCP tools, for agents in Rovo Studio and outside MCP clients." |
-| 3:10–3:35 | Slide with numbers from `docs/evidence`: Flink 71 of 288 flagged (24 name a different release), Kafka 0 of 100; 316 of 317 real changes caught, 0 alarms on 302 cosmetic ones; Rovo summaries 0 of 3 vs Tie-Out agent 3 of 3. | "On 609 public Apache Flink design pages, Tie-Out flags 71 of 288 checkable facts. 70 are real disagreements with Jira." / "When I changed the Jira value under 317 correct facts, it caught 316. It raised no alarm on 302 cosmetic changes." |
+| 3:10–3:35 | Slide with numbers from `docs/evidence`: Flink 71 of 288 flagged (24 name a different release), Kafka 0 of 100; 316 of 317 real changes caught, 0 alarms on 302 cosmetic ones; Rovo summaries 0 of 3 vs Tie-Out agent 3 of 3. | "On 609 public Apache Flink design pages, Tie-Out flags 71 of 288 checkable facts. In 24, the page and Jira name different releases." / "When I changed the Jira value under 317 correct facts, it caught 316. It raised no alarm on 302 cosmetic changes." |
 | 3:35–3:50 | Page with label `tieout-ignore`, badge "Tie-Out: off". End card: "Tie-Out · github.com/ym0506/tieout". | "Pages meant to stay as written can be left out with a label." / "Tie-Out. No language model decides a verdict. The report and tools read Jira and Confluence with your permissions." |
 
 ## Shots to capture separately

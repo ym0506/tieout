@@ -101,3 +101,9 @@ The cache is now keyed on every work item in the batch. With that fixed, and wit
 - Storage-format XHTML was converted to the subset of ADF the engine reads (`scripts/storage-to-adf.mjs`). The Forge app does not need this step.
 
 Raw output: `apache-flink-flips.json`, `apache-kafka-release-plans.json`, `seeded-changes.json`, `apache-kafka-kips-heldout.json`.
+
+Other records: `rovo-summaries.md` (default Rovo and the Tie-Out agent on a page that disagrees with Jira, every run),
+`mcp-external-client.json` (an outside MCP client calling the tools through Atlassian's OAuth consent, via `scripts/mcp-check.py`).
+
+What this data does not cover: these Apache pages state releases and statuses, so the measurement and the seeded test
+exercise fix versions and statuses. Due dates and owners are covered by the automated tests and the demo site only.
