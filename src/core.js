@@ -7,6 +7,7 @@
 
 import {
   extractClaims, evaluate, countVerdicts, applyFixes, textToAdf, explainDrift,
+  findLiveTables, replaceWithJiraTable,
 } from './engine/index.js';
 
 const MAX_HISTORY_LOOKUPS = 8;
@@ -109,6 +110,7 @@ export function createTieOut({ jira, confluence, store, graph, now = () => new D
       page: { id: page.id, title: page.title, version: page.version, url: page.url },
       ...report,
       ignored: (page.labels || []).includes(IGNORE_LABEL),
+      liveTables: findLiveTables(page.doc).map(({ path, ...t }) => t),
       context,
       checkedAt: now(),
     };
@@ -142,6 +144,26 @@ export function createTieOut({ jira, confluence, store, graph, now = () => new D
     const updated = await confluence.updatePage(page, doc, message, as);
     try { await record({ ...page, doc, version: updated.version }, 'app'); } catch (e) { /* refreshed on the page event */ }
     return { applied, skipped, version: updated.version };
+  }
+
+  /**
+   * Replace a typed status table with a live Jira table. The page is read again and the
+   * table must still list the same work items, so a stale screen cannot overwrite an edit.
+   */
+  async function makeTableLive(pageId, { tableId, keys, as = 'user' } = {}) {
+    const page = await confluence.getPage(pageId, as);
+    const table = findLiveTables(page.doc).find((t) => t.id === tableId);
+    if (!table) return { done: false, reason: 'The table is no longer on the page. Reload and try again.' };
+    if (!table.eligible) return { done: false, reason: table.reason };
+    if (keys && keys.join(',') !== table.keys.join(',')) {
+      return { done: false, reason: 'The table changed since it was checked. Reload and try again.' };
+    }
+    const doc = replaceWithJiraTable(page.doc, table);
+    const n = table.keys.length;
+    const message = `Tie-Out: replaced a typed table of ${n} work item${n === 1 ? '' : 's'} with a live Jira table`;
+    const updated = await confluence.updatePage(page, doc, message, as);
+    try { await record({ ...page, doc, version: updated.version }, 'app'); } catch (e) { /* refreshed on the page event */ }
+    return { done: true, version: updated.version, keys: table.keys };
   }
 
   /** A Jira work item changed: re-check only the pages that quote it. */
@@ -253,7 +275,7 @@ export function createTieOut({ jira, confluence, store, graph, now = () => new D
   }
 
   return {
-    verifyDoc, record, checkPage, pageSummary, fixPage, onIssueChanged, onPageChanged, onPageRemoved,
+    verifyDoc, record, checkPage, pageSummary, fixPage, makeTableLive, onIssueChanged, onPageChanged, onPageRemoved,
     verifyText, getFact, citations, scan, dashboard,
   };
 }

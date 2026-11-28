@@ -157,6 +157,21 @@ describe('Report', () => {
     expect(textOf(r.toJSON())).toContain('2 facts on this page no longer match Jira');
   });
 
+  it('offers to make a table live, asks once more, then reports the new version', async () => {
+    bridge.invoke.mockImplementation(async (name) => {
+      if (name === 'makeTableLive') return { done: true, version: 3, keys: ['PAY-12', 'PAY-13'] };
+      return { ...report([match, drift]), liveTables: [{ id: '1', keys: ['PAY-12', 'PAY-13'], columns: ['key', 'summary', 'due'], eligible: true }, { id: '4', keys: ['PAY-14'], eligible: false, reason: 'x' }] };
+    });
+    const r = await render(<Report />);
+    expect(textOf(r.toJSON())).toContain('The table listing PAY-12, PAY-13 can be replaced with a Jira table');
+    expect(r.root.findAllByType('Button').filter((b) => textOf(b.props.children) === 'Make this table live')).toHaveLength(1);
+    await act(async () => { r.root.findAllByType('Button').find((b) => textOf(b.props.children) === 'Make this table live').props.onClick(); });
+    expect(bridge.invoke).not.toHaveBeenCalledWith('makeTableLive', expect.anything());
+    await act(async () => { await r.root.findAllByType('LoadingButton').find((b) => textOf(b.props.children) === 'Replace with a live Jira table').props.onClick(); });
+    expect(bridge.invoke).toHaveBeenCalledWith('makeTableLive', { tableId: '1', keys: ['PAY-12', 'PAY-13'] });
+    expect(textOf(r.toJSON())).toContain("The table now shows Jira's current values");
+  });
+
   it('shows owner and linked pages from Teamwork Graph', async () => {
     bridge.invoke.mockResolvedValue(report([drift], { owners: [{ accountId: 'acc-1' }], linked: [{ id: '9', title: 'Launch plan', counts: { drift: 2 } }] }));
     const r = await render(<Report />);

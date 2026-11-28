@@ -51,6 +51,13 @@ resolver.define('fixPage', (req) => guarded(async () => {
   return tieout(req.context.cloudId).fixPage(pageId, { claimIds, as: 'user' });
 }));
 
+resolver.define('makeTableLive', (req) => guarded(async () => {
+  const pageId = pageIdOf(req);
+  const { tableId, keys } = req.payload || {};
+  if (!pageId || !tableId) return { error: true, message: 'No table chosen.' };
+  return tieout(req.context.cloudId).makeTableLive(pageId, { tableId, keys, as: 'user' });
+}));
+
 resolver.define('getCitations', (req) => guarded(async () => {
   const ext = (req.context && req.context.extension) || {};
   const issueKey = (req.payload && req.payload.issueKey) || (ext.issue && ext.issue.key);

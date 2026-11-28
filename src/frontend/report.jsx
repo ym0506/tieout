@@ -13,6 +13,9 @@ export const Report = ({ compact = false }) => {
   const [error, setError] = useState(null);
   const [fixingId, setFixingId] = useState(null);
   const [fixed, setFixed] = useState(null);
+  const [confirming, setConfirming] = useState(null);
+  const [living, setLiving] = useState(null);
+  const [liveDone, setLiveDone] = useState(null);
 
   const load = useCallback(async () => {
     setError(null);
@@ -42,6 +45,20 @@ export const Report = ({ compact = false }) => {
     setFixingId(null);
   };
 
+  const makeLive = async (table) => {
+    setLiving(table.id);
+    try {
+      const res = await invoke('makeTableLive', { tableId: table.id, keys: table.keys });
+      if (res && res.error) setError(res.message);
+      else if (res && !res.done) setError(res.reason || 'The table could not be replaced.');
+      else setLiveDone(res);
+    } catch (e) {
+      setError((e && e.message) || 'The table could not be replaced.');
+    }
+    setLiving(null);
+    setConfirming(null);
+  };
+
   if (error) {
     return (
       <Box xcss={wrap}>
@@ -63,6 +80,7 @@ export const Report = ({ compact = false }) => {
   }
 
   const { counts, results, context } = report;
+  const liveable = (report.liveTables || []).filter((t) => t.eligible);
   const fixable = results.filter((r) => r.verdict === 'drift' && r.fixable);
 
   if (!counts.total) {
@@ -118,6 +136,35 @@ export const Report = ({ compact = false }) => {
         )}
 
         <ClaimsTable results={results} onFix={(id) => fix([id], id)} fixingId={fixingId} disabled={!!fixingId} />
+
+        {liveDone && (
+          <SectionMessage appearance="success" title="The table now shows Jira's current values">
+            <Stack space="space.100">
+              <Text>{`The typed table of ${plural(liveDone.keys.length, 'work item')} was replaced with a Jira table and saved as a new page version, which can be undone from the page history.`}</Text>
+              <Inline>
+                <Button appearance="primary" onClick={() => router.reload()}>Reload the page</Button>
+              </Inline>
+            </Stack>
+          </SectionMessage>
+        )}
+
+        {!liveDone && liveable.map((t) => (
+          <SectionMessage key={t.id} appearance="information" title="Keep this table current">
+            <Stack space="space.100">
+              <Text>{`The table listing ${t.keys.slice(0, 3).join(', ')}${t.keys.length > 3 ? ` and ${t.keys.length - 3} more` : ''} can be replaced with a Jira table, which always shows Jira's current values. The typed values go away and the rows are sorted by work item key.`}</Text>
+              {confirming === t.id ? (
+                <Inline space="space.100">
+                  <LoadingButton appearance="primary" isLoading={living === t.id} isDisabled={!!living} onClick={() => makeLive(t)}>Replace with a live Jira table</LoadingButton>
+                  <Button appearance="subtle" onClick={() => setConfirming(null)}>Cancel</Button>
+                </Inline>
+              ) : (
+                <Inline>
+                  <Button onClick={() => setConfirming(t.id)}>Make this table live</Button>
+                </Inline>
+              )}
+            </Stack>
+          </SectionMessage>
+        ))}
 
         {context && (context.owners.length > 0 || context.linked.length > 0) && (
           <SectionMessage appearance="information" title="Who and what else is affected (from Teamwork Graph)">

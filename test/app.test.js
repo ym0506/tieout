@@ -254,6 +254,33 @@ describe('who sees what', () => {
   });
 });
 
+describe('make a table live', () => {
+  it('lists the tables that qualify in the report, then replaces one with a Jira table as the user', async () => {
+    const report = await call('getPageReport', onPage('1001'));
+    expect(report.liveTables).toEqual([{ id: '1', keys: ['PAY-12', 'PAY-13'], columns: ['key', 'summary', 'assignee', 'due', 'status'], eligible: true }]);
+
+    const res = await call('makeTableLive', onPage('1001', { tableId: '1', keys: ['PAY-12', 'PAY-13'] }));
+    expect(res).toMatchObject({ done: true, version: 2, keys: ['PAY-12', 'PAY-13'] });
+    const page = site.pages['1001'];
+    expect(page.lastEditedAs).toBe('user');
+    expect(page.lastMessage).toBe('Tie-Out: replaced a typed table of 2 work items with a live Jira table');
+    expect(page.doc.content[1].attrs.parameters.macroParams.jqlQuery.value).toBe('key in (PAY-12,PAY-13) ORDER BY key ASC');
+    // Only the sentence under the table still states a fact, and it is still out of date.
+    expect(JSON.parse(site.kv.get('page:1001')).counts).toEqual({ total: 1, match: 0, drift: 1, unverifiable: 0 });
+  });
+
+  it('refuses when the table changed since the report was shown, or does not qualify', async () => {
+    expect(await call('makeTableLive', onPage('1001', { tableId: '1', keys: ['PAY-12'] })))
+      .toMatchObject({ done: false, reason: 'The table changed since it was checked. Reload and try again.' });
+    expect(await call('makeTableLive', onPage('1001', { tableId: '9', keys: [] }))).toMatchObject({ done: false });
+    site.addPage('1004', 'Notes', doc(table(row(th('Work item'), th('Notes')), row(cell(card('PAY-12')), cell('ask legal')))));
+    const res = await call('makeTableLive', onPage('1004', { tableId: '0' }));
+    expect(res.done).toBe(false);
+    expect(res.reason).toContain('"Notes"');
+    expect(site.pages['1004'].version).toBe(1);
+  });
+});
+
 describe('Jira panel', () => {
   it('lists the pages quoting a work item with their verdicts', async () => {
     await app.onConfluencePageEvent({ eventType: 'avi:confluence:updated:page', content: { id: '1001' } }, ctx);
